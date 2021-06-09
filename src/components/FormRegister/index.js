@@ -16,11 +16,11 @@ const FormRegister = () => {
     password: yup
       .string()
       .min(6, "Senha mínima de 6 dígitos")
-      .required("Campo obrigatório"),
-      // .matches(
-      //   "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])",
-      //   "A senha deve contar ao menos uma letra maiúscula, uma minúscula, um caractere especial e ao menos um dígito"
-      // ),
+      .required("Campo obrigatório")
+      .matches(
+        "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])",
+        "A senha deve contar ao menos uma letra maiúscula, uma minúscula, um caractere especial e ao menos um dígito"
+      ),
     passwordConfirm: yup
       .string()
       .oneOf([yup.ref("password")], "Senha incorreta")
@@ -39,7 +39,10 @@ const FormRegister = () => {
     const necessaryDatas = { username, email, password };
     api
       .post("/users/", necessaryDatas)
-      .then((_) => toastSuccessRegister())
+      .then((_) => {
+        toastSuccessRegister()
+        history.push("/login")
+      })
       .catch((_) => toastErrorRegister());
     reset();
   };

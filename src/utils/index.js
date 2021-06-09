@@ -10,7 +10,7 @@ const options = {
 };
 
 export const toastErrorRegister = () => {
-  toast.error("Erro ao registrar", options);
+  toast.error("Erro ao registrar, tente outro username", options);
 };
 export const toastSuccessRegister = () => {
   toast.success("Sucesso ao registrar");
