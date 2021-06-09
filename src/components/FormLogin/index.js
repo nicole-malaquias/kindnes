@@ -61,9 +61,7 @@ const FormLogin = ({ logado, setLogado }) => {
           {errors.password?.message}
         </p>
 
-        <button type="submit" variant="outlined">
-          Enviar
-        </button>
+        <button type="submit">Enviar</button>
       </form>
     </>
   );
