@@ -1,13 +1,10 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useHistory } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import axios from "axios";
-
+import toastLogin from "../../utils";
+import api from "../../services";
 const FormLogin = ({ logado, setLogado }) => {
-  const history = useHistory();
-
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório"),
     password: yup
@@ -26,8 +23,8 @@ const FormLogin = ({ logado, setLogado }) => {
   });
 
   const handleForm = (data) => {
-    axios
-      .post("https://kabit-api.herokuapp.com/sessions/", data)
+    api
+      .post("/sessions/", data)
       .then((response) => {
         const token = response.data.access;
         const decoded = jwt_decode(token);
@@ -37,22 +34,29 @@ const FormLogin = ({ logado, setLogado }) => {
           "@gestao:user_Id",
           JSON.stringify(decoded.user_id)
         );
-      });
+        reset();
+      })
+      .catch((_) => toastLogin());
   };
 
   return (
     <>
       <h1> Login</h1>
       <form onSubmit={handleSubmit(handleForm)}>
-        <input placeholder="usuario" {...register("username")} />
+        <label htmlFor="username">Name</label>
+        <input type="text" id="username" {...register("username")} />
         <p>
           {!!errors.usuario}
           {errors.usuario?.message}
         </p>
-
-        <input placeholder="password" {...register("password")} />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          {...register("password")}
+          errors={errors.password?.message}
+        />
         <p>
-          {" "}
           {!!errors.password}
           {errors.password?.message}
         </p>
