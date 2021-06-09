@@ -50,12 +50,7 @@ const FormLogin = ({ logado, setLogado }) => {
           {errors.username?.message}
         </p>
         <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          {...register("password")}
-          errors={errors.password?.message}
-        />
+        <input type="password" id="password" {...register("password")} />
         <p>
           {!!errors.password}
           {errors.password?.message}
