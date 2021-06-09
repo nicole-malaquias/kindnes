@@ -9,8 +9,15 @@ const options = {
   progress: undefined,
 };
 
+export const toastErrorRegister = () => {
+  toast.error("Erro ao registrar", options);
+};
+export const toastSuccessRegister = () => {
+  toast.success("Sucesso ao registrar");
+};
 export const toastLogin = () => {
   toast.dark("Não foi possivel fazer o login");
 };
+
 
 export default toastLogin;

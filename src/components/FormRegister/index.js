@@ -2,10 +2,10 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 import { useState } from "react";
+import { toastErrorRegister, toastSuccessRegister } from "../../utils";
 const FormRegister = () => {
-  const [datas, setDatas] = useState({});
   const history = useHistory();
   const schema = yup.object().shape({
     username: yup
@@ -16,11 +16,11 @@ const FormRegister = () => {
     password: yup
       .string()
       .min(6, "Senha mínima de 6 dígitos")
-      .required("Campo obrigatório")
-      .matches(
-        "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])",
-        "A senha deve contar ao menos uma letra maiúscula, uma minúscula, um caractere especial e ao menos um dígito"
-      ),
+      .required("Campo obrigatório"),
+      // .matches(
+      //   "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])",
+      //   "A senha deve contar ao menos uma letra maiúscula, uma minúscula, um caractere especial e ao menos um dígito"
+      // ),
     passwordConfirm: yup
       .string()
       .oneOf([yup.ref("password")], "Senha incorreta")
@@ -35,34 +35,29 @@ const FormRegister = () => {
     resolver: yupResolver(schema),
   });
 
-  const handleForm = ({username, email, password}) => {
-    setDatas({ username, email, password });
-    api.post("users/", datas).then((_) => history.push("/login"));
+  const handleForm = ({ username, email, password }) => {
+    const necessaryDatas = { username, email, password };
+    api
+      .post("/users/", necessaryDatas)
+      .then((_) => toastSuccessRegister())
+      .catch((_) => toastErrorRegister());
     reset();
-  };  
+  };
   return (
     <div>
       <h1>Register</h1>
       <form onSubmit={handleSubmit(handleForm)}>
         <label htmlFor="username">Name</label>
         <input type="text" id="username" {...register("username")} />
-        <p>
-          {!!errors.username.message}
-          {errors.username?.message}
-        </p>
+        {errors.username?.message && <span>{errors.username.message}</span>}
+
         <label htmlFor="email">Email</label>
         <input type="email" id="email" {...register("email")} />
-        <p>
-          {!!errors.email.message}
-          {errors.email?.message}
-        </p>
+        {errors.email?.message && <span>{errors.email.message}</span>}
 
         <label htmlFor="password">Password</label>
         <input type="password" id="password" {...register("password")} />
-        <p>
-          {!!errors.password.message}
-          {errors.password?.message}
-        </p>
+        {errors.password?.message && <span>{errors.password.message}</span>}
 
         <label htmlFor="passwordConfirm">Confirmação de senha</label>
         <input
@@ -70,10 +65,9 @@ const FormRegister = () => {
           type="password"
           {...register("passwordConfirm")}
         />
-        <p>
-          {!!errors.passwordConfirm.message}
-          {errors.passwordConfirm?.message}
-        </p>
+        {errors.passwordConfirm?.message && (
+          <span>{errors.passwordConfirm.message}</span>
+        )}
 
         <button type="submit">SignUp</button>
       </form>
