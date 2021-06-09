@@ -46,8 +46,8 @@ const FormLogin = ({ logado, setLogado }) => {
         <label htmlFor="username">Name</label>
         <input type="text" id="username" {...register("username")} />
         <p>
-          {!!errors.usuario}
-          {errors.usuario?.message}
+          {!!errors.username}
+          {errors.username?.message}
         </p>
         <label htmlFor="password">Password</label>
         <input
