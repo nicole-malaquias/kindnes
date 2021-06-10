@@ -1,4 +1,4 @@
-import { AuthenticationProvider } from "./authentication";
+import { AuthenticationProvider } from "./Authentication";
 
 const Providers = ({ children }) => {
   return <AuthenticationProvider>{children}</AuthenticationProvider>;
