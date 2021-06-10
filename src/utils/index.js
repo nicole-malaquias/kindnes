@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-const options = {
+export const options = {
   position: "top-right",
   autoClose: 5000,
   hideProgressBar: false,
