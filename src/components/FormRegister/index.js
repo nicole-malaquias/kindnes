@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services";
 import { useHistory } from "react-router";
-import { useState } from "react";
 import { toastErrorRegister, toastSuccessRegister } from "../../utils";
 const FormRegister = () => {
   const history = useHistory();
@@ -52,15 +51,15 @@ const FormRegister = () => {
       <form onSubmit={handleSubmit(handleForm)}>
         <label htmlFor="username">Name</label>
         <input type="text" id="username" {...register("username")} />
-        {errors.username?.message && <span>{errors.username.message}</span>}
+        {errors.username?.message && <p>{errors.username.message}</p>}
 
         <label htmlFor="email">Email</label>
         <input type="email" id="email" {...register("email")} />
-        {errors.email?.message && <span>{errors.email.message}</span>}
+        {errors.email?.message && <p>{errors.email.message}</p>}
 
         <label htmlFor="password">Password</label>
         <input type="password" id="password" {...register("password")} />
-        {errors.password?.message && <span>{errors.password.message}</span>}
+        {errors.password?.message && <p>{errors.password.message}</p>}
 
         <label htmlFor="passwordConfirm">Confirmação de senha</label>
         <input
@@ -69,7 +68,7 @@ const FormRegister = () => {
           {...register("passwordConfirm")}
         />
         {errors.passwordConfirm?.message && (
-          <span>{errors.passwordConfirm.message}</span>
+          <p>{errors.passwordConfirm.message}</p>
         )}
 
         <button type="submit">SignUp</button>
