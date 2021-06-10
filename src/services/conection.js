@@ -7,8 +7,9 @@ import api from "../services";
 import { useContext } from "react";
 import { useAuthentication } from "../Providers/Authentication";
 
-const handleFormLogin = (data) => {
-  const { token } = useAuthentication();
+const HandleFormLogin = (data) => {
+  const { token } = useContext(useAuthentication);
+
   api
     .post("/sessions/", data)
     .then((response) => {
@@ -21,4 +22,4 @@ const handleFormLogin = (data) => {
     .catch((_) => toastLogin());
 };
 
-export default handleFormLogin;
+export default HandleFormLogin;
