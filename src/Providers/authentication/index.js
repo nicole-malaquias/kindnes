@@ -3,12 +3,9 @@ import { createContext, useContext, useState } from "react";
 const AuthenticationContext = createContext();
 
 export const AuthenticationProvider = ({ children }) => {
-  const [token, setToken] = useState(
-    JSON.parse(localStorage.getItem("@gestao:token")) || ""
-  );
   const [authenticated, setAuthenticated] = useState(false);
 
-  const isAuthenticated = () => {
+  const isAuthenticated = (token) => {
     if (token) {
       setAuthenticated(true);
     } else {
@@ -17,9 +14,7 @@ export const AuthenticationProvider = ({ children }) => {
   };
 
   return (
-    <AuthenticationContext.Provider
-      value={{ token, setToken, isAuthenticated, authenticated }}
-    >
+    <AuthenticationContext.Provider value={{ isAuthenticated, authenticated }}>
       {children}
     </AuthenticationContext.Provider>
   );
