@@ -8,9 +8,17 @@ export const AuthenticationProvider = ({ children }) => {
   );
   const [authenticated, setAuthenticated] = useState(false);
 
+  const isAuthenticated = () => {
+    if (token) {
+      setAuthenticated(true);
+    } else {
+      setAuthenticated(false);
+    }
+  };
+
   return (
     <AuthenticationContext.Provider
-      value={{ token, setToken, authenticated, setAuthenticated }}
+      value={{ token, setToken, isAuthenticated, authenticated }}
     >
       {children}
     </AuthenticationContext.Provider>
