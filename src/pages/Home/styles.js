@@ -8,7 +8,12 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 1px solid #8674aa;
+      border-radius: 10px;
+      max-width: 80vh;
+      margin: 0 auto;
     }
+
     padding: 20px;
   }
 `;
