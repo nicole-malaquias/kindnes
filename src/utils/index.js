@@ -14,3 +14,7 @@ export const toastLogin = () => {
 };
 
 export default toastLogin;
+
+export const toastGroups = () => {
+  toast.dark("Couldn't load groups, try again");
+};
