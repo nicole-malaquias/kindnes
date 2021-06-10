@@ -1,5 +1,4 @@
 import { Redirect } from "react-router";
-// import Button from "../../components/Button";
 import { useEffect, useState } from "react";
 import { useAuthentication } from "../../Providers/authentication";
 import api from "../../services";
@@ -16,7 +15,7 @@ const SpecificGroup = () => {
     });
   };
   useEffect(() => {
-    setGroupId(JSON.parse(localStorage.getItem("@Behabits:groupId")));
+    setGroupId(JSON.parse(localStorage.getItem("@gestao:groupId")));
   }, []);
 
   if (!authenticated) {
