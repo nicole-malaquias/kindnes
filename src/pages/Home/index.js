@@ -1,11 +1,16 @@
 import { Container, Content, Background, DivButton } from "./styles";
+import { useHistory, Redirect } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Button from "../../components/Button";
 import ImageExemplo from "../../assets/rafiki.png";
 import Footer from "../../components/Footer";
 import Menu from "../../components/Menu";
-const Home = () => {
+const Home = ({ isLogin }) => {
+  const history = useHistory();
+  if (isLogin) {
+    return <Redirect to="/dashboard"></Redirect>;
+  }
   return (
     <>
       <Menu />
@@ -17,8 +22,18 @@ const Home = () => {
               eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
             </p>
             <DivButton>
-              <Button colorButton="button01">Login</Button>
-              <Button colorButton="button02">Sign up</Button>
+              <Button
+                colorButton="button01"
+                onClick={() => history.push("/login")}
+              >
+                Login
+              </Button>
+              <Button
+                colorButton="button02"
+                onClick={() => history.push("/register")}
+              >
+                Sign up
+              </Button>
             </DivButton>
           </div>
           <Background />

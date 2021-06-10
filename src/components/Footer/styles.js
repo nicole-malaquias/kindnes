@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 10px 20px;
   margin-top: 20px;
 
   h1 {
@@ -16,7 +16,7 @@ export const Container = styled.div`
     border: 1px solid #8674aa;
     border-radius: 1rem;
     margin: 0rem 1.8rem;
-    padding: 0.8rem 1.8rem;
+    padding: 0.2rem 1.4rem;
     :hover {
       background-color: #8674aa63;
       a {
