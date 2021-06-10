@@ -29,7 +29,7 @@ const FormLogin = ({ logado, setLogado }) => {
         const token = response.data.access;
         const decoded = jwt_decode(token);
         localStorage.clear();
-        localStorage.setItem("@gestao:token", JSON.stringify(token));
+        localStorage.setItem("@gestao:token", token);
         localStorage.setItem(
           "@gestao:user_Id",
           JSON.stringify(decoded.user_id)
@@ -40,7 +40,7 @@ const FormLogin = ({ logado, setLogado }) => {
   };
 
   return (
-    <>
+    <div>
       <h1> Login</h1>
       <form onSubmit={handleSubmit(handleForm)}>
         <label htmlFor="username">Name</label>
@@ -58,7 +58,7 @@ const FormLogin = ({ logado, setLogado }) => {
 
         <button type="submit">Enviar</button>
       </form>
-    </>
+    </div>
   );
 };
 
