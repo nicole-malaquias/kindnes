@@ -1,22 +1,18 @@
 import Habits from "./habits";
 import api from "../../services";
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import FormHabit from "../FormHabit";
-import { useContext } from "react";
-import { useAuthentication } from "../../Providers/Authentication";
+import ContainerMyHabits from "./style";
+import MyProgress from "../MyProgress";
 
 const MyHabits = () => {
-  const history = useHistory();
-  const [habits, setHabits] = useState([]);
   const [modal, setModal] = useState(false);
+  const [addH, setAddH] = useState(0);
   const localToken = localStorage.getItem("@gestao:token") || "";
-  const { authenticated } = useContext(useAuthentication);
-
-  if (!authenticated) {
-    history.push("/login");
-  }
-  const LoadingHabit = () => {
+  const [habits, sethabits] = useState(
+    JSON.parse(localStorage.getItem("@gestao:habitos")) || []
+  );
+  const Loading = () => {
     api
       .get("/habits/personal/", {
         headers: {
@@ -25,29 +21,43 @@ const MyHabits = () => {
       })
       .then((response) => {
         const { data } = response;
-        setHabits(data);
         localStorage.setItem("@gestao:habitos", JSON.stringify(data));
+        sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
       })
       .catch((res) => console.log("deu ruim"));
   };
-  const handleAddHabit = (data) => {
+
+  const handleAddHabit = () => {
     setModal(!modal);
   };
+
   useEffect(() => {
-    LoadingHabit();
-  }, []);
+    if (habits !== JSON.parse(localStorage.getItem("@gestao:habitos"))) {
+      sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
+      Loading();
+    }
+  }, [addH]);
+  useEffect(() => {
+    // console.log("oi");
+    sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
+    Loading();
+  }, [addH]);
 
   return (
-    <div>
-      <div className="Add new Habit" onClick={handleAddHabit}>
+    <ContainerMyHabits>
+      <div className="Add-new-Habit" onClick={handleAddHabit}>
         <h1>Add New Habits</h1>
       </div>
+
       {habits.map(
         (habit, index) =>
-          habit.achieved === false && <Habits habit={habit} key={index} />
+          habit.achieved === false && (
+            <Habits habit={habit} key={index} addH={addH} setAddH={setAddH} />
+          )
       )}
-      {modal && <FormHabit />}
-    </div>
+      {modal && <FormHabit addH={addH} setAddH={setAddH} />}
+      <MyProgress habits={habits} />
+    </ContainerMyHabits>
   );
 };
 

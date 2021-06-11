@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import jwt_decode from "jwt-decode";
-import toastLogin from "../../utils";
+import ContainerFormHabits from "./style";
 import api from "../../services";
 import React, { useState } from "react";
 
-const FormHabit = () => {
+const FormHabit = ({ addH, setAddH }) => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const token = localStorage.getItem("@gestao:token") || "";
@@ -35,6 +34,7 @@ const FormHabit = () => {
   });
 
   const handleForm = (data) => {
+    setAddH(!addH);
     const { title, frequency } = data;
     const body = {
       title: title,
@@ -45,7 +45,6 @@ const FormHabit = () => {
       how_much_achieved: 0,
       user: id,
     };
-    console.log(body);
     api
       .post("/habits/", body, {
         headers: {
@@ -53,10 +52,11 @@ const FormHabit = () => {
         },
       })
       .catch((err) => console.log(err));
+    reset();
   };
 
   return (
-    <div>
+    <ContainerFormHabits>
       <form onSubmit={handleSubmit(handleForm)}>
         <label htmlFor="title">Title</label>
         <input type="text" id="title" {...register("title")} />
@@ -100,7 +100,7 @@ const FormHabit = () => {
 
         <button type="submit">Enviar</button>
       </form>
-    </div>
+    </ContainerFormHabits>
   );
 };
 
