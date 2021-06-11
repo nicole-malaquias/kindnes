@@ -1,5 +1,11 @@
+import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 const AboutUs = () => {
-  return <Footer />;
+  return (
+    <>
+      <Menu />
+      <Footer />
+    </>
+  );
 };
 export default AboutUs;

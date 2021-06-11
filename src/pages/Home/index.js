@@ -23,13 +23,13 @@ const Home = ({ isLogin }) => {
             </p>
             <DivButton>
               <Button
-                colorButton="button01"
+                colorButton="purple"
                 onClick={() => history.push("/login")}
               >
                 Login
               </Button>
               <Button
-                colorButton="button02"
+                colorButton="purplePink"
                 onClick={() => history.push("/register")}
               >
                 Sign up

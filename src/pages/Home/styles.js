@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import rafiki from "../../assets/rafiki.png";
 export const Container = styled.div`
-  padding: 0 40px;
+  padding: 0 60px;
 
   .Carrosel {
     div {

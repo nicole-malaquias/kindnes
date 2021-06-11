@@ -15,10 +15,11 @@ export default createGlobalStyle`
     }
 
     :root{
-        --white: ##F5F5F5;
-        --button01: #7481AA;
-        --button02: #8674AA;
-        --button03: #DBA5F3
+        --white: #F5F5F5;
+        --black: #00000;
+        --purple: #7481AA;
+        --purplePink: #8674AA;
+        --pink: #DBA5F3
     }
     a{text-decoration: none}
 
