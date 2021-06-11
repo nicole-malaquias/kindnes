@@ -6,7 +6,6 @@ import CardGroup from "../../components/Groups/CardGroup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useHistory } from "react-router-dom";
 
 const Groups = () => {
   const [groups, setGroups] = useState([]);
@@ -16,11 +15,6 @@ const Groups = () => {
   const [token] = useState(localStorage.getItem("@gestao:token")) || "";
 
   useEffect(() => {
-    console.log(token);
-    const headers = {
-      Authorization: `Bearer ${token}`,
-    };
-    // console.log(headers);
     api
       .get("groups/subscriptions/", {
         headers: {
@@ -34,7 +28,6 @@ const Groups = () => {
   const formSchema = yup.object().shape({
     chosenCategory: yup.string().required("Category required"),
   });
-  const history = useHistory();
 
   const {
     register,
@@ -62,7 +55,6 @@ const Groups = () => {
   };
 
   const handleCategoryChange = (event) => {
-    console.log(event.target.value);
     setCategory(event.target.value);
   };
 
@@ -81,7 +73,6 @@ const Groups = () => {
           >
             <option value={"Educação"}>Educação</option>
             <option value={"Saúde"}>Saúde</option>
-            {/* <option value={"cookingForOthers"}>Cooking for others</option> */}
           </select>
 
           <button className="button" type="submit">
