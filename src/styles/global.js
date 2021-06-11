@@ -19,27 +19,26 @@ export default createGlobalStyle`
         --black: #00000;
         --purple: #7481AA;
         --purplePink: #8674AA;
-        --pink: #DBA5F3
+        --purpleDetails: #7481aa;   
+        --pink: #DBA5F3;
+        --background: #A6B8F3 20%;
     }
     a{text-decoration: none}
 
     h1,h2,h3,h4,h5,h6{
-        color: #7481aa;
+        color: var(--purpleDetails);
         font-family: Montserrat;
-        font-size: 36px;
+        font-size: 3rem;
         font-style: normal;
         font-weight: 400;
         line-height: 44px;
-        letter-spacing: 0em;
         text-align: left;
     }
     p{
         font-family: Montserrat;
-        font-size: 20px;
+        font-size: 2rem;
         font-style: normal;
         font-weight: 400;
-        line-height: 24px;
-        letter-spacing: 0em;
         text-align: left;
 
     }
@@ -48,9 +47,6 @@ export default createGlobalStyle`
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 20px;
-        line-height: 23px;
-
-        color: #F5F5F5;
+        font-size: 2rem
     }
 `;

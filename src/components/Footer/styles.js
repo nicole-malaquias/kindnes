@@ -5,8 +5,8 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-  margin-top: 20px;
+  padding: 0.8rem 2rem;
+  margin-top: 2rem;
 
   h1 {
     font-weight: normal;
@@ -26,8 +26,8 @@ export const Container = styled.div`
   }
 
   a {
-    font-size: 18px;
-    color: #7481aa;
+    font-size: 1.5rem;
+    color: var(--purpleDetails);
   }
   div {
     display: flex;

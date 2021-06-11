@@ -10,11 +10,9 @@ export const Container = styled.button`
 
   color: var(--white);
   border: none;
-  font-size: 20px;
-  border-radius: 8px;
-  margin-top: 16px;
-  transition: 0.5s;
-  padding: 0 60px;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  transition: 0ss;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 1rem;
 
   h1 {
     font-weight: normal;
@@ -13,6 +13,6 @@ export const Container = styled.div`
   div {
     display: flex;
     align-items: center;
-    margin: 5px 30px;
+    margin: 1rem 3rem;
   }
 `;
