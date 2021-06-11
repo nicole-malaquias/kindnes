@@ -38,15 +38,15 @@ const MyHabits = () => {
     }
   }, [addH]);
   useEffect(() => {
-    // console.log("oi");
     sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
     Loading();
   }, [addH]);
 
   return (
     <ContainerMyHabits>
+      <h1>My Habits</h1>
       <div className="Add-new-Habit" onClick={handleAddHabit}>
-        <h1>Add New Habits</h1>
+        <h4>Add New Habits</h4>
       </div>
 
       {habits.map(
@@ -56,7 +56,7 @@ const MyHabits = () => {
           )
       )}
       {modal && <FormHabit addH={addH} setAddH={setAddH} />}
-      <MyProgress habits={habits} />
+      {/* <MyProgress habits={habits} /> */}
     </ContainerMyHabits>
   );
 };

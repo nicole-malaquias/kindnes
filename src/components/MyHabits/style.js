@@ -1,20 +1,27 @@
 import styled from "styled-components";
 
 const ContainerMyHabits = styled.div`
-  margin-left: 15px;
-  height: 100vh;
-  width: 100vw;
+  margin-top: 150px;
+  margin-left: 50px;
+  width: 500px;
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: var(--purple);
+  opacity: 0.8;
+
   .Add-new-Habit {
-    display: flex;
-    align-items: center;
-    width: 300px;
-    height: 50px;
+    background: var(--purplePink);
+    width: 400px;
     padding: 5px;
-    margin: 15px 0;
-    border: 1px solid black;
+
+    h4 {
+      text-align: center;
+      font-weight: lighter;
+      color: var(--back);
+    }
   }
 `;
 

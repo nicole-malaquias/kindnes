@@ -1,6 +1,6 @@
 import ContainerHabit from "./style";
 import api from "../../../services";
-
+import Button from "../../Button";
 const Habits = ({ habit, index, addH, setAddH }) => {
   const { title, difficulty, category, how_much_achieved, id } = habit;
 
@@ -31,11 +31,11 @@ const Habits = ({ habit, index, addH, setAddH }) => {
   return (
     <>
       <ContainerHabit>
-        <h3>{title}</h3>
-        <h4>difficulty: {difficulty}</h4>
-        <h4>category : {category}</h4>
-        <h4> {how_much_achieved} : 24 </h4>
-        <button onClick={handleAchieved}>Add</button>
+        <p>{title}</p>
+        <p>difficulty: {difficulty}</p>
+        <p>category : {category}</p>
+        <p> {how_much_achieved} : 24 </p>
+        <Button onClick={handleAchieved}>Add</Button>
       </ContainerHabit>
     </>
   );
