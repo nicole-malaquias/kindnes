@@ -3,17 +3,21 @@ import styled, { keyframes } from "styled-components";
 const leftToRight = keyframes`
 from {
   left: -50%;
-
+  opacity: 0;
 }
 to {
   left: 0;
+  opacity: 1;
+
 }`;
 const RightToLeft = keyframes`
 from {
   right: -50%;
+  opacity: 0;
 }
 to {
   right: 0;
+  opacity: 1;
 }
 `;
 export const Container = styled.div`
@@ -61,25 +65,5 @@ export const RightColumn = styled(LeftColumn)`
   }
   ::after {
     opacity: 0;
-  }
-`;
-export const Card = styled.div`
-  border-radius: 20px;
-  background-color: #8674aa;
-  padding: 1rem;
-  width: 200px;
-  margin-right: ${(props) => props.side === "left" && "30px"};
-  margin-left: ${(props) => props.side === "right" && "30px"};
-  position: relative;
-
-  ::after {
-    position: absolute;
-    content: "";
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 2px;
-    ${(props) => (props.side === "left" ? `right: -30px;` : `left: -30px;`)}
-    background-color: #263238;
   }
 `;
