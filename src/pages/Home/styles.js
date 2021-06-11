@@ -8,7 +8,7 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid #8674aa;
+      border: 1px solid var(--purplePink);
       border-radius: 10px;
       max-width: 80vh;
       margin: 0 auto;
@@ -30,7 +30,7 @@ export const Content = styled.div`
     line-height: 2rem;
     letter-spacing: 0.1rem;
     font-weight: normal;
-    color: #dba5f3;
+    color: var(--pink);
   }
 `;
 

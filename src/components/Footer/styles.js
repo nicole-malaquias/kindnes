@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: rgba(166, 184, 243, 0.3);
+  background: var(--backgroundFooter);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -13,10 +13,11 @@ export const Container = styled.div`
   }
 
   h2 {
-    border: 1px solid #8674aa;
+    border: 1px solid var(--purplePink);
     border-radius: 1rem;
     margin: 0rem 1.8rem;
     padding: 0.2rem 1.4rem;
+
     :hover {
       background-color: #8674aa63;
       a {

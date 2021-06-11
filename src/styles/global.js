@@ -10,9 +10,7 @@ export default createGlobalStyle`
         
     }
 
-    body{
-        background: rgba(166, 184, 243, 0.2);
-    }
+  
 
     :root{
         --white: #F5F5F5;
@@ -21,7 +19,12 @@ export default createGlobalStyle`
         --purplePink: #8674AA;
         --purpleDetails: #7481aa;   
         --pink: #DBA5F3;
-        --background: #A6B8F3 20%;
+        --background:  rgba(166, 184, 243, 0.2);
+        --backgroundFooter: rgba(166, 184, 243, 0.3);
+    }
+
+      body{
+        background: var(--background);
     }
     a{text-decoration: none}
 
