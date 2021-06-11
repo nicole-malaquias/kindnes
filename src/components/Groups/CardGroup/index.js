@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const CardGroup = ({ groups }) => {
-  const [chosenGroup, setChosenGroup] = useState(
-    localStorage.getItem("@gestao:groupId") || []
-  );
+  const [chosenGroup] = useState(localStorage.getItem("@gestao:groupId") || []);
   const history = useHistory();
 
   const handleGroupChoice = (groupId) => {
@@ -17,8 +15,8 @@ const CardGroup = ({ groups }) => {
   return (
     <div>
       {groups.map((item, index) => (
-        <div>
-          <h4 key={index}>Name: {item.name}</h4>
+        <div key={index}>
+          <h4>Name: {item.name}</h4>
           <h4>{item.users_on_group.length}</h4>
           <button onClick={() => handleGroupChoice(item.id)}>Click</button>
         </div>

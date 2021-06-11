@@ -48,11 +48,15 @@ const Groups = () => {
     setSearchCategories([]);
   };
 
-  const onSubmitCategory = (chosenCategory) => {
+  const onSubmitCategory = ({ chosenCategory }) => {
     api
-      .get(`groups/${chosenCategory}`)
+      .get("groups/", {
+        params: {
+          category: chosenCategory,
+        },
+      })
       .then((response) => {
-        setSearchCategories(response.results);
+        setSearchCategories(response.data.results);
       })
       .catch((err) => console.log(err));
   };
@@ -86,12 +90,13 @@ const Groups = () => {
         </form>
       </div>
       <button onClick={handleSubscriptions}>Your groups</button>
-
-      {searchCategories.length === 0 ? (
-        <CardGroup groups={groups} />
-      ) : (
-        <CardGroup groups={searchCategories} />
-      )}
+      <ContainerGroups>
+        {searchCategories.length === 0 ? (
+          <CardGroup groups={groups} />
+        ) : (
+          <CardGroup groups={searchCategories} />
+        )}
+      </ContainerGroups>
     </div>
   );
 };
