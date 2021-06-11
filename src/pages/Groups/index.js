@@ -13,17 +13,14 @@ const Groups = () => {
   const [category, setCategory] = useState("");
   const [searchCategories, setSearchCategories] = useState([]);
 
-  const [token] = useState(
-    JSON.parse(localStorage.getItem("@gestao:token", token)) || ""
-  );
+  const [token] = useState(localStorage.getItem("@gestao:token")) || "";
+
   useEffect(() => {
-    if (!token) {
-    }
     console.log(token);
     const headers = {
       Authorization: `Bearer ${token}`,
     };
-    console.log(headers);
+    // console.log(headers);
     api
       .get("groups/subscriptions/", {
         headers: {
@@ -35,8 +32,7 @@ const Groups = () => {
   }, []);
 
   const formSchema = yup.object().shape({
-    title: yup.string().required("Tech required"),
-    status: yup.string().required("status required"),
+    chosenCategory: yup.string().required("Category required"),
   });
   const history = useHistory();
 
@@ -52,9 +48,9 @@ const Groups = () => {
     setSearchCategories([]);
   };
 
-  const onSubmitCategory = () => {
+  const onSubmitCategory = (chosenCategory) => {
     api
-      .get(`groups/${category}`)
+      .get(`groups/${chosenCategory}`)
       .then((response) => {
         setSearchCategories(response.results);
       })
@@ -62,6 +58,7 @@ const Groups = () => {
   };
 
   const handleCategoryChange = (event) => {
+    console.log(event.target.value);
     setCategory(event.target.value);
   };
 
@@ -73,16 +70,15 @@ const Groups = () => {
         <form className="form" onSubmit={handleSubmit(onSubmitCategory)}>
           <select
             value={category}
-            {...register("status", {
+            {...register("chosenCategory", {
               required: "required",
             })}
             onChange={handleCategoryChange}
           >
-            <option value={"donations"}>donations</option>
-            <option value={"lectures"}>lectures</option>
-            <option value={"cookingForOthers"}>Cooking for others</option>
+            <option value={"Educação"}>Educação</option>
+            <option value={"Saúde"}>Saúde</option>
+            {/* <option value={"cookingForOthers"}>Cooking for others</option> */}
           </select>
-          <p style={{ color: "rgb(175, 133, 168" }}>{errors.status?.message}</p>
 
           <button className="button" type="submit">
             Send
@@ -90,13 +86,12 @@ const Groups = () => {
         </form>
       </div>
       <button onClick={handleSubscriptions}>Your groups</button>
-      <ContainerGroups>
-        {searchCategories.length === 0 ? (
-          <CardGroup groups={groups} />
-        ) : (
-          <CardGroup groups={searchCategories} />
-        )}
-      </ContainerGroups>
+
+      {searchCategories.length === 0 ? (
+        <CardGroup groups={groups} />
+      ) : (
+        <CardGroup groups={searchCategories} />
+      )}
     </div>
   );
 };

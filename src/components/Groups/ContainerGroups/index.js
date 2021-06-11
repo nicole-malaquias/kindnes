@@ -1,5 +1,7 @@
+import { Container } from "./styles";
+
 const ContainerGroups = () => {
-  return <div></div>;
+  return <Container />;
 };
 
 export default ContainerGroups;
