@@ -1,5 +1,16 @@
-const Button = () => {
+import { Container } from "./styles";
 
-    return(<div>oi</div>);
-}
+const Button = ({ children, colorButton, width, height, ...rest }) => {
+  return (
+    <Container
+      colorButton={colorButton}
+      width={width}
+      height={height}
+      type="button"
+      {...rest}
+    >
+      {children}
+    </Container>
+  );
+};
 export default Button;
