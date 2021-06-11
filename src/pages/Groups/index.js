@@ -6,23 +6,29 @@ import CardGroup from "../../components/Groups/CardGroup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Groups = () => {
   const [groups, setGroups] = useState([]);
   const [category, setCategory] = useState("");
   const [searchCategories, setSearchCategories] = useState([]);
+  const history = useHistory();
 
-  const [token] = useState(localStorage.getItem("@gestao:token")) || "";
+  const token = localStorage.getItem("@gestao:token") || "";
 
   useEffect(() => {
-    api
-      .get("groups/subscriptions/", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => setGroups(response.data))
-      .catch((err) => toastGroups.error("That didn't work, try it again"));
+    if (token === "") {
+      history.push("/");
+    } else {
+      api
+        .get("groups/subscriptions/", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => setGroups(response.data))
+        .catch((err) => toastGroups.error("That didn't work, try it again"));
+    }
   }, []);
 
   const formSchema = yup.object().shape({
