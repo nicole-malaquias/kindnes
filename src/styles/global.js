@@ -10,12 +10,9 @@ export default createGlobalStyle`
         
     }
 
-  
-
     :root{
         --white: #F5F5F5;
-       
-        --black: #00000;
+        --black: #000000;
         --purple: #7481AA;
         --purpleOpacity : #a6b8f3;
         --purplePink: #8674AA;
@@ -39,9 +36,13 @@ export default createGlobalStyle`
         line-height: 44px;
         text-align: left;
     }
+    h4 {
+        font-size: 1.5rem;
+        color: var(--pink);
+    }
     p{
         font-family: Montserrat;
-        font-size: 2rem;
+        font-size: 1.2rem;
         font-style: normal;
         font-weight: 400;
         text-align: left;
@@ -52,6 +53,7 @@ export default createGlobalStyle`
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 2rem
+        font-size: 2rem;
+        cursor: pointer;
     }
 `;

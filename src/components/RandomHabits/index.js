@@ -21,6 +21,7 @@ const RandomHabist = ({ addH, setAddH }) => {
     " Let someone go in front of you on traffic or on a line",
   ];
   const handleRandomHabit = () => {
+    console.log("oi");
     setFormRandomHabit(!formRandomHabit);
     const number = Math.floor(Math.random() * hRandom.length) + 1;
     setTitle(hRandom[number]);
@@ -28,8 +29,7 @@ const RandomHabist = ({ addH, setAddH }) => {
   return (
     <ContainerRandomHabit>
       <h1>Random Habits</h1>
-      {console.log("o valor de add no random", addH)}
-      <Button onClick={() => handleRandomHabit()}>Random</Button>
+      <Button handleClick={handleRandomHabit}>Random</Button>
       {formRandomHabit && (
         <FormRandom
           addH={addH}

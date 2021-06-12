@@ -1,6 +1,7 @@
 import jwt_decode from "jwt-decode";
-import toastLogin from "../utils";
+import { toastLogin } from "../utils";
 import api from "../services";
+
 const localToken = localStorage.getItem("@gestao:token") || "";
 
 const HandleFormLogin = (data) => {

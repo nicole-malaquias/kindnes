@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import handleFormLogin from "../../services/conection";
-
-const FormLogin = () => {
+import jwt_decode from "jwt-decode";
+import { toastLogin } from "../../utils";
+import api from "../../services";
+const FormLogin = ({ logado, setLogado }) => {
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório"),
     password: yup
@@ -20,8 +21,19 @@ const FormLogin = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
   const handleForm = (data) => {
-    handleFormLogin(data);
+    api
+      .post("/sessions/", data)
+      .then((response) => {
+        const token = response.data.access;
+        const decoded = jwt_decode(token);
+        localStorage.clear();
+        localStorage.setItem("@gestao:token", token);
+        localStorage.setItem("@gestao:user_Id", JSON.stringify(decoded.userid));
+        reset();
+      })
+      .catch(() => toastLogin());
   };
 
   return (

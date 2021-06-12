@@ -1,30 +1,23 @@
 import { Redirect } from "react-router";
-import { useEffect, useState } from "react";
-// import { useAuthentication } from "../../Providers/authentication";
+
+import GroupGoal from "../../components/GroupGoal";
+import GroupActivities from "../../components/GroupActivities";
+import GroupProgress from "../../components/GroupProgress";
 import api from "../../services";
 
 const SpecificGroup = () => {
-  // const { authenticated, token } = useAuthentication();
-  const [groupId, setGroupId] = useState("");
-  const token = localStorage.getItem("@gestao:token") || ""; // puxei para não da erro
-  const handleSubscribe = (groupId) => {
-    api.post(`groups/${groupId}/subscribe/`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-  };
-  useEffect(() => {
-    setGroupId(JSON.parse(localStorage.getItem("@gestao:groupId")));
-  }, []);
+  const token = JSON.parse(localStorage.getItem("@gestao:token") || "");
 
-  // if (!authenticated) {
-  //   return <Redirect to="/login" />;
-  // }
-  return (
-    <>
-      <button onClick={() => handleSubscribe(groupId)}>Subscribe</button>
-    </>
-  );
+  if (token) {
+    return (
+      <>
+        <GroupGoal />
+        <GroupActivities />
+        <GroupProgress />
+      </>
+    );
+  } else {
+    return <Redirect to="/login" />;
+  }
 };
 export default SpecificGroup;

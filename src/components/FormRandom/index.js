@@ -49,8 +49,10 @@ const FormRandom = ({
         <option value={"intermediate"}>intermediate</option>
         <option value={"advanced"}>Advanced</option>
       </select>
-      <Button onClick={handleRandom}>Yes</Button>
-      <Button onClick={() => setFormRandomHabit(!formRandomHabit)}>No</Button>
+      <Button handleClick={handleRandom}>Yes</Button>
+      <Button handleClick={() => setFormRandomHabit(!formRandomHabit)}>
+        No
+      </Button>
     </ContainerModalRandom>
   );
 };
