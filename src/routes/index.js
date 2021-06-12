@@ -6,7 +6,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import Register from "../pages/Register";
-// import SpecificGroup from "../pages/SpecificGroup";
+import SpecificGroup from "../pages/SpecificGroup";
 
 const Routes = () => {
   return (
@@ -23,9 +23,9 @@ const Routes = () => {
       <Route path="/dashboard">
         <Dashboard />
       </Route>
-      {/* <Route path="/specificgroup">
+      <Route path="/specificgroup">
         <SpecificGroup />
-      </Route> */}
+      </Route>
       <Route path="/groups">
         <Groups />
       </Route>
