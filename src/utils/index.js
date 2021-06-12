@@ -10,14 +10,15 @@ export const options = {
 };
 
 export const toastErrorRegister = () => {
-  toast.error("Erro ao registrar, tente outro username", options);
+  toast.error("That didn't work, try another username", options);
 };
 export const toastSuccessRegister = () => {
-  toast.success("Sucesso ao registrar");
+  toast.success("Yes!!!You just registered");
 };
 export const toastLogin = () => {
-  toast.dark("Não foi possivel fazer o login");
+  toast.dark("Couldn't login, try again");
 };
 
-
-export default toastLogin;
+export const toastLoadGroupsError = () => {
+  toast.error("Couldn't load groups, try again");
+};
