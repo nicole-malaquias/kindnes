@@ -7,7 +7,6 @@ import api from "../../services";
 const SpecificGroup = () => {
   const token = JSON.parse(localStorage.getItem("@gestao:token") || "");
 
-  // fazer a mudança do groupId se nao dara erro
   if (token) {
     return (
       <>

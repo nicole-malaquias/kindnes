@@ -6,7 +6,12 @@ export const Container = styled.button`
       ? `var(--purple)`
       : props.colorButton === "purplePink"
       ? `var(--purplePink)`
+      : props.colorButton === "white"
+      ? `var(--white)`
       : `var(--pink)`};
+
+  color: ${(props) =>
+    props.color === "white" ? `var(--white)` : `var(--black)`};
 
   color: var(--white);
   border: none;

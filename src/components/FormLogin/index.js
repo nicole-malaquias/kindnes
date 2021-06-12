@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import jwt_decode from "jwt-decode";
-import toastLogin from "../../utils";
+import { toastLogin } from "../../utils";
 import api from "../../services";
 const FormLogin = ({ logado, setLogado }) => {
   const schema = yup.object().shape({

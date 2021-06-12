@@ -1,36 +1,21 @@
 import api from "../../services";
 import { useEffect, useState } from "react";
-import toastGroups from "../../utils";
 import ContainerGroups from "../../components/Groups/ContainerGroups";
 import CardGroup from "../../components/Groups/CardGroup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Container } from "./styles";
+import Button from "../../components/Button";
+import { toastLoadGroupsError } from "../../utils";
+
 const Groups = () => {
   const [groups, setGroups] = useState([]);
   const [category, setCategory] = useState("");
-  const [searchCategories, setSearchCategories] = useState([]);
+  const [chosenCategory, setChosenCategory] = useState([]);
   const history = useHistory();
-
   const token = localStorage.getItem("@gestao:token") || "";
-
-  useEffect(() => {
-    if (token === "") {
-      history.push("/");
-    } else {
-      api
-        .get("groups/subscriptions/", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => setGroups(response.data))
-        .catch((err) => toastGroups.error("That didn't work, try it again"));
-    }
-  }, []);
-
   const formSchema = yup.object().shape({
     chosenCategory: yup.string().required("Category required"),
   });
@@ -42,9 +27,23 @@ const Groups = () => {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
+  useEffect(() => {
+    if (token === "") {
+      history.push("/");
+    } else {
+      api
+        .get("groups/subscriptions/", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => setGroups(response.data))
+        .catch((_) => toastLoadGroupsError());
+    }
+  }, []);
 
   const handleSubscriptions = () => {
-    setSearchCategories([]);
+    setChosenCategory([]);
   };
 
   const onSubmitCategory = ({ chosenCategory }) => {
@@ -55,9 +54,8 @@ const Groups = () => {
         },
       })
       .then((response) => {
-        setSearchCategories(response.data.results);
-      })
-      .catch((err) => console.log(err));
+        setChosenCategory(response.data.results);
+      });
   };
 
   const handleCategoryChange = (event) => {
@@ -65,12 +63,14 @@ const Groups = () => {
   };
 
   return (
-    <div>
+    <Container>
       <div>
-        <h2>Search a group category</h2>
+        <p>Search a group category</p>
 
-        <form className="form" onSubmit={handleSubmit(onSubmitCategory)}>
+        <form onSubmit={handleSubmit(onSubmitCategory)}>
+          <label htmlFor="category">categories</label>
           <select
+            id="category"
             value={category}
             {...register("chosenCategory", {
               required: "required",
@@ -81,20 +81,20 @@ const Groups = () => {
             <option value={"Saúde"}>Saúde</option>
           </select>
 
-          <button className="button" type="submit">
-            Send
-          </button>
+          <Button type="submit">Send</Button>
         </form>
       </div>
-      <button onClick={handleSubscriptions}>Your groups</button>
-      <ContainerGroups>
-        {searchCategories.length === 0 ? (
-          <CardGroup groups={groups} />
-        ) : (
-          <CardGroup groups={searchCategories} />
-        )}
-      </ContainerGroups>
-    </div>
+      <div>
+        <Button onClick={handleSubscriptions}>Your groups</Button>
+        <ContainerGroups>
+          {chosenCategory.length === 0 ? (
+            <CardGroup groups={groups} />
+          ) : (
+            <CardGroup groups={chosenCategory} />
+          )}
+        </ContainerGroups>
+      </div>
+    </Container>
   );
 };
 export default Groups;
