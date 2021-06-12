@@ -54,6 +54,7 @@ export default createGlobalStyle`
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 2rem
+        font-size: 2rem;
+        cursor: pointer;
     }
 `;

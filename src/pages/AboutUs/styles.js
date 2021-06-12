@@ -21,7 +21,7 @@ to {
 }
 `;
 export const Container = styled.div`
-  background: rgba(166, 184, 243, 0.2);
+  background: var(--backgroundFooter);
   height: 100vh;
   display: flex;
   flex-direction: row;
@@ -48,7 +48,7 @@ export const LeftColumn = styled.div`
 export const Line = styled.div`
   width: 2px;
   height: 90%;
-  background-color: #263238;
+  background-color: var(--black);
 `;
 export const RightColumn = styled(LeftColumn)`
   & :first-child {
