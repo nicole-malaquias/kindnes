@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-`;
-export const Content = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -19,6 +14,7 @@ export const Content = styled.div`
   form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     button {
         :hover, :focus {
             background-color: var(--purple);

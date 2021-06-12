@@ -5,10 +5,7 @@ import api from "../../services";
 import { useHistory } from "react-router";
 import { toastErrorRegister, toastSuccessRegister } from "../../utils";
 import { TextField } from "@material-ui/core";
-import { Container, Content, Terms } from "./styles";
-import Menu from "../Menu";
-import Footer from "../Footer";
-import image from "../../assets/image-register.svg";
+import { Container, Terms } from "./styles";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 const FormRegister = () => {
@@ -58,10 +55,7 @@ const FormRegister = () => {
   };
   return (
     <>
-      <Menu />
-      <Container>
-        <img src={image} alt="" />
-        <Content>
+        <Container>
           <h2>Register</h2>
           <form onSubmit={handleSubmit(handleForm)}>
             <TextField
@@ -117,9 +111,7 @@ const FormRegister = () => {
             <Button type="submit">Send</Button>
           </form>
           <p>Already registered? <Link to="/login">login</Link></p>
-        </Content>
-      </Container>
-      <Footer />
+        </Container>
     </>
   );
 };
