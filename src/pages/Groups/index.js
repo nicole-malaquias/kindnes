@@ -58,8 +58,8 @@ const Groups = () => {
       });
   };
 
-  const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
+  const handleCategoryChange = (evt) => {
+    setCategory(evt.target.value);
   };
 
   return (
@@ -77,15 +77,16 @@ const Groups = () => {
             })}
             onChange={handleCategoryChange}
           >
-            <option value={"Educação"}>Educação</option>
-            <option value={"Saúde"}>Saúde</option>
+            <option value="donation">donation</option>
+            <option value="animal care">animal care</option>
+            <option value="teach">teach</option>
           </select>
 
           <Button type="submit">Send</Button>
         </form>
       </div>
       <div>
-        <Button onClick={handleSubscriptions}>Your groups</Button>
+        <Button handleClick={handleSubscriptions}>Your groups</Button>
         <ContainerGroups>
           {chosenCategory.length === 0 ? (
             <CardGroup groups={groups} />
