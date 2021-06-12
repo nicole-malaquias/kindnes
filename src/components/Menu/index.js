@@ -4,7 +4,9 @@ const Menu = ({ isLogin }) => {
   return !isLogin ? (
     <Container>
       <div>
-        <img src={logo} alt="logo"></img>
+        <a href="/">
+          <img src={logo} alt="logo"></img>
+        </a>
         <h1>be habits</h1>
       </div>
     </Container>
