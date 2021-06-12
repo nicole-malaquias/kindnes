@@ -4,6 +4,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services";
 import { useHistory } from "react-router";
 import { toastErrorRegister, toastSuccessRegister } from "../../utils";
+import { TextField } from "@material-ui/core";
+import { Container, Content, Terms } from "./styles";
+import Menu from "../Menu";
+import Footer from "../Footer";
+import image from "../../assets/image-register.svg";
+import Button from "../../components/Button";
+import { Link } from "react-router-dom";
 const FormRegister = () => {
   const history = useHistory();
   const schema = yup.object().shape({
@@ -24,6 +31,10 @@ const FormRegister = () => {
       .string()
       .oneOf([yup.ref("password")], "Senha incorreta")
       .required("Campo obrigatório"),
+    agree: yup
+      .boolean()
+      .oneOf([true], "You need to accept the terms")
+      .required(),
   });
   const {
     register,
@@ -39,41 +50,77 @@ const FormRegister = () => {
     api
       .post("/users/", necessaryDatas)
       .then((_) => {
-        toastSuccessRegister()
-        history.push("/login")
+        toastSuccessRegister();
+        history.push("/login");
       })
       .catch((_) => toastErrorRegister());
     reset();
   };
   return (
-    <div>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit(handleForm)}>
-        <label htmlFor="username">Name</label>
-        <input type="text" id="username" {...register("username")} />
-        {errors.username?.message && <p>{errors.username.message}</p>}
+    <>
+      <Menu />
+      <Container>
+        <img src={image} alt="" />
+        <Content>
+          <h2>Register</h2>
+          <form onSubmit={handleSubmit(handleForm)}>
+            <TextField
+              variant="outlined"
+              label="Username"
+              name="Username"
+              type="text"
+              {...(errors.username?.message && {
+                error: true,
+                helperText: errors.username.message,
+              })}
+              {...register("username")}
+            />
+            <TextField
+              variant="outlined"
+              label="Email"
+              name="Email"
+              type="email"
+              {...(errors.email?.message && {
+                error: true,
+                helperText: errors.email.message,
+              })}
+              {...register("email")}
+            />
+            <TextField
+              variant="outlined"
+              label="password"
+              name="password"
+              type="password"
+              {...(errors.password?.message && {
+                error: true,
+                helperText: errors.password.message,
+              })}
+              {...register("password")}
+            />
+            <TextField
+              variant="outlined"
+              label="confirm your password"
+              name="passwordConfirm"
+              type="password"
+              {...(errors.passwordConfirm?.message && {
+                error: true,
+                helperText: errors.passwordConfirm.message,
+              })}
+              {...register("passwordConfirm")}
+            />
+            <Terms>
+              <input id="terms" type="checkbox" {...register("agree")} />
+              <label htmlFor="terms">I agree with the terms</label>
+              {errors.agree?.message && <p>{errors.agree?.message}</p>}
+            </Terms>
 
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" {...register("email")} />
-        {errors.email?.message && <p>{errors.email.message}</p>}
-
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" {...register("password")} />
-        {errors.password?.message && <p>{errors.password.message}</p>}
-
-        <label htmlFor="passwordConfirm">Confirmação de senha</label>
-        <input
-          id="passwordConfirm"
-          type="password"
-          {...register("passwordConfirm")}
-        />
-        {errors.passwordConfirm?.message && (
-          <p>{errors.passwordConfirm.message}</p>
-        )}
-
-        <button type="submit">SignUp</button>
-      </form>
-    </div>
+            <Button type="submit">Send</Button>
+          </form>
+          <p>Already registered? <Link to="/login">login</Link></p>
+        </Content>
+      </Container>
+      <Footer />
+    </>
   );
 };
 export default FormRegister;

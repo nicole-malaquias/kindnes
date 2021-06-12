@@ -37,19 +37,22 @@ export default createGlobalStyle`
         line-height: 44px;
         text-align: left;
     }
+    h2 {
+        font-size: 2.5rem;
+    }
     p{
         font-family: Montserrat;
-        font-size: 2rem;
+        font-size: 1rem;
         font-style: normal;
         font-weight: 400;
         text-align: left;
-
     }
 
     button{
         font-family: Roboto;
         font-style: normal;
         font-weight: normal;
-        font-size: 2rem
+        font-size: 2rem;
+        cursor: pointer;    
     }
 `;
