@@ -3,15 +3,19 @@ import styled from "styled-components";
 const ContainerMyHabits = styled.div`
   margin-top: 150px;
   margin-left: 50px;
+  min-height: 250px;
+  min-width: 400px;
   width: 500px;
-  border: 1px solid black;
+  height: 750px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: first baseline;
   align-items: center;
-  background: var(--purple);
-  opacity: 0.8;
-
+  background: #a6b8f3;
+  h1 {
+    color: white;
+    margin: 15px;
+  }
   .Add-new-Habit {
     background: var(--purplePink);
     width: 400px;
@@ -22,6 +26,10 @@ const ContainerMyHabits = styled.div`
       font-weight: lighter;
       color: var(--back);
     }
+  }
+  ::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 10px;
   }
 `;
 

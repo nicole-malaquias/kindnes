@@ -31,9 +31,9 @@ const Habits = ({ habit, index, addH, setAddH }) => {
   return (
     <>
       <ContainerHabit>
-        <p>{title}</p>
-        <p>difficulty: {difficulty}</p>
-        <p>category : {category}</p>
+        <div className="title">
+          <p>{title}</p>
+        </div>
         <p> {how_much_achieved} : 24 </p>
         <Button onClick={handleAchieved}>Add</Button>
       </ContainerHabit>

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import FormHabit from "../FormHabit";
 import ContainerMyHabits from "./style";
 import MyProgress from "../MyProgress";
+import RandomHabits from "../../components/RandomHabits";
 
 const MyHabits = () => {
   const [modal, setModal] = useState(false);
@@ -12,6 +13,7 @@ const MyHabits = () => {
   const [habits, sethabits] = useState(
     JSON.parse(localStorage.getItem("@gestao:habitos")) || []
   );
+
   const Loading = () => {
     api
       .get("/habits/personal/", {
@@ -44,6 +46,7 @@ const MyHabits = () => {
 
   return (
     <ContainerMyHabits>
+      {console.log("o valor de add", addH)}
       <h1>My Habits</h1>
       <div className="Add-new-Habit" onClick={handleAddHabit}>
         <h4>Add New Habits</h4>
@@ -56,7 +59,8 @@ const MyHabits = () => {
           )
       )}
       {modal && <FormHabit addH={addH} setAddH={setAddH} />}
-      {/* <MyProgress habits={habits} /> */}
+      <RandomHabits addH={addH} setAddH={setAddH} />
+      <MyProgress habits={habits} />
     </ContainerMyHabits>
   );
 };

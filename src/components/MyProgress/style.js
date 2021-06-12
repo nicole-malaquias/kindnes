@@ -12,7 +12,12 @@ export const ContainerProgress = styled.div`
   width: 400px;
   height: 400px;
   border: 1px solid pink;
+  position: absolute;
+  background: var(--pink);
+  left: 900px;
+  top: 500px;
   h2 {
     margin-bottom: 52px;
+    color: var(--black);
   }
 `;

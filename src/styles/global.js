@@ -14,8 +14,10 @@ export default createGlobalStyle`
 
     :root{
         --white: #F5F5F5;
+       
         --black: #00000;
         --purple: #7481AA;
+        --purpleOpacity : #a6b8f3;
         --purplePink: #8674AA;
         --purpleDetails: #7481aa;   
         --pink: #DBA5F3;

@@ -18,7 +18,7 @@ const MyProgress = ({ habits }) => {
             textSize: "16px",
             pathTransitionDuration: 0.7,
             pathColor: `rgb(50,55,207)`,
-            textColor: "#f88",
+            textColor: "rgb(50,55,207)",
             trailColor: "#d6d6d6",
             backgroundColor: "rgb(50,55,207)",
           })}

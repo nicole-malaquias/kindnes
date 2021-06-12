@@ -1,20 +1,50 @@
 import styled from "styled-components";
 
 const ContainerFormHabits = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  margin-left: 15px;
-  height: 500px;
-  width: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: purple;
-  flex-direction: column;
-  flex-wrap: wrap;
+  z-index: 5;
+
+  .formHabits {
+    background: var(--purpleOpacity);
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    label {
+      color: white;
+      font-size: 2rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      select {
+        margin: 5px;
+        height: 30px;
+        width: 100px;
+        border: none;
+        border-radius: 10px;
+        background: white;
+        font-size: 1.2rem;
+      }
+      button {
+        width: 90px;
+      }
+      input {
+        border-radius: 10px;
+        border: none;
+        height: 30px;
+        width: 300px;
+        margin: 5px;
+        font-size: 1.2rem;
+      }
+    }
+  }
 `;
 
 export default ContainerFormHabits;
