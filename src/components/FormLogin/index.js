@@ -2,9 +2,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import jwt_decode from "jwt-decode";
-import { toastLogin } from "../../utils";
+import { toastErrorLogin } from "../../utils";
 import api from "../../services";
+import { TextField } from "@material-ui/core";
+import { useHistory } from "react-router";
 const FormLogin = ({ logado, setLogado }) => {
+  const history = useHistory();
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório"),
     password: yup
@@ -35,13 +38,14 @@ const FormLogin = ({ logado, setLogado }) => {
           JSON.stringify(decoded.user_id)
         );
         reset();
+        history.push("/dashboard")
       })
-      .catch((_) => toastLogin());
+      .catch((_) => toastErrorLogin());
   };
 
   return (
     <div>
-      <h1> Login</h1>
+      <h2> Login</h2>
       <form onSubmit={handleSubmit(handleForm)}>
         <label htmlFor="username">Name</label>
         <input type="text" id="username" {...register("username")} />
