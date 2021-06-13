@@ -2,7 +2,6 @@ import styled from "styled-components";
 import rafiki from "../../assets/rafiki.png";
 export const Container = styled.div`
   padding: 0 4rem;
-
   .Carrosel {
     div {
       display: flex;

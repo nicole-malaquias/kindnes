@@ -8,7 +8,26 @@ import { TextField } from "@material-ui/core";
 import { Container, Terms } from "./styles";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
+const useStyles = makeStyles({
+  field: {
+    backgroundColor: "var(--white)",
+    borderRadius: "5px",
+    marginTop:"2px"
+  }
+});
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#DBA5F3",
+    },
+  },
+});
+
 const FormRegister = () => {
+  const classes = useStyles();
   const history = useHistory();
   const schema = yup.object().shape({
     username: yup
@@ -55,10 +74,13 @@ const FormRegister = () => {
   };
   return (
     <>
-        <Container>
-          <h2>Register</h2>
+      <Container>
+        <h2>Register</h2>
+        <ThemeProvider theme={theme}>
           <form onSubmit={handleSubmit(handleForm)}>
             <TextField
+              className={classes.field}
+              color="primary"
               variant="outlined"
               label="Username"
               name="Username"
@@ -70,6 +92,8 @@ const FormRegister = () => {
               {...register("username")}
             />
             <TextField
+              className={classes.field}
+              color="primary"
               variant="outlined"
               label="Email"
               name="Email"
@@ -81,6 +105,8 @@ const FormRegister = () => {
               {...register("email")}
             />
             <TextField
+              className={classes.field}
+              color="primary"
               variant="outlined"
               label="password"
               name="password"
@@ -92,6 +118,8 @@ const FormRegister = () => {
               {...register("password")}
             />
             <TextField
+              className={classes.field}
+              color="primary"
               variant="outlined"
               label="confirm your password"
               name="passwordConfirm"
@@ -110,8 +138,12 @@ const FormRegister = () => {
 
             <Button type="submit">Send</Button>
           </form>
-          <p>Already registered? <Link to="/login">login</Link></p>
-        </Container>
+        </ThemeProvider>
+
+        <p>
+          Already registered? <Link to="/login">login</Link>
+        </p>
+      </Container>
     </>
   );
 };
