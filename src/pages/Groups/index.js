@@ -62,7 +62,7 @@ const Groups = () => {
   const handleCategoryChange = (evt) => {
     setCategory(evt.target.value);
   };
-
+  console.log("Olá Nicole");
   return (
     <>
       <Menu />
