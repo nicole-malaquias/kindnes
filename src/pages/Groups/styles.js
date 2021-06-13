@@ -4,17 +4,26 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  > div {
+    display: flex;
+    align-items: center;
+
+    width: 50vw;
+    justify-content: space-evenly;
+  }
 `;
 
 export const Select = styled.select`
   width: 100%;
-  height: 35px;
+  height: 3rem;
   background: var(--white);
   color: gray;
   padding-left: 5px;
   font-size: 14px;
   border: none;
-  margin-left: 10px;
+  margin-right: 2rem;
+
   border-radius: 0.7rem;
 
   option {
@@ -28,10 +37,30 @@ export const Select = styled.select`
 `;
 
 export const Category = styled.div`
-  /* display: flex;
-  flex-direction: row; */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: 1rem;
+    label {
+      font-size: 1.5rem;
+      font-family: Montserrat;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: row;
+    }
+  }
 `;
 export const ContainerGroups = styled.div`
   display: flex;
+  justify-content: space-between; ;
+`;
+
+export const SearchContainer = styled.div`
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
 `;

@@ -4,7 +4,7 @@ export const CardItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: var(--white);
   width: 100%;
   float: right;
@@ -21,4 +21,5 @@ export const CardItem = styled.div`
 export const ButtonDiv = styled.div`
   display: flex;
   flex-direction: initial;
+  justify-content: space-between;
 `;

@@ -13,25 +13,21 @@ const CardGroup = ({ groups }) => {
     history.push("/specificgroup");
   };
 
-  return (
-    <div>
-      {groups.map((item, index) => (
-        <CardItem key={index}>
-          <ButtonDiv onClick={() => handleGroupChoice(item.id)}>
-            <div>
-              <p>{item.name}</p>
-            </div>
-            <div>
-              <p>
-                <IoIosPeople size={20} />
-                {item.users_on_group.length}
-              </p>
-            </div>
-          </ButtonDiv>
-        </CardItem>
-      ))}
-    </div>
-  );
+  return groups.map((item, index) => (
+    <CardItem key={index}>
+      <ButtonDiv onClick={() => handleGroupChoice(item.id)}>
+        <div>
+          <p>{item.name}</p>
+        </div>
+        <div>
+          <p>
+            <IoIosPeople size={20} />
+            {item.users_on_group.length}
+          </p>
+        </div>
+      </ButtonDiv>
+    </CardItem>
+  ));
 };
 
 export default CardGroup;

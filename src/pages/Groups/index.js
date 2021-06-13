@@ -6,10 +6,11 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
-import { Container, Select, Category } from "./styles";
+import { Container, Select, Category, SearchContainer } from "./styles";
 import Button from "../../components/Button";
 import { toastLoadGroupsError } from "../../utils";
-
+import Footer from "../../components/Footer";
+import Menu from "../../components/Menu";
 const Groups = () => {
   const [groups, setGroups] = useState([]);
   const [category, setCategory] = useState("");
@@ -63,34 +64,39 @@ const Groups = () => {
   };
 
   return (
-    <Container>
-      <Category>
-        <p>Search a group category</p>
+    <>
+      <Menu />
+      <Container>
+        <SearchContainer>
+          <Category>
+            <form onSubmit={handleSubmit(onSubmitCategory)}>
+              <label htmlFor="category">Search a category</label>
+              {/* dar um display none */}
+              <div>
+                <Select
+                  id="category"
+                  value={category}
+                  {...register("chosenCategory", {
+                    required: "required",
+                  })}
+                  onChange={handleCategoryChange}
+                >
+                  <option value="donation">donation</option>
+                  <option value="animal care">animal care</option>
+                  <option value="teach">teach</option>
+                </Select>
 
-        <form onSubmit={handleSubmit(onSubmitCategory)}>
-          <label htmlFor="category"></label>
-          <Select
-            id="category"
-            value={category}
-            {...register("chosenCategory", {
-              required: "required",
-            })}
-            onChange={handleCategoryChange}
-          >
-            <option value="donation">donation</option>
-            <option value="animal care">animal care</option>
-            <option value="teach">teach</option>
-          </Select>
+                <Button width="100px" type="submit">
+                  Search
+                </Button>
+              </div>
+            </form>
+          </Category>
 
-          <Button width="100px" type="submit">
-            Search
+          <Button height="60px" width="100px" handleClick={handleSubscriptions}>
+            My groups
           </Button>
-        </form>
-      </Category>
-      <div>
-        <Button height="60px" width="100px" handleClick={handleSubscriptions}>
-          My groups
-        </Button>
+        </SearchContainer>
         <ContainerGroups>
           {chosenCategory.length === 0 ? (
             <CardGroup groups={groups} />
@@ -98,8 +104,9 @@ const Groups = () => {
             <CardGroup groups={chosenCategory} />
           )}
         </ContainerGroups>
-      </div>
-    </Container>
+      </Container>
+      <Footer />
+    </>
   );
 };
 export default Groups;
