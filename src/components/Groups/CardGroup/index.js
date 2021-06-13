@@ -16,15 +16,12 @@ const CardGroup = ({ groups }) => {
   return groups.map((item, index) => (
     <CardItem key={index}>
       <ButtonDiv onClick={() => handleGroupChoice(item.id)}>
-        <div>
-          <p>{item.name}</p>
-        </div>
-        <div>
-          <p>
-            <IoIosPeople size={20} />
-            {item.users_on_group.length}
-          </p>
-        </div>
+        <p>{item.name}</p>
+
+        <p>
+          <IoIosPeople size={20} />
+          {item.users_on_group.length}
+        </p>
       </ButtonDiv>
     </CardItem>
   ));

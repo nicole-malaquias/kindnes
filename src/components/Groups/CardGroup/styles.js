@@ -4,13 +4,13 @@ export const CardItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background-color: var(--white);
-  width: 100%;
+  width: 30vw;
   float: right;
   margin: 5px;
   height: 70px;
-  border-radius: 10px;
+  border-radius: 20px;
   p {
     @media only screen and (max-width: 600px) {
       font-size: 15px;
@@ -20,6 +20,7 @@ export const CardItem = styled.div`
 
 export const ButtonDiv = styled.div`
   display: flex;
-  flex-direction: initial;
-  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
 `;

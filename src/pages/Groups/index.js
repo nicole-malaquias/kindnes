@@ -86,17 +86,28 @@ const Groups = () => {
                   <option value="teach">teach</option>
                 </Select>
 
-                <Button width="100px" type="submit">
+                <Button
+                  padding="2rem"
+                  width="100px"
+                  type="submit"
+                  colorButton="purplePink"
+                >
                   Search
                 </Button>
               </div>
             </form>
           </Category>
 
-          <Button height="60px" width="100px" handleClick={handleSubscriptions}>
+          <Button
+            height="60px"
+            width="100px"
+            handleClick={handleSubscriptions}
+            colorButton="purplePink"
+          >
             My groups
           </Button>
         </SearchContainer>
+
         <ContainerGroups>
           {chosenCategory.length === 0 ? (
             <CardGroup groups={groups} />
