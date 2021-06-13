@@ -65,7 +65,7 @@ const FormHabit = ({ addH, setAddH, setModal, modal }) => {
             {!!errors.username}
             {errors.username?.message}
           </p>
-
+          {console.log("oi")}
           <label htmlFor="category">Category</label>
           <select
             value={category}
