@@ -1,7 +1,13 @@
 import { Container } from "./styles";
-
+import PerfectScrollbar from "react-perfect-scrollbar";
 const ContainerGroups = ({ children }) => {
-  return <Container>{children}</Container>;
+  return (
+    <div>
+      <PerfectScrollbar>
+        <Container>{children}</Container>;
+      </PerfectScrollbar>
+    </div>
+  );
 };
 
 export default ContainerGroups;

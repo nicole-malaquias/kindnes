@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
-import { Container } from "./styles";
+import { Container, Select, Category } from "./styles";
 import Button from "../../components/Button";
 import { toastLoadGroupsError } from "../../utils";
 
@@ -64,12 +64,12 @@ const Groups = () => {
 
   return (
     <Container>
-      <div>
+      <Category>
         <p>Search a group category</p>
 
         <form onSubmit={handleSubmit(onSubmitCategory)}>
-          <label htmlFor="category">categories</label>
-          <select
+          <label htmlFor="category"></label>
+          <Select
             id="category"
             value={category}
             {...register("chosenCategory", {
@@ -80,13 +80,17 @@ const Groups = () => {
             <option value="donation">donation</option>
             <option value="animal care">animal care</option>
             <option value="teach">teach</option>
-          </select>
+          </Select>
 
-          <Button type="submit">Send</Button>
+          <Button width="100px" type="submit">
+            Search
+          </Button>
         </form>
-      </div>
+      </Category>
       <div>
-        <Button handleClick={handleSubscriptions}>Your groups</Button>
+        <Button height="60px" width="100px" handleClick={handleSubscriptions}>
+          My groups
+        </Button>
         <ContainerGroups>
           {chosenCategory.length === 0 ? (
             <CardGroup groups={groups} />

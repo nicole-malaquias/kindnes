@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { IoIosPeople } from "react-icons/io";
+import { CardItem, ButtonDiv } from "./styles";
 
 const CardGroup = ({ groups }) => {
   const [chosenGroup] = useState(localStorage.getItem("@gestao:groupId") || []);
@@ -15,15 +16,19 @@ const CardGroup = ({ groups }) => {
   return (
     <div>
       {groups.map((item, index) => (
-        <div key={index}>
-          <div onClick={() => handleGroupChoice(item.id)}>
-            <p>{item.name}</p>
-            <p>
-              <IoIosPeople size={20} />
-              {item.users_on_group.length}
-            </p>
-          </div>
-        </div>
+        <CardItem key={index}>
+          <ButtonDiv onClick={() => handleGroupChoice(item.id)}>
+            <div>
+              <p>{item.name}</p>
+            </div>
+            <div>
+              <p>
+                <IoIosPeople size={20} />
+                {item.users_on_group.length}
+              </p>
+            </div>
+          </ButtonDiv>
+        </CardItem>
       ))}
     </div>
   );
