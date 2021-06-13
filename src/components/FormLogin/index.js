@@ -43,7 +43,7 @@ const FormLogin = ({ logado, setLogado }) => {
           {!!errors.password}
           {errors.password?.message}
         </p>
-
+        {console.log("oiiiii")}
         <button type="submit">Enviar</button>
       </form>
     </div>
