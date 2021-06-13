@@ -22,7 +22,7 @@ export const Container = styled.button`
   justify-content: center;
   align-items: center;
   height: ${(props) => (props.height ? props.height : "50px")};
-  width: ${(props) => (props.width ? props.width : "200px")};
+  width: ${(props) => (props.width ? props.width : "100%")};
 
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 `;

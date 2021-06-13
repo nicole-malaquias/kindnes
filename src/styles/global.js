@@ -9,12 +9,10 @@ export default createGlobalStyle`
         list-style: none;
         
     }
-
-  
-
     :root{
         --white: #F5F5F5;
         --black: #000000;
+        --purpleOpacity : #a6b8f3;
         --purple: #7481AA;
         --purplePink: #8674AA;
         --purpleDetails: #7481aa;   
