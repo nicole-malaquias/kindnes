@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 const ContainerMyHabits = styled.div`
+  overflow-y: scroll;
   margin-top: 150px;
   margin-left: 50px;
   min-height: 250px;
-  min-width: 400px;
-  width: 500px;
-  height: 750px;
+  min-width: 300px;
+  width: 400px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: first baseline;
@@ -18,7 +19,7 @@ const ContainerMyHabits = styled.div`
   }
   .Add-new-Habit {
     background: var(--purplePink);
-    width: 400px;
+    width: 300px;
     padding: 5px;
 
     h4 {

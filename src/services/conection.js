@@ -11,6 +11,7 @@ const HandleFormLogin = (data) => {
       const token = response.data.access;
       console.log(response);
       const decoded = jwt_decode(token);
+      console.log(decoded.user_id);
       localStorage.clear();
       localStorage.setItem("@gestao:token", token);
       localStorage.setItem("@gestao:user_Id", JSON.stringify(decoded.user_id));

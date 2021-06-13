@@ -34,6 +34,7 @@ const ContainerFormHabits = styled.div`
       }
       button {
         width: 90px;
+        height: 40px;
       }
       input {
         border-radius: 10px;
@@ -43,6 +44,11 @@ const ContainerFormHabits = styled.div`
         margin: 5px;
         font-size: 1.2rem;
       }
+    }
+    .x {
+      position: absolute;
+      top: 15px;
+      right: 15px;
     }
   }
 `;

@@ -3,7 +3,10 @@ import "react-circular-progressbar/dist/styles.css";
 import { ContainerMyProgress } from "./style";
 import { ContainerProgress } from "./style";
 const MyProgress = ({ habits }) => {
-  let total = habits.reduce((acc, item) => (acc += item.how_much_achieved), 0);
+  let total = 0;
+  if (habits !== null) {
+    total = habits.reduce((acc, item) => (acc += item.how_much_achieved), 0);
+  }
 
   return (
     <ContainerProgress>

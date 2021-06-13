@@ -3,7 +3,7 @@ import styled from "styled-components";
 const ContainerHabit = styled.div`
   background: var(--white);
   margin: 5px;
-  width: 400px;
+  width: 300px;
   padding: 2px;
   display: flex;
   justify-content: space-between;

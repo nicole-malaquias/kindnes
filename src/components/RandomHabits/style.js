@@ -4,7 +4,7 @@ const ContainerRandomHabit = styled.div`
   background: var(--purple);
   width: 400px;
   height: 200px;
-  left: 900px;
+  left: 500px;
   top: 150px;
   margin-bottom: 25px;
   position: absolute;

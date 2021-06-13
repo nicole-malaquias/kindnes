@@ -15,6 +15,7 @@ const FormRandom = ({
   const handleCategoryChange = (event) => {
     setDifficulty(event.target.value);
   };
+
   const handleRandom = () => {
     const body = {
       title: title,
@@ -25,6 +26,7 @@ const FormRandom = ({
       how_much_achieved: 0,
       user: id,
     };
+    console.log(body);
     api
       .post("/habits/", body, {
         headers: {
@@ -35,9 +37,8 @@ const FormRandom = ({
         setFormRandomHabit(!formRandomHabit);
         setAddH(addH + 1);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("eu ruimmmmmmmmmmmmmmm"));
   };
-  console.log("o contador do componente saindo", addH);
   return (
     <ContainerModalRandom>
       <h2>{title}</h2>

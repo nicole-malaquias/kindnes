@@ -4,8 +4,8 @@ import * as yup from "yup";
 import ContainerFormHabits from "./style";
 import api from "../../services";
 import React, { useState } from "react";
-
-const FormHabit = ({ addH, setAddH }) => {
+import Button from "../Button";
+const FormHabit = ({ addH, setAddH, setModal, modal }) => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const token = localStorage.getItem("@gestao:token") || "";
@@ -33,8 +33,8 @@ const FormHabit = ({ addH, setAddH }) => {
   });
 
   const handleForm = (data) => {
-    console.log("po");
-    setAddH(!addH);
+    setModal(!modal);
+    setAddH(1 + addH);
     const { title } = data;
     const body = {
       title: title,
@@ -91,7 +91,10 @@ const FormHabit = ({ addH, setAddH }) => {
             <option value={"advanced"}>Advanced</option>
           </select>
 
-          <button type="submit">Enviar</button>
+          <Button type="submit">Enviar</Button>
+          <Button className="x" handleClick={() => setModal(!modal)}>
+            X
+          </Button>
         </form>
       </div>
     </ContainerFormHabits>

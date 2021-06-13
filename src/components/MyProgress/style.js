@@ -7,15 +7,15 @@ export const ContainerMyProgress = styled.div`
 export const ContainerProgress = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+
   flex-direction: column;
   width: 400px;
-  height: 400px;
+  /* height: 350px; */
   border: 1px solid pink;
   position: absolute;
   background: var(--pink);
-  left: 900px;
-  top: 500px;
+  left: 500px;
+  top: 400px;
   h2 {
     margin-bottom: 52px;
     color: var(--black);

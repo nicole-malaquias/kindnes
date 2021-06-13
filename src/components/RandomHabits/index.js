@@ -6,7 +6,6 @@ const RandomHabist = ({ addH, setAddH }) => {
   const [formRandomHabit, setFormRandomHabit] = useState(false);
   const [title, setTitle] = useState("");
   const hRandom = [
-    "",
     " Call a friend or a family member",
     " Ask a homeless person how they are doing",
     " Say good morning to a stranger",
@@ -21,10 +20,12 @@ const RandomHabist = ({ addH, setAddH }) => {
     " Let someone go in front of you on traffic or on a line",
   ];
   const handleRandomHabit = () => {
-    console.log("oi");
     setFormRandomHabit(!formRandomHabit);
-    const number = Math.floor(Math.random() * hRandom.length) + 1;
+    const number = Math.floor(Math.random() * hRandom.length - 1) + 1;
+    setTitle("");
     setTitle(hRandom[number]);
+    console.log("a frase foi ", hRandom[number]);
+    console.log("a numero foi ", number);
   };
   return (
     <ContainerRandomHabit>

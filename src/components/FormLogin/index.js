@@ -4,6 +4,7 @@ import * as yup from "yup";
 import jwt_decode from "jwt-decode";
 import { toastLogin } from "../../utils";
 import api from "../../services";
+import HandleFormLogin from "../../services/conection";
 const FormLogin = ({ logado, setLogado }) => {
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório"),
@@ -23,17 +24,7 @@ const FormLogin = ({ logado, setLogado }) => {
   });
 
   const handleForm = (data) => {
-    api
-      .post("/sessions/", data)
-      .then((response) => {
-        const token = response.data.access;
-        const decoded = jwt_decode(token);
-        localStorage.clear();
-        localStorage.setItem("@gestao:token", token);
-        localStorage.setItem("@gestao:user_Id", JSON.stringify(decoded.userid));
-        reset();
-      })
-      .catch(() => toastLogin());
+    HandleFormLogin(data);
   };
 
   return (
