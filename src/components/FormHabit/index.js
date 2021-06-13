@@ -67,25 +67,14 @@ const FormHabit = ({ addH, setAddH, setModal, modal }) => {
           </p>
           {console.log("oi")}
           <label htmlFor="category">Category</label>
-          <select
-            value={category}
-            {...register("status", {
-              required: "required",
-            })}
-            onChange={handleCategoryChange}
-          >
+          <select value={category} onChange={handleCategoryChange}>
             <option value={"beginner"}>Beginner</option>
             <option value={"intermediate"}>intermediate</option>
+            <option value={"advanced"}>Advanced</option>
           </select>
 
           <label htmlFor="difficulty">Difficulty</label>
-          <select
-            value={difficulty}
-            {...register("status", {
-              required: "required",
-            })}
-            onChange={handleDifficultyChange}
-          >
+          <select onChange={handleDifficultyChange}>
             <option value={"beginner"}>Beginner</option>
             <option value={"intermediate"}>intermediate</option>
             <option value={"advanced"}>Advanced</option>
