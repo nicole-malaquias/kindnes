@@ -1,0 +1,44 @@
+import styled from "styled-components";
+
+export const Container = styled.div`
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  & p{
+    margin-top: 10px;
+  }
+  h2 {
+    font-size: 2rem;
+    color: var(--purplePink);
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    > button {
+      :hover,
+      :focus {
+        background-color: var(--purple);
+      }
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    background-color: var(--purplePink);
+    width: 30vw;
+    h2, p {
+      color: var(--white);
+    }
+  }
+`;
+export const Terms = styled.div`
+  padding: 10px;
+  input + label {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+`;

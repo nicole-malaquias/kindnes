@@ -4,9 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services";
 import { useHistory } from "react-router";
 import { toastErrorRegister, toastSuccessRegister } from "../../utils";
-import { Container, Terms } from "./styles";
+import { Container, Terms } from "./styled";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
+import Input from "../../components/Input";
 const FormRegister = () => {
   const history = useHistory();
   const schema = yup.object().shape({
@@ -57,50 +58,45 @@ const FormRegister = () => {
       <Container>
         <h2>Register</h2>
         <form onSubmit={handleSubmit(handleForm)}>
-          <label htmlFor="username">username</label>
-          <input
-            id="username"
+          <Input
+            register={register}
             type="text"
+            name="username"
+            label="username"
             placeholder="username"
-            {...register("username")}
+            error={errors.username?.message}
           />
-          {errors.username?.message && <p>{errors.username.message}</p>}
-
-          <label htmlFor="">email</label>
-          <input
-            id="email"
+          <Input
+            register={register}
             type="email"
+            name="email"
+            label="email"
             placeholder="email"
-            {...register("email")}
+            error={errors.email?.message}
           />
-          {errors.email?.message && <p>{errors.email.message}</p>}
-          <label htmlFor="password">password</label>
-          <input
-            id="password"
+          <Input
+            register={register}
             type="password"
+            name="password"
+            label="password"
             placeholder="password"
-            {...register("password")}
+            error={errors.password?.message}
           />
-          {errors.password?.message && <p>{errors.password.message}</p>}
-          <label htmlFor="passwordConfirm">confirm your password</label>
-          <input
-            id="passwordConfirm"
+          <Input
+            register={register}
             type="password"
-            placeholder="confirm your password"
-            {...register("passwordConfirm")}
+            name="passwordConfirm"
+            label="Confirm your password"
+            placeholder="passwordConfirm"
+            error={errors.passwordConfirm?.message}
           />
-          {errors.passwordConfirm?.message && (
-            <p>{errors.passwordConfirm.message}</p>
-          )}
           <Terms>
             <input id="terms" type="checkbox" {...register("agree")} />
             <label htmlFor="terms">I agree with the terms</label>
-            {errors.agree?.message && <p>{errors.agree?.message}</p>}
+            {errors.agree?.message && <p>- {errors.agree?.message}</p>}
           </Terms>
-
           <Button type="submit">Send</Button>
         </form>
-
         <p>
           Already registered? <Link to="/login">login</Link>
         </p>

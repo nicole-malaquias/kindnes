@@ -4,12 +4,13 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   height: 100vh;
   > div {
     &:first-child {
       align-self: flex-start;
     }
+  }
+  @media only screen and (min-width: 768px) {
   }
 `;
 export const Content = styled.div`
@@ -17,10 +18,14 @@ export const Content = styled.div`
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  flex: 1;
-  @media only screen and (max-width: 768px) {
+  height: 100%;
+  }
+  img {
+    display: none;
+  }
+  @media only screen and (min-width: 768px) {
     img {
-      display: none;
+      display: block;
     }
   }
 `;

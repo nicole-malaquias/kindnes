@@ -38,9 +38,16 @@ export default createGlobalStyle`
         line-height: 44px;
         text-align: left;
     }
+    h1 {
+        font-size: 2.5rem;
+    }
     h4 {
         font-size: 1.5rem;
         color: var(--pink);
+    }
+    input {
+        outline: none;
+        border: none;
     }
     p{
         font-family: Montserrat;

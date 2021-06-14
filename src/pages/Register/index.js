@@ -4,7 +4,7 @@ import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 import image from "../../assets/image-register.svg";
 
-import { Container, Content } from "./styles";
+import { Container, Content } from "./styled";
 
 const Register = () => {
   return (
