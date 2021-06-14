@@ -1,19 +1,20 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  justify-content: center;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 80vh;
+
   > div {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
   }
-  @media (max-width: 425px) {
-    justify-content: center;
-    height: 100vh;
+  @media (min-width: 768px) {
+    height: 80vh;
   }
 `;
 
@@ -38,6 +39,7 @@ export const Select = styled.select`
 `;
 
 export const Category = styled.div`
+  margin-bottom: 1rem;
   form {
     display: flex;
     flex-direction: column;
@@ -57,10 +59,8 @@ export const Category = styled.div`
       padding: 5px;
     }
   }
-  @media (max-width: 768px) {
-    margin-bottom: 1rem;
-  }
 `;
+
 export const ContainerGroups = styled.div`
   display: flex;
   justify-content: space-between; ;
@@ -68,11 +68,11 @@ export const ContainerGroups = styled.div`
 
 export const SearchContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 `;

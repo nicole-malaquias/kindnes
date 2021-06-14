@@ -6,19 +6,17 @@ export const CardItem = styled.div`
   align-items: center;
   justify-content: center;
   background-color: var(--white);
-  width: 30vw;
+  width: 50vw;
   float: right;
   margin: 5px;
   height: 70px;
   border-radius: 20px;
-  @media (max-width: 425px) {
-    width: 50vw;
+  @media (min-width: 768px) {
+    width: 30vw;
   }
 
   p {
-    @media only screen and (max-width: 425px) {
-      font-size: 15px;
-    }
+    font-size: 15px;
   }
 `;
 

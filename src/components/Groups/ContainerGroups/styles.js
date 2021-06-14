@@ -5,19 +5,19 @@ export const Container = styled.div`
   border-radius: 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   margin-top: 2rem;
   margin-bottom: 6rem;
   height: 30rem;
-  width: 50vw;
+  width: 70vw;
   padding: 1rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   color: var(--black);
   overflow-y: scroll;
 
-  @media (max-width: 425px) {
-    width: 70vw;
-    justify-content: center;
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+    width: 50vw;
   }
 `;
