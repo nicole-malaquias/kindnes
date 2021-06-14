@@ -13,7 +13,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-evenly;
   }
-  @media (min-width: 768px) {
+  @media only screen and (min-width: 768px) {
     height: 80vh;
   }
 `;
@@ -72,7 +72,7 @@ export const SearchContainer = styled.div`
   justify-content: space-between;
   width: 100%;
 
-  @media (min-width: 768px) {
+  @media only screen and (min-width: 768px) {
     flex-direction: row;
   }
 `;

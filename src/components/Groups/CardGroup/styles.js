@@ -9,9 +9,9 @@ export const CardItem = styled.div`
   width: 50vw;
   float: right;
   margin: 5px;
-  height: 70px;
+  height: 80vh;
   border-radius: 20px;
-  @media (min-width: 768px) {
+  @media only screen and (min-width: 768px) {
     width: 30vw;
   }
 

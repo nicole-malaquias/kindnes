@@ -9,14 +9,14 @@ export const Container = styled.div`
   align-items: flex-start;
   margin-top: 2rem;
   margin-bottom: 6rem;
-  height: 30rem;
+  height: 100vh;
   width: 70vw;
   padding: 1rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   color: var(--black);
   overflow-y: scroll;
 
-  @media (min-width: 768px) {
+  @media only screen and (min-width: 768px) {
     justify-content: flex-start;
     width: 50vw;
   }
