@@ -10,7 +10,7 @@ const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const token = localStorage.getItem("@gestao:token") || "";
   const history = useHistory();
-
+  console.log(localStorage.getItem("@gestao:token"));
   const handleMenu = () => {
     isOpen ? setIsOpen(false) : setIsOpen(true);
   };
@@ -25,7 +25,7 @@ const Menu = () => {
     }
   }, []);
 
-  return token ? (
+  return !token ? (
     <Container>
       <div>
         <Link to="/">
