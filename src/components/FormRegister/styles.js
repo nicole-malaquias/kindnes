@@ -25,8 +25,8 @@ export const Container = styled.div`
     }
   }
   @media only screen and (max-width: 768px) {
-    width: 50vw;
     height: 70vh;
+    flex: 1;
   }
 `;
 export const Terms = styled.div`
