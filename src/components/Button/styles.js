@@ -10,7 +10,7 @@ export const Container = styled.button`
       : `var(--pink)`};
 
   color: ${(props) =>
-    props.colorT === "white" ? `var(--white)` : `var(--black)`};
+    props.color === "white" ? `var(--white)` : `var(--black)`};
 
   color: var(--white);
   border: none;

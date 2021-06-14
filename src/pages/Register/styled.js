@@ -12,7 +12,8 @@ export const Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    h2 {
+    > h2 {
+      font-size: 4rem;
       margin: 2rem;
     }
   }

@@ -8,7 +8,8 @@ export const Container = styled.div`
   justify-content: center;
   border-radius: 10px;
   & p {
-    margin-top: 10px;
+    margin-top: 0.5rem;
+    font-size: 1rem;
   }
   h2 {
     font-size: 2rem;

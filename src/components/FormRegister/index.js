@@ -22,7 +22,7 @@ const FormRegister = () => {
       .required("Required field")
       .matches(
         "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])",
-        "Password must contain  at least one number,  both lower and uppercase letters and special characters"
+        "must contain number, both lower and uppercase letters and special characters"
       ),
     passwordConfirm: yup
       .string()
