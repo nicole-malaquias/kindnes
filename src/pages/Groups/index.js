@@ -86,12 +86,7 @@ const Groups = () => {
                   <option value="teach">teach</option>
                 </Select>
 
-                <Button
-                  padding="2rem"
-                  width="100px"
-                  type="submit"
-                  colorButton="purplePink"
-                >
+                <Button width="100px" type="submit" colorButton="purplePink">
                   Search
                 </Button>
               </div>

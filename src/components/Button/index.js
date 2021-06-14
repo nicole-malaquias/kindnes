@@ -7,7 +7,6 @@ const Button = ({
   height,
   handleClick,
   color,
-  padding,
   ...rest
 }) => {
   return (
@@ -19,7 +18,6 @@ const Button = ({
       type="button"
       {...rest}
       onClick={handleClick}
-      padding={padding}
     >
       {children}
     </Container>

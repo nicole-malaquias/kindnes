@@ -4,12 +4,17 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  width: 100%;
+  height: 80vh;
   > div {
     display: flex;
     align-items: center;
 
     justify-content: space-evenly;
+  }
+  @media (max-width: 425px) {
+    justify-content: center;
+    height: 100vh;
   }
 `;
 
@@ -51,6 +56,12 @@ export const Category = styled.div`
       display: flex;
       flex-direction: row;
     }
+    button {
+      padding: 5px;
+    }
+  }
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
   }
 `;
 export const ContainerGroups = styled.div`
@@ -63,4 +74,8 @@ export const SearchContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;

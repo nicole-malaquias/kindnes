@@ -13,7 +13,11 @@ export const Container = styled.div`
   width: 50vw;
   padding: 1rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-
   color: var(--black);
   overflow-y: scroll;
+
+  @media (max-width: 425px) {
+    width: 70vw;
+    justify-content: center;
+  }
 `;

@@ -11,8 +11,12 @@ export const CardItem = styled.div`
   margin: 5px;
   height: 70px;
   border-radius: 20px;
+  @media (max-width: 425px) {
+    width: 50vw;
+  }
+
   p {
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 425px) {
       font-size: 15px;
     }
   }
@@ -23,4 +27,5 @@ export const ButtonDiv = styled.div`
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
+  cursor: pointer;
 `;
