@@ -14,7 +14,7 @@ export default createGlobalStyle`
 
     :root{
         --white: #F5F5F5;
-        --black: #00000;
+        --black: #000000;
         --purple: #7481AA;
         --purplePink: #8674AA;
         --purpleDetails: #7481aa;   
@@ -37,9 +37,13 @@ export default createGlobalStyle`
         line-height: 44px;
         text-align: left;
     }
+    h4 {
+        font-size: 1.5rem;
+        color: var(--pink);
+    }
     p{
         font-family: Montserrat;
-        font-size: 2rem;
+        font-size: 1.2rem;
         font-style: normal;
         font-weight: 400;
         text-align: left;
@@ -57,5 +61,6 @@ export default createGlobalStyle`
             outline: none;
         }
 
+        cursor: pointer;
     }
 `;
