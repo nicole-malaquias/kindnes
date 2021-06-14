@@ -13,16 +13,15 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 const useStyles = makeStyles({
   field: {
-    backgroundColor: "var(--white)",
-    borderRadius: "5px",
-    marginTop:"2px"
-  }
+    "& .Mui-error": {
+      color: "var(--white)",
+    },
+    marginTop: "2px",
+  },
 });
 const theme = createMuiTheme({
   palette: {
-    primary: {
-      main: "#DBA5F3",
-    },
+    primary: { main: "#FF4" },
   },
 });
 

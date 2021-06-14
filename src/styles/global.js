@@ -25,6 +25,7 @@ export default createGlobalStyle`
 
       body{
         background: var(--background);
+        height: 100vh;
     }
     a{text-decoration: none}
 

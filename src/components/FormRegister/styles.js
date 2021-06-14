@@ -8,7 +8,7 @@ export const Container = styled.div`
   justify-content: space-evenly;
   background-color: var(--purplePink);
   border-radius: 10px;
-  width: 50vh;
+  width: 30vw;
   h2 {
     color: var(--white);
     margin-bottom: 0.5rem;
@@ -23,6 +23,10 @@ export const Container = styled.div`
         background-color: var(--purple);
       }
     }
+  }
+  @media only screen and (max-width: 768px) {
+    width: 50vw;
+    height: 70vh;
   }
 `;
 export const Terms = styled.div`

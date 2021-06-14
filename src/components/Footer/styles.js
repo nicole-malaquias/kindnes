@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   background: var(--backgroundFooter);
   padding: 0.5rem 1rem;
-  position: absolute;
   width: 100%;
   bottom: 0;
   h2 {
