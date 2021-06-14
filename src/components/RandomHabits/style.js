@@ -3,9 +3,7 @@ import styled from "styled-components";
 const ContainerRandomHabit = styled.div`
   background: var(--purple);
   width: 400px;
-  height: 200px;
-  left: 500px;
-  top: 150px;
+  height: 250px;
   margin-bottom: 25px;
   position: absolute;
   display: flex;
@@ -13,7 +11,7 @@ const ContainerRandomHabit = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-
+  right: 5%;
   button {
     width: 120px;
   }

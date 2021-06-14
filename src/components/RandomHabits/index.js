@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ContainerRandomHabit from "./style";
 import Button from "../Button";
 import FormRandom from "../FormRandom";
 
-const RandomHabist = ({ addH, setAddH, modalHabito }) => {
+const RandomHabist = ({ addHabits, setAddHabits, modalHabito }) => {
   const [formRandomHabit, setFormRandomHabit] = useState(false);
   const [title, setTitle] = useState("");
   const hRandom = [
@@ -35,8 +35,8 @@ const RandomHabist = ({ addH, setAddH, modalHabito }) => {
       <Button handleClick={handleRandomHabit}>Random</Button>
       {formRandomHabit && (
         <FormRandom
-          addH={addH}
-          setAddH={setAddH}
+          addHabits={addHabits}
+          setAddHabits={setAddHabits}
           title={title}
           formRandomHabit={formRandomHabit}
           setFormRandomHabit={setFormRandomHabit}

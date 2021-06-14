@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import api from "../../services";
 import React, { useState } from "react";
 import Button from "../Button";
 import * as S from "./styled";
+import { handlePostHabits } from "../../services/conection";
 
-const FormHabit = ({ addH, setAddH, setModal, modal }) => {
+const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const token = localStorage.getItem("@gestao:token") || "";
@@ -35,7 +35,7 @@ const FormHabit = ({ addH, setAddH, setModal, modal }) => {
 
   const handleForm = (data) => {
     setModal(!modal);
-    setAddH(1 + addH);
+    setAddHabits(1 + addHabits);
     const { title } = data;
     const body = {
       title,
@@ -46,13 +46,7 @@ const FormHabit = ({ addH, setAddH, setModal, modal }) => {
       how_much_achieved: 0,
       user: id,
     };
-    api
-      .post("/habits/", body, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .catch((err) => console.log(err));
+    handlePostHabits(body);
     reset();
   };
 
@@ -68,20 +62,20 @@ const FormHabit = ({ addH, setAddH, setModal, modal }) => {
         <label htmlFor="category">Category</label>
         <select value={category} onChange={handleCategoryChange} required>
           <option value=""></option>
-          <option value={"beginner"}>Beginner</option>
-          <option value={"intermediate"}>intermediate</option>
-          <option value={"advanced"}>Advanced</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">intermediate</option>
+          <option value="advanced">Advanced</option>
         </select>
 
         <label htmlFor="difficulty">Difficulty</label>
         <select onChange={handleDifficultyChange} required>
           <option value=""></option>
-          <option value={"beginner"}>Beginner</option>
-          <option value={"intermediate"}>intermediate</option>
-          <option value={"advanced"}>Advanced</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">intermediate</option>
+          <option value="advanced">Advanced</option>
         </select>
 
-        <Button type="submit">Enviar</Button>
+        <Button type="submit">Submit</Button>
         <Button className="x" handleClick={() => setModal(!modal)}>
           X
         </Button>

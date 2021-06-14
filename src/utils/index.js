@@ -8,6 +8,9 @@ export const options = {
   draggable: true,
   progress: undefined,
 };
+export const toastErrorAddHabitRandom = () => {
+  toast.error("Unable to add this habit", options);
+};
 
 export const toastErrorRegister = () => {
   toast.error("That didn't work, try another username", options);

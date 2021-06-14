@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-
 import { ContainerMyProgress } from "./style";
 import { ContainerProgress } from "./style";
 

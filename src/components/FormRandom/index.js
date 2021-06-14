@@ -2,10 +2,11 @@ import * as S from "./styled";
 import React, { useState } from "react";
 import api from "../../services";
 import Button from "../Button";
+import { handlePostHabitsRandom } from "../../services/conection";
 const FormRandom = ({
   title,
-  addH,
-  setAddH,
+  addHabits,
+  setAddHabits,
   formRandomHabit,
   setFormRandomHabit,
 }) => {
@@ -18,7 +19,7 @@ const FormRandom = ({
 
   const handleRandom = () => {
     const body = {
-      title: title,
+      title,
       category: "category",
       difficulty: difficulty,
       frequency: "usual",
@@ -26,18 +27,13 @@ const FormRandom = ({
       how_much_achieved: 0,
       user: id,
     };
-    console.log(body);
-    api
-      .post("/habits/", body, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        setFormRandomHabit(!formRandomHabit);
-        setAddH(addH + 1);
-      })
-      .catch((err) => console.log("eu ruimmmmmmmmmmmmmmm"));
+    handlePostHabitsRandom(
+      body,
+      setFormRandomHabit,
+      formRandomHabit,
+      setAddHabits,
+      addHabits
+    );
   };
   return (
     <S.ContainerModalRandom>
@@ -48,9 +44,9 @@ const FormRandom = ({
         </label>
         <select value={difficulty} onChange={handleCategoryChange} required>
           <option value=""></option>
-          <option value={"beginner"}> Beginner </option>
-          <option value={"intermediate"}>intermediate</option>
-          <option value={"advanced"}>Advanced</option>
+          <option value="beginner"> Beginner </option>
+          <option value="intermediate">intermediate</option>
+          <option value="advanced">Advanced</option>
         </select>
 
         <S.ContainerButtonRandom>

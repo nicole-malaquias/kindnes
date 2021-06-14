@@ -1,21 +1,18 @@
 import styled from "styled-components";
 
 const ContainerMyHabits = styled.div`
-  /* overflow-y: scroll; */
-
-  margin-top: 150px;
-  margin-left: 50px;
-  min-height: 250px;
-  min-width: 300px;
-  width: 400px;
-  height: 450px;
+  width: 500px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: first baseline;
   align-items: center;
-  background: #a6b8f3;
+  background: #a6b8f3; // não sei o nome que dar
   border-radius: 10px;
+  margin-left: 50px;
+
   .habits {
+    margin-top: 10px;
     overflow-y: scroll;
     scroll-behavior: smooth;
     width: 350px;

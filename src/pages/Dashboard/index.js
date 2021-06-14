@@ -1,5 +1,9 @@
 import MyHabits from "../../components/MyHabits";
+import MyProgress from "../../components/MyProgress";
 import { useHistory } from "react-router-dom";
+import Menu from "../../components/Menu";
+import Footer from "../../components/Footer";
+import * as S from "./styled";
 const Dashboard = () => {
   const localToken = localStorage.getItem("@gestao:token") || "";
 
@@ -8,9 +12,14 @@ const Dashboard = () => {
     history.push("/");
   }
   return (
-    <div>
-      <MyHabits />
-    </div>
+    <>
+      <Menu />
+      <S.ContainerDash>
+        <MyHabits />
+        <MyProgress />
+      </S.ContainerDash>
+      {/* <Footer /> */}
+    </>
   );
 };
 export default Dashboard;

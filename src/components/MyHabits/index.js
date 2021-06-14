@@ -1,20 +1,18 @@
-import Habits from "./habits";
+import Habits from "../Habits";
 import api from "../../services";
 import React, { useEffect, useState } from "react";
 import FormHabit from "../FormHabit";
 import ContainerMyHabits from "./style";
-import MyProgress from "../MyProgress";
 import RandomHabits from "../../components/RandomHabits";
 import CardExplication from "../../components/CardExplication";
 const MyHabits = () => {
   const [modal, setModal] = useState(false);
-  const [addH, setAddH] = useState(0);
-  const [cEHab, setcEHab] = useState(false);
+  const [addHabits, setAddHabits] = useState(0);
+  const [cardExplication, setCardExplication] = useState(false);
   const localToken = localStorage.getItem("@gestao:token") || "";
   const [habits, sethabits] = useState(
     JSON.parse(localStorage.getItem("@gestao:habitos")) || []
   );
-
   const Loading = () => {
     api
       .get("/habits/personal/", {
@@ -24,13 +22,10 @@ const MyHabits = () => {
       })
       .then((response) => {
         const { data } = response;
-
         if (data.length === 0) {
-          setcEHab(!cEHab);
+          setCardExplication(!cardExplication);
         }
-
         localStorage.setItem("@gestao:habitos", JSON.stringify(data));
-        console.log("atualizou na nuvem");
         sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
       })
       .catch((res) => console.log("deu ruim"));
@@ -44,13 +39,12 @@ const MyHabits = () => {
     if (habits !== JSON.parse(localStorage.getItem("@gestao:habitos"))) {
       Loading();
     }
-  }, [addH]);
+  }, [addHabits]);
 
   useEffect(() => {
-    console.log("USEFFECT FUNFA");
     Loading();
     sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
-  }, [addH]);
+  }, [addHabits]);
 
   return (
     <ContainerMyHabits>
@@ -66,30 +60,33 @@ const MyHabits = () => {
                 <Habits
                   habit={habit}
                   key={index}
-                  addH={addH}
-                  setAddH={setAddH}
+                  addHabits={addHabits}
+                  setAddHabits={setAddHabits}
                   sethabits={sethabits}
                 />
               )
           )}
       </div>
-      {cEHab && (
+      {cardExplication && (
         <CardExplication
           text={"Aqui se adiciona um habito"}
-          setcEHab={setcEHab}
-          cEHab={cEHab}
+          setCardExplication={setCardExplication}
+          cardExplication={cardExplication}
         />
       )}
       {modal && (
         <FormHabit
-          addH={addH}
-          setAddH={setAddH}
+          addHabits={addHabits}
+          setAddHabits={setAddHabits}
           setModal={setModal}
           modal={modal}
         />
       )}
-      <RandomHabits addH={addH} setAddH={setAddH} modalHabito={modal} />
-      <MyProgress habits={habits} />
+      <RandomHabits
+        addHabits={addHabits}
+        setAddHabits={setAddHabits}
+        modalHabito={modal}
+      />
     </ContainerMyHabits>
   );
 };

@@ -1,10 +1,13 @@
 import ContainerCardExplication from "./style";
 import Button from "../Button";
-const CardExplication = ({ text, setcEHab, cEHab }) => {
+const CardExplication = ({ text, setCardExplication, cardExplication }) => {
   return (
     <ContainerCardExplication>
       <p>{text}</p>
-      <Button handleClick={() => setcEHab(!cEHab)}> ok</Button>
+      <Button handleClick={() => setCardExplication(!cardExplication)}>
+        {" "}
+        ok
+      </Button>
     </ContainerCardExplication>
   );
 };

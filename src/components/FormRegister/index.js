@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services";
 import { useHistory } from "react-router";
-import { toastErrorRegister, toastSuccessRegister } from "../../utils";
+import { handleFormLogon } from "../../services/conection";
 const FormRegister = () => {
   const history = useHistory();
   const schema = yup.object().shape({
@@ -36,13 +36,10 @@ const FormRegister = () => {
 
   const handleForm = ({ username, email, password }) => {
     const necessaryDatas = { username, email, password };
-    api
-      .post("/users/", necessaryDatas)
-      .then((_) => {
-        toastSuccessRegister()
-        history.push("/login")
-      })
-      .catch((_) => toastErrorRegister());
+
+    handleFormLogon(necessaryDatas);
+    history.push("/login");
+
     reset();
   };
   return (

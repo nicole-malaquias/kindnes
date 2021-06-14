@@ -1,19 +1,13 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import jwt_decode from "jwt-decode";
-import { toastLogin } from "../../utils";
-import api from "../../services";
-import HandleFormLogin from "../../services/conection";
+import { HandleFormLogin } from "../../services/conection";
 import { useHistory } from "react-router";
-const FormLogin = ({ logado, setLogado }) => {
+const FormLogin = () => {
   const history = useHistory();
   const schema = yup.object().shape({
-    username: yup.string().required("Campo obrigatório"),
-    password: yup
-      .string()
-      .min(4, "Mínimo de 4 dígitos")
-      .required("Campo obrigatório"),
+    username: yup.string().required("Required field"),
+    password: yup.string().min(4, "4 digit minimum").required("Required field"),
   });
 
   const {
@@ -46,8 +40,7 @@ const FormLogin = ({ logado, setLogado }) => {
           {!!errors.password}
           {errors.password?.message}
         </p>
-        {console.log("oiiiii")}
-        <button type="submit">Enviar</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

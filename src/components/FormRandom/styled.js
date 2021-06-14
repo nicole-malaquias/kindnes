@@ -40,12 +40,12 @@ export const Form_Random = styled.div`
     height: 30px;
     width: 100px;
     border: none;
-    background: white;
+    background: var(--white);
     font-size: 1.2rem;
     border-radius: 10px;
   }
   label {
-    color: white;
+    color: var(--white);
     font-size: 2rem;
   }
   button {
