@@ -9,7 +9,6 @@ export const Container = styled.div`
   > div {
     display: flex;
     align-items: center;
-
     justify-content: space-evenly;
   }
   @media (max-width: 425px) {
@@ -27,9 +26,7 @@ export const Select = styled.select`
   font-size: 14px;
   border: 2px solid var(--purplePink);
   margin-right: 2rem;
-
   border-radius: 0.7rem;
-
   option {
     color: black;
     background: white;

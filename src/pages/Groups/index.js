@@ -9,7 +9,6 @@ import { useHistory } from "react-router-dom";
 import { Container, Select, Category, SearchContainer } from "./styles";
 import Button from "../../components/Button";
 import { toastLoadGroupsError } from "../../utils";
-import Footer from "../../components/Footer";
 import Menu from "../../components/Menu";
 const Groups = () => {
   const [groups, setGroups] = useState([]);
@@ -71,7 +70,6 @@ const Groups = () => {
           <Category>
             <form onSubmit={handleSubmit(onSubmitCategory)}>
               <label htmlFor="category">Search a category</label>
-              {/* dar um display none */}
               <div>
                 <Select
                   id="category"
@@ -111,7 +109,6 @@ const Groups = () => {
           )}
         </ContainerGroups>
       </Container>
-      <Footer />
     </>
   );
 };
