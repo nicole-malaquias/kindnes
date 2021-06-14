@@ -14,11 +14,11 @@ const FormRegister = () => {
     username: yup
       .string()
       .required("Required field")
-      .min(4, "Mínimo 4 caracteres"),
-    email: yup.string().email("Email inválido").required("Required field"),
+      .min(4, "Minimum 4 characters"),
+    email: yup.string().email("Invalid email").required("Required field"),
     password: yup
       .string()
-      .min(6, "Senha mínima de 6 dígitos")
+      .min(6, "password length of minimum 6 digits")
       .required("Required field")
       .matches(
         "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])",
@@ -87,7 +87,7 @@ const FormRegister = () => {
             type="password"
             name="passwordConfirm"
             label="Confirm your password"
-            placeholder="passwordConfirm"
+            placeholder="Confirm your password"
             error={errors.passwordConfirm?.message}
           />
           <Terms>

@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  & p{
+  & p {
     margin-top: 10px;
   }
   h2 {
@@ -27,8 +27,10 @@ export const Container = styled.div`
   }
   @media only screen and (min-width: 768px) {
     background-color: var(--purplePink);
-    width: 30vw;
-    h2, p {
+    width: 32vw;
+    margin-right: 1rem;
+    h2,
+    p {
       color: var(--white);
     }
   }
