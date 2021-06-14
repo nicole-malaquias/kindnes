@@ -7,6 +7,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  width: 100%;
   & p {
     margin-top: 0.5rem;
     font-size: 1rem;
@@ -28,7 +29,7 @@ export const Container = styled.div`
   }
   @media only screen and (min-width: 768px) {
     background-color: var(--purplePink);
-    width: 32vw;
+    width: 500px;
     margin-right: 1rem;
     h2,
     p {
