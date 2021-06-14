@@ -4,13 +4,8 @@ export const Container = styled.div`
   background: var(--backgroundFooter);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0.8rem 2rem;
-  margin-top: 2rem;
-
-  h1 {
-    font-weight: normal;
-  }
 
   h2 {
     border: 1px solid var(--purplePink);
@@ -29,5 +24,9 @@ export const Container = styled.div`
   a {
     font-size: 1.5rem;
     color: var(--purpleDetails);
+  }
+  @media only screen and (min-width: 768px) {
+    justify-content: space-between;
+    margin-top: 1rem;
   }
 `;

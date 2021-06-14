@@ -26,7 +26,7 @@ const Menu = ({ isLogin = false }) => {
     </Container>
   ) : (
     <Container>
-      <div>
+      <div id="Menu">
         <Button handleClick={() => handleMenu()}>
           <img src={imgMenu} alt="menu" />
         </Button>
