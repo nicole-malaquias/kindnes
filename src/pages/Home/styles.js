@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import rafiki from "../../assets/rafiki.png";
+
 export const Container = styled.div`
   padding: 0 4rem;
 
@@ -32,6 +33,13 @@ export const Content = styled.div`
     font-weight: normal;
     color: var(--pink);
   }
+
+  div {
+    @media (max-width: 580px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 `;
 
 export const Background = styled.div`
@@ -39,6 +47,10 @@ export const Background = styled.div`
   background-size: contain;
   width: 100%;
   height: 100vh;
+
+  @media (max-width: 580px) {
+    background: none;
+  }
 `;
 
 export const DivButton = styled.div`
@@ -49,5 +61,9 @@ export const DivButton = styled.div`
   button {
     margin: 1.5rem;
     margin-top: 3rem;
+
+    :hover {
+      border: 3px solid var(--pink);
+    }
   }
 `;

@@ -88,19 +88,19 @@ const Home = ({ isLogin }) => {
           swipeable
         >
           <div>
-            <img src={ImageExemplo} alt="exemplo"></img>
+            <img src={ImageExemplo} alt="exemplo" />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo"></img>
+            <img src={ImageExemplo} alt="exemplo" />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo"></img>
+            <img src={ImageExemplo} alt="exemplo" />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo"></img>
+            <img src={ImageExemplo} alt="exemplo" />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo"></img>
+            <img src={ImageExemplo} alt="exemplo" />
           </div>
         </Carousel>
       </Container>

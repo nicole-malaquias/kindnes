@@ -30,9 +30,4 @@ export const Container = styled.div`
     font-size: 1.5rem;
     color: var(--purpleDetails);
   }
-  div {
-    display: flex;
-    align-items: center;
-    margin: 5px 30px;
-  }
 `;

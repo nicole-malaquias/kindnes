@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
   position: relative;
 
   h1 {
@@ -15,29 +15,18 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: none;
     background: none;
-    :focus {
-      outline: none;
-    }
-
-    a {
-      padding: 1rem;
-    }
-
-    img {
-    }
   }
 
   div {
     display: flex;
     align-items: center;
-    margin: 1rem 3rem;
+    margin: 1rem 1rem;
   }
 `;
 
 export const MenuBurg = styled.div`
-  width: 60vh;
+  width: 85vh;
   height: 100vh;
   top: -1rem;
   left: -3rem;
@@ -48,9 +37,24 @@ export const MenuBurg = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: end;
+  justify-content: space-evenly;
 
-  img {
-    padding: 2rem;
+  button {
+    margin-top: -10rem;
+  }
+
+  a {
+    padding: 1rem;
+
+    :hover {
+      border-radius: 2rem;
+      border: 1px solid var(--purplePink);
+    }
+  }
+
+  #logout:hover {
+    color: red;
+    border-radius: 2rem;
+    border: 1px solid red;
   }
 `;
