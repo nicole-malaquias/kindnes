@@ -1,6 +1,6 @@
 import ContainerCardExplication from "./style";
 import Button from "../Button";
-const CardExplication1 = ({ text, setcEHab, cEHab }) => {
+const CardExplication = ({ text, setcEHab, cEHab }) => {
   return (
     <ContainerCardExplication>
       <p>{text}</p>
@@ -9,4 +9,4 @@ const CardExplication1 = ({ text, setcEHab, cEHab }) => {
   );
 };
 
-export default CardExplication1;
+export default CardExplication;

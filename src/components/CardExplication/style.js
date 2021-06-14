@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 const ContainerCardExplication = styled.div`
-  z-index: 5;
+  z-index: 1;
   position: absolute;
   top: 300px;
   background: var(--purple);
   width: 300px;
   height: 200px;
-  margin-bottom: 25px;
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;

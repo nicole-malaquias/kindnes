@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import ContainerFormHabits from "./style";
 import api from "../../services";
 import React, { useState } from "react";
 import Button from "../Button";
+import * as S from "./styled";
+
 const FormHabit = ({ addH, setAddH, setModal, modal }) => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -37,7 +38,7 @@ const FormHabit = ({ addH, setAddH, setModal, modal }) => {
     setAddH(1 + addH);
     const { title } = data;
     const body = {
-      title: title,
+      title,
       category: category,
       difficulty: difficulty,
       frequency: "usual",
@@ -56,37 +57,36 @@ const FormHabit = ({ addH, setAddH, setModal, modal }) => {
   };
 
   return (
-    <ContainerFormHabits>
-      <div className="formHabits">
-        <form onSubmit={handleSubmit(handleForm)}>
-          <label htmlFor="title">Title</label>
-          <input type="text" id="title" {...register("title")} />
-          <p>
-            {!!errors.username}
-            {errors.username?.message}
-          </p>
-          {console.log("oi")}
-          <label htmlFor="category">Category</label>
-          <select value={category} onChange={handleCategoryChange}>
-            <option value={"beginner"}>Beginner</option>
-            <option value={"intermediate"}>intermediate</option>
-            <option value={"advanced"}>Advanced</option>
-          </select>
+    <S.ContainerFormHabits>
+      <S.FormHabits onSubmit={handleSubmit(handleForm)}>
+        <label htmlFor="title">Title</label>
+        <input type="text" id="title" {...register("title")} />
+        <p>
+          {!!errors.title}
+          {errors.title?.message}
+        </p>
+        <label htmlFor="category">Category</label>
+        <select value={category} onChange={handleCategoryChange} required>
+          <option value=""></option>
+          <option value={"beginner"}>Beginner</option>
+          <option value={"intermediate"}>intermediate</option>
+          <option value={"advanced"}>Advanced</option>
+        </select>
 
-          <label htmlFor="difficulty">Difficulty</label>
-          <select onChange={handleDifficultyChange}>
-            <option value={"beginner"}>Beginner</option>
-            <option value={"intermediate"}>intermediate</option>
-            <option value={"advanced"}>Advanced</option>
-          </select>
+        <label htmlFor="difficulty">Difficulty</label>
+        <select onChange={handleDifficultyChange} required>
+          <option value=""></option>
+          <option value={"beginner"}>Beginner</option>
+          <option value={"intermediate"}>intermediate</option>
+          <option value={"advanced"}>Advanced</option>
+        </select>
 
-          <Button type="submit">Enviar</Button>
-          <Button className="x" handleClick={() => setModal(!modal)}>
-            X
-          </Button>
-        </form>
-      </div>
-    </ContainerFormHabits>
+        <Button type="submit">Enviar</Button>
+        <Button className="x" handleClick={() => setModal(!modal)}>
+          X
+        </Button>
+      </S.FormHabits>
+    </S.ContainerFormHabits>
   );
 };
 

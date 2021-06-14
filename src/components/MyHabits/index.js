@@ -5,7 +5,7 @@ import FormHabit from "../FormHabit";
 import ContainerMyHabits from "./style";
 import MyProgress from "../MyProgress";
 import RandomHabits from "../../components/RandomHabits";
-import CardExplication1 from "../../components/CardExplication1";
+import CardExplication from "../../components/CardExplication";
 const MyHabits = () => {
   const [modal, setModal] = useState(false);
   const [addH, setAddH] = useState(0);
@@ -58,22 +58,23 @@ const MyHabits = () => {
       <div className="Add-new-Habit" onClick={handleAddHabit}>
         <h4>Add New Habits</h4>
       </div>
-
-      {habits &&
-        habits.map(
-          (habit, index) =>
-            habit.achieved === false && (
-              <Habits
-                habit={habit}
-                key={index}
-                addH={addH}
-                setAddH={setAddH}
-                sethabits={sethabits}
-              />
-            )
-        )}
+      <div className="habits">
+        {habits &&
+          habits.map(
+            (habit, index) =>
+              habit.achieved === false && (
+                <Habits
+                  habit={habit}
+                  key={index}
+                  addH={addH}
+                  setAddH={setAddH}
+                  sethabits={sethabits}
+                />
+              )
+          )}
+      </div>
       {cEHab && (
-        <CardExplication1
+        <CardExplication
           text={"Aqui se adiciona um habito"}
           setcEHab={setcEHab}
           cEHab={cEHab}
@@ -87,7 +88,7 @@ const MyHabits = () => {
           modal={modal}
         />
       )}
-      <RandomHabits addH={addH} setAddH={setAddH} />
+      <RandomHabits addH={addH} setAddH={setAddH} modalHabito={modal} />
       <MyProgress habits={habits} />
     </ContainerMyHabits>
   );

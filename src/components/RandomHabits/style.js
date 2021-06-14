@@ -12,12 +12,14 @@ const ContainerRandomHabit = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
+
   button {
     width: 120px;
   }
   h1 {
     color: white;
-    margin: 25px;
+    font-size: 2rem;
   }
 `;
 

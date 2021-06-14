@@ -1,5 +1,5 @@
-import ContainerModalRandom from "./style";
-import React, { useEffect, useState } from "react";
+import * as S from "./styled";
+import React, { useState } from "react";
 import api from "../../services";
 import Button from "../Button";
 const FormRandom = ({
@@ -40,21 +40,27 @@ const FormRandom = ({
       .catch((err) => console.log("eu ruimmmmmmmmmmmmmmm"));
   };
   return (
-    <ContainerModalRandom>
-      <h2>{title}</h2>
-      <label htmlFor="difficulty">
-        <p>Difficulty </p>
-      </label>
-      <select value={difficulty} onChange={handleCategoryChange}>
-        <option value={"beginner"}> Beginner </option>
-        <option value={"intermediate"}>intermediate</option>
-        <option value={"advanced"}>Advanced</option>
-      </select>
-      <Button handleClick={handleRandom}>Yes</Button>
-      <Button handleClick={() => setFormRandomHabit(!formRandomHabit)}>
-        No
-      </Button>
-    </ContainerModalRandom>
+    <S.ContainerModalRandom>
+      <S.Form_Random>
+        <span>"{title}"</span>
+        <label htmlFor="difficulty">
+          <p>Difficulty </p>
+        </label>
+        <select value={difficulty} onChange={handleCategoryChange} required>
+          <option value=""></option>
+          <option value={"beginner"}> Beginner </option>
+          <option value={"intermediate"}>intermediate</option>
+          <option value={"advanced"}>Advanced</option>
+        </select>
+
+        <S.ContainerButtonRandom>
+          <Button handleClick={handleRandom}>Yes</Button>
+          <Button handleClick={() => setFormRandomHabit(!formRandomHabit)}>
+            No
+          </Button>
+        </S.ContainerButtonRandom>
+      </S.Form_Random>
+    </S.ContainerModalRandom>
   );
 };
 

@@ -14,7 +14,7 @@ const Habits = ({ habit, index, addH, setAddH, sethabits }) => {
       how_much_achieved: 24,
       achieved: true,
     };
-    if (how_much_achieved === 23) {
+    if (how_much_achieved > 23) {
       console.log("ué?");
       api.patch(`/habits/${id}/`, body, {
         headers: {
@@ -30,7 +30,6 @@ const Habits = ({ habit, index, addH, setAddH, sethabits }) => {
         },
       });
     }
-    // esse código aqui faz atualizar pq tem vezes que não atualiza usando só o do myhabits
     api
       .get("/habits/personal/", {
         headers: {
@@ -39,16 +38,17 @@ const Habits = ({ habit, index, addH, setAddH, sethabits }) => {
       })
       .then((response) => {
         const { data } = response;
-
         localStorage.setItem("@gestao:habitos", JSON.stringify(data));
-        console.log("atualizou na nuvem");
         sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
       });
+  };
+  const handleProgress = () => {
+    localStorage.setItem("@gestao:atual_habit", JSON.stringify(habit));
   };
 
   return (
     <>
-      <ContainerHabit>
+      <ContainerHabit onClick={handleProgress}>
         <div className="title">
           <p>{title}</p>
         </div>

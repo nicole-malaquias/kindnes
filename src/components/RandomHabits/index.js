@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import ContainerRandomHabit from "./style";
 import Button from "../Button";
 import FormRandom from "../FormRandom";
-const RandomHabist = ({ addH, setAddH }) => {
+
+const RandomHabist = ({ addH, setAddH, modalHabito }) => {
   const [formRandomHabit, setFormRandomHabit] = useState(false);
   const [title, setTitle] = useState("");
   const hRandom = [
@@ -19,13 +20,14 @@ const RandomHabist = ({ addH, setAddH }) => {
     " Bring your coworkers a special treat.",
     " Let someone go in front of you on traffic or on a line",
   ];
+
   const handleRandomHabit = () => {
-    setFormRandomHabit(!formRandomHabit);
+    if (!modalHabito) {
+      setFormRandomHabit(!formRandomHabit);
+    }
     const number = Math.floor(Math.random() * hRandom.length - 1) + 1;
     setTitle("");
     setTitle(hRandom[number]);
-    console.log("a frase foi ", hRandom[number]);
-    console.log("a numero foi ", number);
   };
   return (
     <ContainerRandomHabit>

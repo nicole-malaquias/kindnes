@@ -5,8 +5,9 @@ import jwt_decode from "jwt-decode";
 import { toastLogin } from "../../utils";
 import api from "../../services";
 import HandleFormLogin from "../../services/conection";
+import { useHistory } from "react-router";
 const FormLogin = ({ logado, setLogado }) => {
-  console.log("ola mundo");
+  const history = useHistory();
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório"),
     password: yup
@@ -26,6 +27,7 @@ const FormLogin = ({ logado, setLogado }) => {
 
   const handleForm = (data) => {
     HandleFormLogin(data);
+    history.push("/dashboard");
   };
 
   return (
