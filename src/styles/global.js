@@ -25,6 +25,7 @@ export default createGlobalStyle`
 
       body{
         background: var(--background);
+        height: 100vh;
     }
     a{text-decoration: none}
 
@@ -37,9 +38,16 @@ export default createGlobalStyle`
         line-height: 44px;
         text-align: left;
     }
+    h1 {
+        font-size: 2.5rem;
+    }
     h4 {
         font-size: 1.5rem;
         color: var(--pink);
+    }
+    input {
+        outline: none;
+        border: none;
     }
     p{
         font-family: Montserrat;
@@ -47,7 +55,6 @@ export default createGlobalStyle`
         font-style: normal;
         font-weight: 400;
         text-align: left;
-
     }
 
     button{
@@ -55,6 +62,6 @@ export default createGlobalStyle`
         font-style: normal;
         font-weight: normal;
         font-size: 2rem;
-        cursor: pointer;
+        cursor: pointer;    
     }
 `;

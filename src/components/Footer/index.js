@@ -7,12 +7,6 @@ const Footer = () => {
       <h2>
         <Link to="/aboutus">About</Link>
       </h2>
-      <Link to="/">
-        <div>
-          <img src={logo} alt="logo"></img>
-          <h1>be habits</h1>
-        </div>
-      </Link>
     </Container>
   );
 };
