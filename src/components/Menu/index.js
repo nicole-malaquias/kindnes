@@ -4,16 +4,28 @@ import logo from "../../assets/logo.svg";
 import imgMenu from "../../assets/menu.png";
 import IconClosed from "../../assets/seta.png";
 import Button from "../Button";
-import { useState } from "react";
-
-const Menu = ({ isLogin = false }) => {
-  const [isOpen, setIsOpen] = useState(true);
+import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+const Menu = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const token = localStorage.getItem("@gestao:token") || "";
+  const history = useHistory();
 
   const handleMenu = () => {
     isOpen ? setIsOpen(false) : setIsOpen(true);
   };
 
-  return isLogin ? (
+  const handleLogout = () => {
+    localStorage.clear();
+  };
+
+  useEffect(() => {
+    if (token !== "") {
+      history.push("/dashboard");
+    }
+  }, []);
+
+  return token ? (
     <Container>
       <div>
         <Link to="/">
@@ -47,7 +59,9 @@ const Menu = ({ isLogin = false }) => {
             <Link to="/groups">Groups</Link>
             <Link to="/specificgroup">Specific Group</Link>
           </Button>
-          <Button id="logout">Logout</Button>
+          <Button id="logout" handleClick={() => handleLogout()}>
+            Logout
+          </Button>
         </MenuBurg>
       ) : (
         ""
