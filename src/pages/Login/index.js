@@ -1,18 +1,21 @@
 import FormLogin from "../../components/FormLogin";
-import ImageLogin from "../../assets/image-login.svg"
-import { Container } from "./styles";
+import ImageLogin from "../../assets/image-login.svg";
+import { Container, Content } from "./styles";
 import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 
 const Login = () => {
   return (
     <>
-    <Menu/>
       <Container>
-        <img src={ImageLogin} alt="" />
-        <FormLogin />
+        <Menu />
+        <Content>
+          <img src={ImageLogin} alt="" />
+          <FormLogin />
+        </Content>
+
+        <Footer />
       </Container>
-      <Footer />
     </>
   );
 };

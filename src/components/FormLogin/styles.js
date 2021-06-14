@@ -5,15 +5,12 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: var(--purpleOpacity);
+  background-color: var(--purplePink);
   padding: 1rem;
   border-radius: 10px;
   width: 300px;
-
   h2 {
-    color: var(--purplePink);
-    margin-bottom: 1rem;
-    text-align: center;
+    color: var(--white);
   }
   form {
     display: flex;
