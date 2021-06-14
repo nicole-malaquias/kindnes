@@ -9,8 +9,7 @@ export const Container = styled.div`
   background-color: var(--purplePink);
   border-radius: 10px;
   width: 20vw;
-  height: 100%;
-  max-height: 50vh;
+  height: 80%;
   h2 {
     color: var(--white);
     margin-bottom: 0.5rem;
@@ -38,6 +37,13 @@ export const Container = styled.div`
     color: var(--white);
   }
   @media only screen and (max-width: 768px) {
+    background-color: initial;
+    h2 {
+      color: var(--purplePink);
+    }
+    p {
+      color: var(--purpleDetails);
+    }
     flex: 1;
   }
 `;

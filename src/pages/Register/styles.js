@@ -11,18 +11,16 @@ export const Container = styled.div`
       align-self: flex-start;
     }
   }
-  @media only screen and (max-width: 768px) {
-    height: 74vh;
-    padding: 1rem;
-    > div {
-      > img {
-      display: none;
-    }
-  } ;
 `;
 export const Content = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: center;
   width: 100%;
   flex: 1;
+  @media only screen and (max-width: 768px) {
+    img {
+      display: none;
+    }
+  }
 `;
