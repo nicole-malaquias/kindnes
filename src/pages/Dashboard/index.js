@@ -3,6 +3,7 @@ import MyProgress from "../../components/MyProgress";
 import { useHistory } from "react-router-dom";
 import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
+import Honor from "../../components/Honor";
 import * as S from "./styled";
 const Dashboard = () => {
   const localToken = localStorage.getItem("@gestao:token") || "";
@@ -16,7 +17,8 @@ const Dashboard = () => {
       <Menu />
       <S.ContainerDash>
         <MyHabits />
-        <MyProgress />
+        {/* <MyProgress /> */}
+        <Honor />
       </S.ContainerDash>
       {/* <Footer /> */}
     </>

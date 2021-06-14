@@ -1,36 +1,39 @@
 import { useEffect, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+
 import { ContainerMyProgress } from "./style";
 import { ContainerProgress } from "./style";
 
-const MyProgress = ({ habits }) => {
-  let habit = localStorage.getItem("@gestao:atual_habit") || "";
-  const [total, setTotal] = useState(0);
+const MyProgress = () => {
+  let habit = "";
+  let total = 10;
+  // let habit = localStorage.getItem("@gestao:atual_habit") || "";
+  // const [total, setTotal] = useState(0);
 
-  const loading = () => {
-    habit = localStorage.getItem("@gestao:atual_habit") || "";
-    if (habits !== null && habit === "") {
-      let temp = habits.reduce(
-        (acc, item) => (acc += item.how_much_achieved),
-        0
-      );
-      setTotal(temp);
-    }
-    if (habit !== "") {
-      let temp = JSON.parse(habit);
-      setTotal(temp.how_much_achieved);
-    }
-  };
+  // const loading = () => {
+  //   habit = localStorage.getItem("@gestao:atual_habit") || "";
+  //   if (habits !== null && habit === "") {
+  //     let temp = habits.reduce(
+  //       (acc, item) => (acc += item.how_much_achieved),
+  //       0
+  //     );
+  //     setTotal(0);
+  //   }
+  //   if (habit !== "") {
+  //     let temp = JSON.parse(habit);
+  //     setTotal(temp.how_much_achieved);
+  //   }
+  // };
 
-  useEffect(() => {
-    loading();
-  }, []);
+  // useEffect(() => {
+  //   loading();
+  // }, []);
 
-  useEffect(() => {
-    loading();
-    console.log("ola");
-  }, []);
+  // useEffect(() => {
+  //   loading();
+  //   console.log("ola");
+  // }, []);
 
   return (
     <ContainerProgress>

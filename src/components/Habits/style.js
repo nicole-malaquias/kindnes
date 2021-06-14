@@ -20,6 +20,9 @@ const ContainerHabit = styled.div`
   button {
     width: 80px;
   }
+  i {
+    margin-right: 25px;
+  }
 `;
 
 export default ContainerHabit;

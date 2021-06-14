@@ -13,6 +13,7 @@ const MyHabits = () => {
   const [habits, sethabits] = useState(
     JSON.parse(localStorage.getItem("@gestao:habitos")) || []
   );
+
   const Loading = () => {
     api
       .get("/habits/personal/", {
@@ -63,6 +64,7 @@ const MyHabits = () => {
                   addHabits={addHabits}
                   setAddHabits={setAddHabits}
                   sethabits={sethabits}
+                  honor={false}
                 />
               )
           )}
