@@ -25,4 +25,21 @@ export const ContainerHonor = styled.div`
   button {
     width: 80px;
   }
+  i {
+    animation: neon 1s alternate infinite ease-in-out;
+  }
+  h1 {
+    color: rgb(255, 223, 0);
+    position: absolute;
+    margin-bottom: 100px;
+    animation: neon 1s alternate infinite ease-in-out;
+  }
+  @keyframes neon {
+    from {
+      filter: drop-shadow(0 0 0 rgb(255, 223, 0));
+    }
+    to {
+      filter: drop-shadow(0 0 10px rgb(212, 175, 55));
+    }
+  }
 `;

@@ -25,6 +25,7 @@ const Honor = () => {
 
   return (
     <S.ContainerHonor>
+      <h1> Honor</h1>
       {console.log("habitos", habits)}
       {habits !== "" &&
         habits.map((habit) =>
