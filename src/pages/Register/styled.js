@@ -10,7 +10,11 @@ export const Container = styled.div`
       align-self: flex-start;
     }
   }
+
   @media only screen and (min-width: 768px) {
+    h2 {
+      margin: 2rem;
+    }
   }
 `;
 export const Content = styled.div`

@@ -56,7 +56,6 @@ const FormRegister = () => {
   return (
     <>
       <Container>
-        <h2>Register</h2>
         <form onSubmit={handleSubmit(handleForm)}>
           <Input
             register={register}

@@ -11,6 +11,8 @@ const Register = () => {
     <>
       <Container>
         <Menu />
+        <h2>Register</h2>
+
         <Content>
           <img src={image} alt="" />
           <FormRegister />
