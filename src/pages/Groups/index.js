@@ -82,6 +82,9 @@ const Groups = () => {
                   <option value="donation">donation</option>
                   <option value="animal care">animal care</option>
                   <option value="teach">teach</option>
+                  <option value="women's empowerment">
+                    women's empowerment
+                  </option>
                 </Select>
 
                 <Button width="100px" type="submit" colorButton="purplePink">
