@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const ContainerRandomHabit = styled.div`
   background: var(--purple);
-  width: 400px;
-  height: 250px;
+  width: 500px;
+  height: 300px;
   margin-bottom: 25px;
   position: absolute;
   display: flex;

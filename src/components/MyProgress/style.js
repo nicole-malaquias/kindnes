@@ -13,7 +13,7 @@ export const ContainerProgress = styled.div`
   position: absolute;
   background: var(--pink);
   margin-top: 10px;
-  top: 380px;
+  top: 450px;
   margin-left: 50px;
   p {
     font-weight: bolder;

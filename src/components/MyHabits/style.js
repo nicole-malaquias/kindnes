@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const ContainerMyHabits = styled.div`
   width: 500px;
-  height: 250px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: first baseline;
@@ -15,11 +15,17 @@ const ContainerMyHabits = styled.div`
     margin-top: 10px;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    width: 350px;
-    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 450px;
     ::-webkit-scrollbar-thumb {
       background: red;
       border-radius: 10px;
+    }
+    button {
+      width: 55px;
     }
   }
   h1 {

@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
 export const ContainerModalRandom = styled.div`
-  z-index: 2;
-  position: absolute;
-  top: -150px;
-  left: -500px;
+  z-index: 5;
+  top: 0;
+  left: 0;
   background: rgba(221, 204, 225, 0.8);
+  position: absolute;
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  left: -600px;
 `;
 
 export const ContainerButtonRandom = styled.div`
@@ -20,7 +21,7 @@ export const ContainerButtonRandom = styled.div`
   }
 `;
 export const Form_Random = styled.div`
-  z-index: 3;
+  z-index: 6;
   background: #9780a5;
   height: 55vh;
   width: 35vw;
@@ -35,6 +36,7 @@ export const Form_Random = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+
   select {
     margin: 5px;
     height: 30px;
@@ -54,7 +56,7 @@ export const Form_Random = styled.div`
   }
   input {
     border-radius: 10px;
-    border: none;
+
     height: 30px;
     width: 300px;
     margin: 5px;
