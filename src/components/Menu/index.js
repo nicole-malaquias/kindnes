@@ -27,7 +27,7 @@ const Menu = ({ isLogin = false }) => {
   ) : (
     <Container>
       <div>
-        <Button onClick={() => handleMenu()}>
+        <Button handleClick={() => handleMenu()}>
           <img src={imgMenu} alt="menu" />
         </Button>
         <Link to="/">
@@ -39,10 +39,10 @@ const Menu = ({ isLogin = false }) => {
       </div>
       {isOpen ? (
         <MenuBurg>
-          <Button onClick={() => handleMenu()}>
+          <Button handleClick={() => handleMenu()}>
             <img src={IconClosed} alt="sair" />
           </Button>
-          <Button onClick={() => handleMenu()}>
+          <Button handleClick={() => handleMenu()}>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/groups">Groups</Link>
             <Link to="/specificgroup">Specific Group</Link>
