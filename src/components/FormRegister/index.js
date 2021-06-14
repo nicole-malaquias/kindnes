@@ -4,48 +4,29 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services";
 import { useHistory } from "react-router";
 import { toastErrorRegister, toastSuccessRegister } from "../../utils";
-import { TextField } from "@material-ui/core";
 import { Container, Terms } from "./styles";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
-const useStyles = makeStyles({
-  field: {
-    "& .Mui-error": {
-      color: "var(--white)",
-    },
-    marginTop: "2px",
-  },
-});
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: "#F5F5F5" },
-  },
-});
-
 const FormRegister = () => {
-  const classes = useStyles();
   const history = useHistory();
   const schema = yup.object().shape({
     username: yup
       .string()
-      .required("Campo obrigatório")
+      .required("Required field")
       .min(4, "Mínimo 4 caracteres"),
-    email: yup.string().email("Email inválido").required("Campo obrigatório"),
+    email: yup.string().email("Email inválido").required("Required field"),
     password: yup
       .string()
       .min(6, "Senha mínima de 6 dígitos")
-      .required("Campo obrigatório")
+      .required("Required field")
       .matches(
         "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])",
-        "A senha deve contar ao menos uma letra maiúscula, uma minúscula, um caractere especial e ao menos um dígito"
+        "Password must contain  at least one number,  both lower and uppercase letters and special characters"
       ),
     passwordConfirm: yup
       .string()
-      .oneOf([yup.ref("password")], "Senha incorreta")
-      .required("Campo obrigatório"),
+      .oneOf([yup.ref("password")], "Incorrect password")
+      .required("Required field"),
     agree: yup
       .boolean()
       .oneOf([true], "You need to accept the terms")
@@ -75,69 +56,50 @@ const FormRegister = () => {
     <>
       <Container>
         <h2>Register</h2>
-        <ThemeProvider theme={theme}>
-          <form onSubmit={handleSubmit(handleForm)}>
-            <TextField
-              className={classes.field}
-              color="primary"
-              variant="outlined"
-              label="Username"
-              name="Username"
-              type="text"
-              {...(errors.username?.message && {
-                error: true,
-                helperText: errors.username.message,
-              })}
-              {...register("username")}
-            />
-            <TextField
-              className={classes.field}
-              color="primary"
-              variant="outlined"
-              label="Email"
-              name="Email"
-              type="email"
-              {...(errors.email?.message && {
-                error: true,
-                helperText: errors.email.message,
-              })}
-              {...register("email")}
-            />
-            <TextField
-              className={classes.field}
-              color="primary"
-              variant="outlined"
-              label="password"
-              name="password"
-              type="password"
-              {...(errors.password?.message && {
-                error: true,
-                helperText: errors.password.message,
-              })}
-              {...register("password")}
-            />
-            <TextField
-              className={classes.field}
-              color="primary"
-              variant="outlined"
-              label="confirm your password"
-              name="passwordConfirm"
-              type="password"
-              {...(errors.passwordConfirm?.message && {
-                error: true,
-                helperText: errors.passwordConfirm.message,
-              })}
-              {...register("passwordConfirm")}
-            />
-            <Terms>
-              <input id="terms" type="checkbox" {...register("agree")} />
-              <label htmlFor="terms">I agree with the terms</label>
-              {errors.agree?.message && <p>{errors.agree?.message}</p>}
-            </Terms>
+        <form onSubmit={handleSubmit(handleForm)}>
+          <label htmlFor="username">username</label>
+          <input
+            id="username"
+            type="text"
+            placeholder="username"
+            {...register("username")}
+          />
+          {errors.username?.message && <p>{errors.username.message}</p>}
 
-            <Button type="submit">Send</Button>
-          </form>
-        </ThemeProvider>
+          <label htmlFor="">email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="email"
+            {...register("email")}
+          />
+          {errors.email?.message && <p>{errors.email.message}</p>}
+          <label htmlFor="password">password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="password"
+            {...register("password")}
+          />
+          {errors.password?.message && <p>{errors.password.message}</p>}
+          <label htmlFor="passwordConfirm">confirm your password</label>
+          <input
+            id="passwordConfirm"
+            type="password"
+            placeholder="confirm your password"
+            {...register("passwordConfirm")}
+          />
+          {errors.passwordConfirm?.message && (
+            <p>{errors.passwordConfirm.message}</p>
+          )}
+          <Terms>
+            <input id="terms" type="checkbox" {...register("agree")} />
+            <label htmlFor="terms">I agree with the terms</label>
+            {errors.agree?.message && <p>{errors.agree?.message}</p>}
+          </Terms>
+
+          <Button type="submit">Send</Button>
+        </form>
 
         <p>
           Already registered? <Link to="/login">login</Link>

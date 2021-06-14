@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  padding: 1rem;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   background-color: var(--purplePink);
   border-radius: 10px;
-  width: 30vw;
+  width: 20vw;
+  height: 100%;
+  max-height: 50vh;
   h2 {
     color: var(--white);
     margin-bottom: 0.5rem;
@@ -16,7 +18,15 @@ export const Container = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    label  {
+      display: none;
+    }
+    input {
+      border-radius: 10px;
+      border: none;
+      padding: 16px;
+      margin-top: 10px;
+    }
     button {
       :hover,
       :focus {
@@ -24,19 +34,17 @@ export const Container = styled.div`
       }
     }
   }
+  p {
+    color: var(--white);
+  }
   @media only screen and (max-width: 768px) {
-    height: 70vh;
     flex: 1;
   }
 `;
 export const Terms = styled.div`
-  padding: 0.5rem;
-  label {
-      margin-left: 0.5rem;
-  }
-  p {
-    color: red;
-    margin-top: 1rem;
-    font-size: 1rem;
+  padding: 10px;
+  input + label {
+    display: inline-block;
+    margin-left: 0.5rem;
   }
 `;

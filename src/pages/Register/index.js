@@ -4,17 +4,19 @@ import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 import image from "../../assets/image-register.svg";
 
-import { Container } from "./styles";
+import { Container, Content } from "./styles";
 
 const Register = () => {
   return (
     <>
-      <Menu />
       <Container>
+        <Menu />
+        <Content>
           <img src={image} alt="" />
-        <FormRegister />
+          <FormRegister />
+        </Content>
+        <Footer />
       </Container>
-      <Footer />
     </>
   );
 };
