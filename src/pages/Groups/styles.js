@@ -12,9 +12,9 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-  }
-  @media only screen and (min-width: 768px) {
-    height: 80vh;
+    &:first-child {
+      align-self: flex-start;
+    }
   }
 `;
 

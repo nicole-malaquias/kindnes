@@ -11,7 +11,7 @@ import Button from "../../components/Button";
 import { toastLoadGroupsError } from "../../utils";
 import Menu from "../../components/Menu";
 import { useAuthy } from "../../Providers/Authy";
-
+import Footer from "../../components/Footer";
 const Groups = () => {
   const { token, authy } = useAuthy();
 
@@ -113,6 +113,7 @@ const Groups = () => {
             <CardGroup groups={chosenCategory} />
           )}
         </ContainerGroups>
+        <Footer />
       </Container>
     </>
   );
