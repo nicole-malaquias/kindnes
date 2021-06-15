@@ -7,10 +7,9 @@ export const Container = styled.div`
   h2 {
     font-size: 1.5rem;
     text-align: center;
-    border: 1px solid var(--purplePink);
     border-radius: 1rem;
     margin: 0rem 1.8rem;
-    width: 10vw;
+    width: 12vw;
     a {
       color: var(--purpleDetails);
     }
