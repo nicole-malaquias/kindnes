@@ -19,7 +19,7 @@ const Menu = () => {
   };
 
   useEffect(() => {
-    if (token !== "") {
+    if (token) {
       history.push("/dashboard");
     }
   }, []);
