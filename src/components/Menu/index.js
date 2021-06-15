@@ -39,7 +39,7 @@ const Menu = () => {
   ) : (
     <Container>
       <div id="Menu">
-        <Button handleClick={handleMenu()}>
+        <Button handleClick={handleMenu}>
           <img src={imgMenu} alt="menu" />
         </Button>
         <Link to="/">
@@ -51,15 +51,15 @@ const Menu = () => {
       </div>
       {isOpen ? (
         <MenuBurg>
-          <Button handleClick={handleMenu()}>
+          <Button handleClick={handleMenu}>
             <img src={IconClosed} alt="sair" />
           </Button>
-          <Button handleClick={handleMenu()}>
+          <Button handleClick={handleMenu}>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/groups">Groups</Link>
             <Link to="/specificgroup">Specific Group</Link>
           </Button>
-          <Button id="logout" handleClick={handleLogout()}>
+          <Button id="logout" handleClick={handleLogout}>
             Logout
           </Button>
         </MenuBurg>
