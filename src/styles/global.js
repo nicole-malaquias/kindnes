@@ -32,13 +32,21 @@ export default createGlobalStyle`
     h1,h2,h3,h4,h5,h6{
         color: var(--purpleDetails);
         font-family: Montserrat;
-        font-size: 3rem;
+        font-size:1.5rem;
         font-style: normal;
         font-weight: 400;
         line-height: 44px;
         text-align: left;
     }
     
+<<<<<<< HEAD
+=======
+    @media only screen and (min-width: 768px){
+        h1,h2,h3,h4,h5,h6{
+            font-size:3rem;
+        }
+    }
+>>>>>>> c298048c31554eec0946539ae23f70bd997a828c
 
     h4 {
         font-size: 1.5rem;
@@ -61,6 +69,12 @@ export default createGlobalStyle`
         font-style: normal;
         font-weight: normal;
         font-size: 2rem;
-        cursor: pointer;    
+        border: none;
+    
+        :focus {
+            outline: none;
+        }
+
+        cursor: pointer;
     }
 `;

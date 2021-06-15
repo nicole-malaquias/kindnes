@@ -1,4 +1,4 @@
-import { Container, Content, Background, DivButton } from "./styles";
+import { Container, Content, Background, DivButton } from "./styled";
 import { useHistory, Redirect } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -6,9 +6,13 @@ import Button from "../../components/Button";
 import ImageExemplo from "../../assets/rafiki.png";
 import Footer from "../../components/Footer";
 import Menu from "../../components/Menu";
-const Home = ({ isLogin }) => {
+import { useAuthy } from "../../Providers/Authy";
+
+const Home = () => {
+  const { token } = useAuthy();
   const history = useHistory();
-  if (isLogin) {
+
+  if (token) {
     return <Redirect to="/dashboard"></Redirect>;
   }
   return (
@@ -18,8 +22,11 @@ const Home = ({ isLogin }) => {
         <Content>
           <div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+              Be Kind is an app that helps you to improve your kindness towards
+              yourself and others, by practicing daily acts of kindness 24 times
+              you'll be creating a habit out of them. We also have groups that
+              you can join in to perform volunteer work, Come join us and spread
+              kindness!
             </p>
             <DivButton>
               <Button
@@ -88,19 +95,19 @@ const Home = ({ isLogin }) => {
           swipeable
         >
           <div>
-            <img src={ImageExemplo} alt="exemplo"></img>
+            <img src={ImageExemplo} alt="exemplo" />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo"></img>
+            <img src={ImageExemplo} alt="exemplo" />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo"></img>
+            <img src={ImageExemplo} alt="exemplo" />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo"></img>
+            <img src={ImageExemplo} alt="exemplo" />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo"></img>
+            <img src={ImageExemplo} alt="exemplo" />
           </div>
         </Carousel>
       </Container>

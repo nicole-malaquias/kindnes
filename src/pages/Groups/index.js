@@ -66,8 +66,8 @@ const Groups = () => {
 
   return (
     <>
-      <Menu />
       <Container>
+        <Menu />
         <SearchContainer>
           <Category>
             <form onSubmit={handleSubmit(onSubmitCategory)}>
