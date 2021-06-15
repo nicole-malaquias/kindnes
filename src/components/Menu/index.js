@@ -4,25 +4,17 @@ import logo from "../../assets/logo.svg";
 import imgMenu from "../../assets/menu.png";
 import IconClosed from "../../assets/seta.png";
 import Button from "../Button";
-import { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useState } from "react";
 
 import { useAuthy } from "../../Providers/Authy";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { token, handleLogout } = useAuthy();
-  const history = useHistory();
 
   const handleMenu = () => {
     isOpen ? setIsOpen(false) : setIsOpen(true);
   };
-
-  useEffect(() => {
-    if (token) {
-      history.push("/dashboard");
-    }
-  }, []);
 
   return !token ? (
     <Container>

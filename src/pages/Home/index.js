@@ -6,9 +6,13 @@ import Button from "../../components/Button";
 import ImageExemplo from "../../assets/rafiki.png";
 import Footer from "../../components/Footer";
 import Menu from "../../components/Menu";
-const Home = ({ isLogin }) => {
+import { useAuthy } from "../../Providers/Authy";
+
+const Home = () => {
+  const { token } = useAuthy();
   const history = useHistory();
-  if (isLogin) {
+
+  if (token) {
     return <Redirect to="/dashboard"></Redirect>;
   }
   return (
