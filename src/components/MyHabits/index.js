@@ -2,7 +2,7 @@ import Habits from "../Habits";
 import api from "../../services";
 import React, { useEffect, useState } from "react";
 import FormHabit from "../FormHabit";
-import ContainerMyHabits from "./style";
+import * as S from "./style";
 import RandomHabits from "../../components/RandomHabits";
 import CardExplication from "../../components/CardExplication";
 const MyHabits = () => {
@@ -48,12 +48,13 @@ const MyHabits = () => {
   }, [addHabits]);
 
   return (
-    <ContainerMyHabits>
+    <S.ContainerMyHabits>
       <h1>My Habits</h1>
-      <div className="Add-new-Habit" onClick={handleAddHabit}>
+
+      <S.AddNewHabit onClick={handleAddHabit}>
         <h4>Add New Habits</h4>
-      </div>
-      <div className="habits">
+      </S.AddNewHabit>
+      <S.Habits>
         {habits &&
           habits.map(
             (habit, index) =>
@@ -68,7 +69,7 @@ const MyHabits = () => {
                 />
               )
           )}
-      </div>
+      </S.Habits>
       {cardExplication && (
         <CardExplication
           text={"Aqui se adiciona um habito"}
@@ -84,12 +85,12 @@ const MyHabits = () => {
           modal={modal}
         />
       )}
-      <RandomHabits
+      {/* <RandomHabits
         addHabits={addHabits}
         setAddHabits={setAddHabits}
         modalHabito={modal}
-      />
-    </ContainerMyHabits>
+      /> */}
+    </S.ContainerMyHabits>
   );
 };
 
