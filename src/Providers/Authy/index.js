@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 const AuthyContext = createContext();
 
 export const AuthyProvider = ({ children }) => {
@@ -27,7 +27,7 @@ export const AuthyProvider = ({ children }) => {
 
   const handleLogout = () => {
     localStorage.clear();
-    history.push("/login");
+    return <Redirect to="/login"/>
   };
 
   return (
