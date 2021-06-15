@@ -6,25 +6,6 @@ import { useHabit } from "../../Providers/Habits";
 
 const Honor = () => {
   const { habits } = useHabit();
-  // const [habits, setHabits] = useState(
-  //   JSON.parse(localStorage.getItem("@gestao:habitos")) || ""
-  // );
-  // const localToken = localStorage.getItem("@gestao:token") || "";
-
-  // const getHabits = () => {
-  //   api
-  //     .get("/habits/personal/", {
-  //       headers: {
-  //         Authorization: `Bearer ${localToken}`,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       const { data } = response;
-  //       localStorage.setItem("@gestao:habitos", JSON.stringify(data));
-  //       setHabits(data);
-  //     });
-  // };
-
   return (
     <S.ContainerHonor>
       <h1> Honor</h1>
