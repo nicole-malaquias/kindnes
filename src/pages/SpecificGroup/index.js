@@ -1,11 +1,12 @@
-import { Redirect } from "react-router";
 import GroupGoal from "../../components/GroupGoal";
 import GroupActivities from "../../components/GroupActivities";
 import GroupProgress from "../../components/GroupProgress";
 import api from "../../services";
+import { useAuthy } from "../../Providers/Authy";
+import { Redirect } from "react-router";
 
 const SpecificGroup = () => {
-  const token = localStorage.getItem("@gestao:token") || "";
+  const { token, handleLogout } = useAuthy();
 
   if (token) {
     return (
@@ -13,6 +14,7 @@ const SpecificGroup = () => {
         <GroupGoal />
         <GroupActivities />
         <GroupProgress />
+        <button onClick={handleLogout}>Logout</button>
       </>
     );
   } else {

@@ -5,27 +5,13 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: var(--purplePink);
   padding: 1rem;
   border-radius: 10px;
   width: 300px;
-
-  h2 {
-    color: var(--white);
-  }
-  p {
-    text-align: center;
-  }
-
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    p {
-      color: var(--white);
-      text-align: center;
-    }
   }
   button {
     margin-top: 30px;
@@ -33,4 +19,12 @@ export const Container = styled.div`
       background-color: var(--purple);
     }
   }
+   @media only screen and (min-width: 768px) {
+    background-color: var(--purplePink);
+    h2, p {
+      color: var(--white);
+    } 
+    p {
+      margin-top: 10px;
+    }
 `;
