@@ -7,12 +7,11 @@ import Button from "../Button";
 import { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import { AuthyProvider } from "../../Providers/Authy";
+import { useAuthy } from "../../Providers/Authy";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const token = useContext(AuthyProvider);
-  const handleLogout = useContext(AuthyProvider);
+  const { token, handleLogout } = useAuthy();
   const history = useHistory();
 
   const handleMenu = () => {
