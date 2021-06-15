@@ -27,7 +27,7 @@ export const AuthyProvider = ({ children }) => {
 
   const handleLogout = () => {
     localStorage.clear();
-    return <Redirect to="/login"/>
+    return <Redirect to="/login" />;
   };
 
   return (

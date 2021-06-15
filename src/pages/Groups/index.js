@@ -6,7 +6,13 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
-import { Container, Select, Category, SearchContainer } from "./styles";
+import {
+  Container,
+  Select,
+  Category,
+  SearchContainer,
+  MenuContainer,
+} from "./styles";
 import Button from "../../components/Button";
 import { toastLoadGroupsError } from "../../utils";
 import Menu from "../../components/Menu";
@@ -37,7 +43,9 @@ const Groups = () => {
     } else {
       api
         .get("groups/subscriptions/", {
-          authy,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         })
         .then((response) => setGroups(response.data))
         .catch((_) => toastLoadGroupsError());
@@ -67,7 +75,9 @@ const Groups = () => {
   return (
     <>
       <Container>
-        <Menu />
+        <MenuContainer>
+          <Menu />
+        </MenuContainer>
         <SearchContainer>
           <Category>
             <form onSubmit={handleSubmit(onSubmitCategory)}>

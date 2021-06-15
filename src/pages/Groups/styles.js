@@ -18,6 +18,12 @@ export const Container = styled.div`
   }
 `;
 
+export const MenuContainer = styled.div`
+  @media only screen and (min-width: 768px) {
+    width: 19vw;
+  }
+`;
+
 export const Select = styled.select`
   width: 100%;
   height: 3rem;
@@ -38,6 +44,7 @@ export const Select = styled.select`
 
 export const Category = styled.div`
   margin-bottom: 1rem;
+
   form {
     display: flex;
     flex-direction: column;

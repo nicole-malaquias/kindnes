@@ -8,7 +8,7 @@ export const CardItem = styled.div`
   background-color: var(--white);
   width: 55vw;
   float: right;
-  margin: 5px;
+  margin: 3px;
   height: 30vh;
   border-radius: 20px;
   cursor: pointer;
