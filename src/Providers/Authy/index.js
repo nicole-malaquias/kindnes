@@ -10,24 +10,22 @@ export const AuthyProvider = ({ children }) => {
   const [userId, setUserId] = useState(
     localStorage.getItem("@gestao:userId") || ""
   );
-  const [authy, setAuthy] = useState({
+  const authy = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  });
+  };
 
   const updateAuthy = (token, id) => {
     setToken(token);
     setUserId(id);
-    localStorage.setItem("@gestao:token", token);
-    localStorage.setItem("@gestao:user_Id", id);
+    localStorage.clear();
   };
 
   const handleLogout = () => {
     setToken("");
     setUserId("");
-    localStorage.setItem("@gestao:token", "");
-    localStorage.setItem("@gestao:user_Id", "");
+    localStorage.clear();
     return <Redirect to="/login" />;
   };
 
