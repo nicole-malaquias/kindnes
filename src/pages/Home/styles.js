@@ -2,8 +2,12 @@ import styled from "styled-components";
 import rafiki from "../../assets/rafiki.png";
 
 export const Container = styled.div`
+<<<<<<< HEAD
   padding: 1rem 4rem;
 
+=======
+  padding: 0 4rem;
+>>>>>>> 808a0f3ec9cea8905ad43b83a9998278fa037cca
   .Carrosel {
     display: none;
   }

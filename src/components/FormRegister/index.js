@@ -4,26 +4,34 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services";
 import { useHistory } from "react-router";
 import { toastErrorRegister, toastSuccessRegister } from "../../utils";
+import { Container, Terms } from "./styled";
+import Button from "../../components/Button";
+import { Link } from "react-router-dom";
+import Input from "../../components/Input";
 const FormRegister = () => {
   const history = useHistory();
   const schema = yup.object().shape({
     username: yup
       .string()
-      .required("Campo obrigatório")
-      .min(4, "Mínimo 4 caracteres"),
-    email: yup.string().email("Email inválido").required("Campo obrigatório"),
+      .required("Required field")
+      .min(4, "Minimum 4 characters"),
+    email: yup.string().email("Invalid email").required("Required field"),
     password: yup
       .string()
-      .min(6, "Senha mínima de 6 dígitos")
-      .required("Campo obrigatório")
+      .min(6, "password length of minimum 6 digits")
+      .required("Required field")
       .matches(
         "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])",
-        "A senha deve contar ao menos uma letra maiúscula, uma minúscula, um caractere especial e ao menos um dígito"
+        "must contain number, both lower and uppercase letters and special characters"
       ),
     passwordConfirm: yup
       .string()
-      .oneOf([yup.ref("password")], "Senha incorreta")
-      .required("Campo obrigatório"),
+      .oneOf([yup.ref("password")], "Incorrect password")
+      .required("Required field"),
+    agree: yup
+      .boolean()
+      .oneOf([true], "You need to accept the terms")
+      .required(),
   });
   const {
     register,
@@ -39,41 +47,60 @@ const FormRegister = () => {
     api
       .post("/users/", necessaryDatas)
       .then((_) => {
-        toastSuccessRegister()
-        history.push("/login")
+        toastSuccessRegister();
+        history.push("/login");
       })
       .catch((_) => toastErrorRegister());
     reset();
   };
   return (
-    <div>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit(handleForm)}>
-        <label htmlFor="username">Name</label>
-        <input type="text" id="username" {...register("username")} />
-        {errors.username?.message && <p>{errors.username.message}</p>}
-
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" {...register("email")} />
-        {errors.email?.message && <p>{errors.email.message}</p>}
-
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" {...register("password")} />
-        {errors.password?.message && <p>{errors.password.message}</p>}
-
-        <label htmlFor="passwordConfirm">Confirmação de senha</label>
-        <input
-          id="passwordConfirm"
-          type="password"
-          {...register("passwordConfirm")}
-        />
-        {errors.passwordConfirm?.message && (
-          <p>{errors.passwordConfirm.message}</p>
-        )}
-
-        <button type="submit">SignUp</button>
-      </form>
-    </div>
+    <>
+      <Container>
+        <form onSubmit={handleSubmit(handleForm)}>
+          <Input
+            register={register}
+            type="text"
+            name="username"
+            label="username"
+            placeholder="username"
+            error={errors.username?.message}
+          />
+          <Input
+            register={register}
+            type="email"
+            name="email"
+            label="email"
+            placeholder="email"
+            error={errors.email?.message}
+          />
+          <Input
+            register={register}
+            type="password"
+            name="password"
+            label="password"
+            placeholder="password"
+            error={errors.password?.message}
+          />
+          <Input
+            register={register}
+            type="password"
+            name="passwordConfirm"
+            label="Confirm your password"
+            placeholder="Confirm your password"
+            error={errors.passwordConfirm?.message}
+          />
+          <Terms>
+            <input id="terms" type="checkbox" {...register("agree")} />
+            <label htmlFor="terms">I agree with the terms</label>
+            {errors.agree?.message && <p>- {errors.agree?.message}</p>}
+          </Terms>
+          <Button type="submit">Send</Button>
+        </form>
+        <p>
+          Already registered? <Link to="/login">login</Link>
+        </p>
+      </Container>
+    </>
   );
 };
 export default FormRegister;
