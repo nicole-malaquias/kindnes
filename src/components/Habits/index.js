@@ -23,12 +23,17 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
       });
     } else {
       body = { how_much_achieved: how_much_achieved + 1, achieved: false };
-      api.patch(`/habits/${id}/`, body, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const total = how_much_achieved + 1;
+      const newhabit = { title, how_much_achieved: total };
+      api
+        .patch(`/habits/${id}/`, body, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((item) => handleHabit(newhabit));
     }
+
     getPersonalHabits(sethabits);
   };
   const handleProgress = () => {

@@ -5,20 +5,42 @@ export const ContainerProgress = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 500px;
-  height: 220px;
-
+  width: 250px;
+  height: 150px;
   border-radius: 10px;
   border: 1px solid pink;
   position: absolute;
   background: var(--pink);
-  margin-top: 10px;
-  top: 450px;
-  margin-left: 50px;
+  margin-top: 120px;
+  top: 480px;
+  left: 50%;
+  transform: translate(-50%);
+
   p {
     font-weight: bolder;
     margin-bottom: 10px;
     color: var(--black);
+  }
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 220px;
+
+    border-radius: 10px;
+    border: 1px solid pink;
+    position: absolute;
+    background: var(--pink);
+    margin-top: 10px;
+    top: 450px;
+    margin-left: 50px;
+    p {
+      font-weight: bolder;
+      margin-bottom: 10px;
+      color: var(--black);
+    }
   }
 `;
 export const ContainerMyProgress = styled.div`
