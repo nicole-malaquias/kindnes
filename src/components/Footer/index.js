@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container } from "./styled";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 const Footer = () => {

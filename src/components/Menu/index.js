@@ -1,4 +1,4 @@
-import { Container, MenuBurg } from "./styles";
+import { Container, MenuBurg } from "./styled";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import imgMenu from "../../assets/menu.png";

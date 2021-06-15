@@ -1,4 +1,4 @@
-import { Container, Content, Background, DivButton } from "./styles";
+import { Container, Content, Background, DivButton } from "./styled";
 import { useHistory, Redirect } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
