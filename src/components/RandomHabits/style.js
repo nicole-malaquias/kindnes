@@ -25,13 +25,11 @@ const ContainerRandomHabit = styled.div`
     font-size: 25px;
   }
   @media only screen and (min-width: 768px) {
-    background: var(--purple);
     width: 500px;
-    height: 150px;
-    margin-bottom: 25px;
-    left: 20%;
-    top: 70%;
-    transform: translate(-41%);
+    height: 200px;
+    margin-top: 40px;
+    left: 24%;
+
     button {
       width: 120px;
     }
