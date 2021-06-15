@@ -12,7 +12,7 @@ export const ContainerProgress = styled.div`
   position: absolute;
   background: var(--pink);
   margin-top: 120px;
-  top: 480px;
+  top: 70%;
   left: 50%;
   transform: translate(-50%);
 
@@ -26,16 +26,15 @@ export const ContainerProgress = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 500px;
-    height: 220px;
-
+    width: 35rem;
+    height: 17rem;
     border-radius: 10px;
     border: 1px solid pink;
     position: absolute;
+    top: 7px;
+    margin-left: 20rem;
     background: var(--pink);
-    margin-top: 10px;
-    top: 450px;
-    margin-left: 50px;
+
     p {
       font-weight: bolder;
       margin-bottom: 10px;

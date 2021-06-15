@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 const ContainerRandomHabit = styled.div`
   background: var(--purple);
-  width: 250px;
-  height: 150px;
-  margin-bottom: 25px;
-  top: 400px;
+  width: 15.62rem;
+  height: 9.375rem;
+  margin-bottom: 1.5rem;
+  top: 22rem;
   left: 50%;
   transform: translate(-50%);
   position: absolute;
@@ -16,8 +16,8 @@ const ContainerRandomHabit = styled.div`
   border-radius: 10px;
   right: 5%;
   button {
-    width: 200px;
-    height: 30px;
+    width: 12.5rem;
+    height: 1.87rem;
   }
   h1 {
     margin-top: 10px;
@@ -25,10 +25,10 @@ const ContainerRandomHabit = styled.div`
     font-size: 25px;
   }
   @media only screen and (min-width: 768px) {
-    width: 500px;
-    height: 200px;
-    margin-top: 40px;
-    left: 24%;
+    width: 31.25rem;
+    height: 12.5rem;
+    margin-top: 6rem;
+    left: 18.8rem;
 
     button {
       width: 120px;

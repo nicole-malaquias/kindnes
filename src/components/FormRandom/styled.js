@@ -3,11 +3,12 @@ import styled from "styled-components";
 export const ContainerModalRandom = styled.div`
   z-index: 1;
   background: rgba(221, 204, 225, 0.8);
-  position: fixed;
+  position: relative;
   height: 100vh;
   width: 100vw;
-  top: -400px;
-  display: flex;
+
+  top: 0;
+  left: 0;
 `;
 
 export const ContainerButtonRandom = styled.div`
@@ -21,7 +22,7 @@ export const Form_Random = styled.div`
   background: #9780a5;
   height: 55vh;
   width: 35vw;
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   border-radius: 10px;
@@ -35,8 +36,8 @@ export const Form_Random = styled.div`
 
   select {
     margin: 5px;
-    height: 30px;
-    width: 100px;
+    height: 1.85rem;
+    width: 6.25rem;
     border: none;
     background: var(--white);
     font-size: 1.2rem;
@@ -47,13 +48,13 @@ export const Form_Random = styled.div`
     font-size: 2rem;
   }
   button {
-    width: 90px;
-    height: 40px;
+    width: 5.6rem;
+    height: 2.5rem;
   }
   input {
     border-radius: 10px;
-    height: 30px;
-    width: 300px;
+    height: 1.85rem;
+    width: 18.75rem;
     margin: 5px;
     font-size: 1.2rem;
   }

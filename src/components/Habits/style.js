@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const ContainerHabit = styled.div`
-  width: 220px;
-  height: 40px;
+  width: 13.75rem;
+  height: 2.5rem;
   background: var(--white);
   display: flex;
   justify-content: space-between;
@@ -10,13 +10,13 @@ const ContainerHabit = styled.div`
   margin: 4px;
   border-radius: 5px;
   p {
-    width: 100px;
+    width: 6.25rem;
     text-align: center;
     font-size: 1.2rem;
   }
   button {
-    width: 40px;
-    height: 30px;
+    width: 2.5rem;
+    height: 2.5rem;
     font-size: 1.2rem;
   }
   .title {
@@ -27,23 +27,23 @@ const ContainerHabit = styled.div`
   }
   @media only screen and (min-width: 768px) {
     margin: 5px;
-    width: 320px;
+    width: 20rem;
     padding: 5px;
     display: flex;
     align-items: center;
     border-radius: 10px;
     p {
-      width: 200px;
+      width: 12.5rem;
       margin-left: 5px;
       font-size: 1.2rem;
     }
 
     button {
-      width: 52px;
-      height: 27px;
+      width: 3.35rem;
+      height: 2.5rem;
     }
     i {
-      margin-right: 25px;
+      margin-right: 1.5rem;
     }
   }
 `;

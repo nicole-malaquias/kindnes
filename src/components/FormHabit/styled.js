@@ -30,8 +30,8 @@ export const FormHabits = styled.form`
   flex-direction: column;
   select {
     margin: 5px;
-    height: 30px;
-    width: 100px;
+    height: 1.8rem;
+    width: 6.2rem;
     border: none;
     background: white;
     font-size: 1.2rem;
@@ -42,14 +42,14 @@ export const FormHabits = styled.form`
     font-size: 2rem;
   }
   button {
-    width: 75px;
-    height: 40px;
+    width: 4.6rem;
+    height: 2.5rem;
   }
   input {
     border-radius: 10px;
     border: none;
-    height: 30px;
-    width: 250px;
+    height: 1.85rem;
+    width: 15.6rem;
     margin: 5px;
     font-size: 1.2rem;
   }
