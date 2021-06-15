@@ -8,11 +8,25 @@ import { useHistory } from "react-router";
 import Button from "../../components/Button";
 import { Container } from "./styles";
 import Input from "../../components/Input";
+import { Link } from "react-router-dom";
+
 const FormLogin = () => {
   const history = useHistory();
+
   const schema = yup.object().shape({
-    username: yup.string().required("Campo obrigatório"),
-    password: yup.string().required("Campo obrigatório"),
+    username: yup
+      .string()
+      .required("Required field")
+      .min(4, "Minimum 4 characters"),
+
+    password: yup
+      .string()
+      .min(6, "password length of minimum 6 digits")
+      .required("Required field")
+      .matches(
+        "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])",
+        "must contain number, both lower and uppercase letters and special characters"
+      ),
   });
 
   const {
@@ -44,7 +58,7 @@ const FormLogin = () => {
 
   return (
     <Container>
-      <h2>SignIn</h2>
+      <h2>Sign In</h2>
       <form onSubmit={handleSubmit(handleForm)}>
         <Input
           register={register}
@@ -66,6 +80,9 @@ const FormLogin = () => {
           Login
         </Button>
       </form>
+      <p>
+        Would you like to <Link to="/register">register?</Link>
+      </p>
     </Container>
   );
 };
