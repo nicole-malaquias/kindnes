@@ -56,6 +56,7 @@ export const Content = styled.div`
 
     div {
       flex-direction: row;
+      max-width: 80vw;
     }
   }
 `;
@@ -64,7 +65,7 @@ export const Background = styled.div`
   @media only screen and (min-width: 768px) {
     background: url(${rafiki}) no-repeat center;
     background-size: contain;
-    width: 100%;
+    width: 80vw;
     height: 100vh;
   }
 `;
