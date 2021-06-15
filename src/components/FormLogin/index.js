@@ -4,7 +4,10 @@ import * as yup from "yup";
 import jwt_decode from "jwt-decode";
 import { toastLogin } from "../../utils";
 import api from "../../services";
+import { useAuthy } from "../../Providers/Authy";
+
 const FormLogin = ({ logado, setLogado }) => {
+  const { updateAuthy } = useAuthy();
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório"),
     password: yup
@@ -28,13 +31,7 @@ const FormLogin = ({ logado, setLogado }) => {
       .then((response) => {
         const token = response.data.access;
         const decoded = jwt_decode(token);
-        localStorage.clear();
-        localStorage.setItem("@gestao:token", token);
-        localStorage.setItem(
-          "@gestao:user_Id",
-          JSON.stringify(decoded.user_id)
-        );
-
+        updateAuthy(token, decoded.user_id);
         reset();
       })
       .catch((_) => toastLogin());
