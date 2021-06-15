@@ -6,7 +6,11 @@ import * as S from "./style";
 
 import RandomHabits from "../../components/RandomHabits";
 import CardExplication from "../../components/CardExplication";
+
+import { useHabit } from "../../Providers/Habits";
+
 const MyHabits = () => {
+  const { updateHabits } = useHabit();
   const [modal, setModal] = useState(false);
   const [addHabits, setAddHabits] = useState(0);
   const [cardExplication, setCardExplication] = useState(false);
@@ -29,6 +33,7 @@ const MyHabits = () => {
         }
         localStorage.setItem("@gestao:habitos", JSON.stringify(data));
         sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
+        updateHabits(data);
       })
       .catch((res) => console.log("deu ruim"));
   };
