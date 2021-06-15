@@ -9,9 +9,17 @@ import Button from "../../components/Button";
 import { Container } from "./styles";
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const FormLogin = () => {
   const history = useHistory();
+  const token = localStorage.getItem("@gestao:token") || "";
+
+  useEffect(() => {
+    if (token) {
+      history.push("/dashboard");
+    }
+  }, []);
 
   const schema = yup.object().shape({
     username: yup
@@ -81,7 +89,7 @@ const FormLogin = () => {
         </Button>
       </form>
       <p>
-        Would you like to <Link to="/register">register?</Link>
+        Doesn't have an account?<Link to="/register"> register</Link>
       </p>
     </Container>
   );
