@@ -77,7 +77,7 @@ const FormLogin = () => {
         </Button>
       </form>
       <p>
-        Doesn't have an account?<Link to="/register"> register</Link>
+        Don't have an account?<Link to="/register"> register</Link>
       </p>
     </Container>
   );
