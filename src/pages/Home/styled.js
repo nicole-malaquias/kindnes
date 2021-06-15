@@ -2,18 +2,16 @@ import styled from "styled-components";
 import rafiki from "../../assets/rafiki.png";
 
 export const Container = styled.div`
-<<<<<<< HEAD
-  padding: 1rem 4rem;
-
-=======
   padding: 0 4rem;
->>>>>>> 808a0f3ec9cea8905ad43b83a9998278fa037cca
+
   .Carrosel {
     display: none;
   }
 
   @media only screen and (min-width: 768px) {
     .Carrosel {
+      display: flex;
+
       div {
         display: flex;
         align-items: center;
@@ -46,28 +44,28 @@ export const Content = styled.div`
   }
 
   div {
-    @media (max-width: 580px) {
-      display: flex;
-      flex-direction: column;
-    }
+    flex-direction: column;
   }
 
   @media only screen and (min-width: 768px) {
     margin-top: -6rem;
+
     p {
       font-size: 1.8rem;
+    }
+
+    div {
+      flex-direction: row;
     }
   }
 `;
 
 export const Background = styled.div`
-  background: url(${rafiki}) no-repeat center;
-  background-size: contain;
-  width: 100%;
-  height: 100vh;
-
-  @media (max-width: 580px) {
-    background: none;
+  @media only screen and (min-width: 768px) {
+    background: url(${rafiki}) no-repeat center;
+    background-size: contain;
+    width: 100%;
+    height: 100vh;
   }
 `;
 
@@ -87,7 +85,6 @@ export const DivButton = styled.div`
 
   @media only screen and (min-width: 768px) {
     button {
-      margin: 1rem;
       margin-top: 3rem;
     }
   }

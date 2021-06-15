@@ -38,7 +38,6 @@ export default createGlobalStyle`
         line-height: 44px;
         text-align: left;
     }
-<<<<<<< HEAD
     
     @media only screen and (min-width: 768px){
         h1,h2,h3,h4,h5,h6{
@@ -46,11 +45,6 @@ export default createGlobalStyle`
         }
     }
 
-=======
-    h1 {
-        font-size: 2.5rem;
-    }
->>>>>>> 808a0f3ec9cea8905ad43b83a9998278fa037cca
     h4 {
         font-size: 1.5rem;
         color: var(--pink);
