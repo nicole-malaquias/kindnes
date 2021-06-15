@@ -4,19 +4,19 @@ import logo from "../../assets/logo.svg";
 import imgMenu from "../../assets/menu.png";
 import IconClosed from "../../assets/seta.png";
 import Button from "../Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
+
+import { AuthyProvider } from "../../Providers/Authy";
+
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const token = localStorage.getItem("@gestao:token") || "";
+  const token = useContext(AuthyProvider);
+  const handleLogout = useContext(AuthyProvider);
   const history = useHistory();
 
   const handleMenu = () => {
     isOpen ? setIsOpen(false) : setIsOpen(true);
-  };
-
-  const handleLogout = () => {
-    localStorage.clear();
   };
 
   useEffect(() => {
