@@ -29,11 +29,9 @@ export const Select = styled.select`
   margin-right: 2rem;
   border-radius: 0.7rem;
   option {
-    color: black;
-    background: white;
+    color: var(--black);
+    background: var(--white);
     display: flex;
-    white-space: pre;
-    min-height: 20px;
     padding: 0px 2px 1px;
   }
 `;
@@ -59,11 +57,6 @@ export const Category = styled.div`
       padding: 5px;
     }
   }
-`;
-
-export const ContainerGroups = styled.div`
-  display: flex;
-  justify-content: space-between; ;
 `;
 
 export const SearchContainer = styled.div`
