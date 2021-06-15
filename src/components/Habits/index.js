@@ -2,10 +2,11 @@ import ContainerHabit from "./style";
 import api from "../../services";
 import Button from "../Button";
 import { getPersonalHabits } from "../../services/conection";
+import { useHabit } from "../../Providers/Habits";
 
 const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
+  const { handleHabit } = useHabit();
   const { title, how_much_achieved, id } = habit;
-  const localToken = localStorage.getItem("@gestao:token") || "";
 
   const handleAchieved = () => {
     const token = localStorage.getItem("@gestao:token");
@@ -32,6 +33,7 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
   };
   const handleProgress = () => {
     localStorage.setItem("@gestao:atual_habit", JSON.stringify(habit));
+    handleHabit(habit);
   };
 
   return (

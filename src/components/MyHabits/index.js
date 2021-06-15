@@ -3,10 +3,8 @@ import api from "../../services";
 import React, { useEffect, useState } from "react";
 import FormHabit from "../FormHabit";
 import * as S from "./style";
-
 import RandomHabits from "../../components/RandomHabits";
 import CardExplication from "../../components/CardExplication";
-
 import { useHabit } from "../../Providers/Habits";
 
 const MyHabits = () => {
