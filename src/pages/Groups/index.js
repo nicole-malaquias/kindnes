@@ -10,12 +10,16 @@ import { Container, Select, Category, SearchContainer } from "./styles";
 import Button from "../../components/Button";
 import { toastLoadGroupsError } from "../../utils";
 import Menu from "../../components/Menu";
+import { useAuthy } from "../../Providers/Authy";
+
 const Groups = () => {
+  const { token, authy } = useAuthy();
+
   const [groups, setGroups] = useState([]);
   const [category, setCategory] = useState("");
   const [chosenCategory, setChosenCategory] = useState([]);
   const history = useHistory();
-  const token = localStorage.getItem("@gestao:token") || "";
+
   const formSchema = yup.object().shape({
     chosenCategory: yup.string().required("Category required"),
   });
@@ -33,9 +37,7 @@ const Groups = () => {
     } else {
       api
         .get("groups/subscriptions/", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          authy,
         })
         .then((response) => setGroups(response.data))
         .catch((_) => toastLoadGroupsError());
@@ -58,8 +60,8 @@ const Groups = () => {
       });
   };
 
-  const handleCategoryChange = (evt) => {
-    setCategory(evt.target.value);
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
   };
 
   return (

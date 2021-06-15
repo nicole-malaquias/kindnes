@@ -1,16 +1,17 @@
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { IoIosPeople } from "react-icons/io";
 import { CardItem } from "./styles";
 
+import { useGroup } from "../../../Providers/Group";
 const CardGroup = ({ groups }) => {
-  const [chosenGroup] = useState(localStorage.getItem("@gestao:groupId") || []);
+  const { groupId, updateGroupId } = useGroup();
   const history = useHistory();
 
-  const handleGroupChoice = (groupId) => {
-    if (chosenGroup !== groupId)
-      localStorage.setItem("@gestao:groupId", groupId);
-    history.push("/specificgroup");
+  const handleGroupChoice = (newGroupId) => {
+    if (groupId !== newGroupId) {
+      updateGroupId(newGroupId);
+      history.push("/specificgroup");
+    }
   };
 
   return groups.map((item, index) => (
