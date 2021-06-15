@@ -85,11 +85,11 @@ const MyHabits = () => {
           modal={modal}
         />
       )}
-      {/* <RandomHabits
+      <RandomHabits
         addHabits={addHabits}
         setAddHabits={setAddHabits}
         modalHabito={modal}
-      /> */}
+      />
     </S.ContainerMyHabits>
   );
 };

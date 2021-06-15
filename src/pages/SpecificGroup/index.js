@@ -6,7 +6,7 @@ import GroupProgress from "../../components/GroupProgress";
 import api from "../../services";
 
 const SpecificGroup = () => {
-  const token = JSON.parse(localStorage.getItem("@gestao:token") || "");
+  const token = localStorage.getItem("@gestao:token") || "";
 
   if (token) {
     return (

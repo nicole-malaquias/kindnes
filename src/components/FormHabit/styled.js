@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-// margin : 10px
-// select purplepink
-
 export const ContainerFormHabits = styled.div`
   z-index: 1;
   top: 0;
@@ -19,7 +16,7 @@ export const FormHabits = styled.form`
   z-index: 3;
   background: #9780a5;
   height: 55vh;
-  width: 35vw;
+  width: 90vw;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -45,14 +42,14 @@ export const FormHabits = styled.form`
     font-size: 2rem;
   }
   button {
-    width: 90px;
+    width: 75px;
     height: 40px;
   }
   input {
     border-radius: 10px;
     border: none;
     height: 30px;
-    width: 300px;
+    width: 250px;
     margin: 5px;
     font-size: 1.2rem;
   }
@@ -61,5 +58,8 @@ export const FormHabits = styled.form`
     position: absolute;
     top: 15px;
     right: 15px;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 50vw;
   }
 `;

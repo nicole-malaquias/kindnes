@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const ContainerModalRandom = styled.div`
   z-index: 1;
   background: rgba(221, 204, 225, 0.8);
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100vw;
+  top: -400px;
   display: flex;
 `;
 

@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const ContainerHabit = styled.div`
   width: 220px;
-  height: 30px;
+  height: 40px;
   background: var(--white);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2px;
+  margin: 4px;
   border-radius: 5px;
   p {
     width: 100px;
@@ -16,7 +16,7 @@ const ContainerHabit = styled.div`
   }
   button {
     width: 40px;
-    height: 25px;
+    height: 30px;
     font-size: 1.2rem;
   }
   .title {
@@ -26,8 +26,6 @@ const ContainerHabit = styled.div`
     margin-right: 15px;
   }
   @media only screen and (min-width: 768px) {
-    background: var(--white);
-
     margin: 5px;
     width: 320px;
     padding: 5px;

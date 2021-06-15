@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../../services";
 
 const GroupActivities = () => {
-  const groupId = JSON.parse(localStorage.getItem("@gestao:groupId") || "");
+  const groupId = localStorage.getItem("@gestao:groupId") || "";
   const [activities, setActivities] = useState([]);
 
   return <div>Activities</div>;
