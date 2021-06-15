@@ -10,6 +10,7 @@ import { Container } from "./styles";
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
 import { useAuthy } from "../../Providers/Authy";
+import { useEffect } from "react";
 
 const FormLogin = () => {
   const { updateAuthy, token } = useAuthy();
@@ -20,9 +21,7 @@ const FormLogin = () => {
       .required("Required field")
       .min(4, "Minimum 4 characters"),
 
-    password: yup
-      .string()
-      .required("Required field")
+    password: yup.string().required("Required field"),
   });
 
   const {
@@ -34,9 +33,11 @@ const FormLogin = () => {
     resolver: yupResolver(schema),
   });
 
-  if (token) {
-    history.push("/dashboard");
-  }
+  useEffect(() => {
+    if (token) {
+      history.push("/dashboard");
+    }
+  }, []);
 
   const handleForm = (data) => {
     api
@@ -45,6 +46,7 @@ const FormLogin = () => {
         const token = response.data.access;
         const decoded = jwt_decode(token);
         updateAuthy(token, decoded.user_id);
+        history.push("/dashboard");
         reset();
       })
       .catch((_) => toastErrorLogin());
