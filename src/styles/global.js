@@ -66,7 +66,6 @@ export default createGlobalStyle`
         font-style: normal;
         font-weight: normal;
         font-size: 2rem;
-<<<<<<< HEAD
         border: none;
     
         :focus {
@@ -74,8 +73,5 @@ export default createGlobalStyle`
         }
 
         cursor: pointer;
-=======
-        cursor: pointer;    
->>>>>>> 808a0f3ec9cea8905ad43b83a9998278fa037cca
     }
 `;
