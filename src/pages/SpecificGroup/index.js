@@ -2,7 +2,6 @@ import GroupGoal from "../../components/GroupGoal";
 import GroupActivities from "../../components/GroupActivities";
 import GroupProgress from "../../components/GroupProgress";
 import api from "../../services";
-
 import { useAuthy } from "../../Providers/Authy";
 import { useGroup } from "../../Providers/Group";
 import { Redirect } from "react-router";
@@ -11,7 +10,15 @@ import Button from "../../components/Button";
 
 const SpecificGroup = () => {
   const { token, handleLogout } = useAuthy();
-  const { groupId, getGroup, isSubscribe, group } = useGroup();
+  const {
+    groupId,
+    getGroup,
+    isSubscribe,
+    group,
+    goalId,
+    goalHowMuch,
+    goalAchieved,
+  } = useGroup();
 
   const handleSubscribe = () => {
     api
@@ -36,6 +43,7 @@ const SpecificGroup = () => {
         getGroup();
       });
   };
+
   useEffect(() => {
     getGroup();
     // eslint-disable-next-line
