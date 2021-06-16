@@ -1,11 +1,7 @@
 import jwt_decode from "jwt-decode";
 import { toastErrorLogin } from "../utils";
 import api from "../services";
-import {
-  toastSuccessRegister,
-  toastErrorRegister,
-  toastErrorAddHabitRandom,
-} from "../utils";
+import { toastError, toastSuccess, toastErrorAddHabitRandom } from "../utils";
 const localToken = localStorage.getItem("@gestao:token") || "";
 
 export const HandleFormLogin = (data) => {
@@ -58,9 +54,9 @@ export const handleFormLogon = (necessaryDatas) => {
   api
     .post("/users/", necessaryDatas)
     .then((_) => {
-      toastSuccessRegister();
+      toastSuccess();
     })
-    .catch((_) => toastErrorRegister());
+    .catch((_) => toastError());
 };
 
 export const getPersonalHabits = (sethabits) => {

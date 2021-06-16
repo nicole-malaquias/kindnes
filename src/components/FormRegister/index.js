@@ -4,12 +4,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services";
 import { useHistory } from "react-router";
 import { handleFormLogon } from "../../services/conection";
-import { toastErrorRegister, toastSuccessRegister } from "../../utils";
+import { toastError, toastSuccess } from "../../utils";
 import { Container, Terms } from "./styled";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input";
-// >>>>>>> 808a0f3ec9cea8905ad43b83a9998278fa037cca
+
 const FormRegister = () => {
   const history = useHistory();
   const schema = yup.object().shape({
@@ -49,6 +49,14 @@ const FormRegister = () => {
 
     handleFormLogon(necessaryDatas);
     history.push("/login");
+    api
+      .post("/users/", necessaryDatas)
+      .then((_) => {
+        toastSuccess("Yes!!!You just registered");
+        history.push("/login");
+      })
+      .catch((_) => toastError("That didn't work, try another username"));
+    reset();
   };
 
   return (
