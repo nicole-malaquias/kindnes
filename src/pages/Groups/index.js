@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 import { Container } from "./styles";
 import Button from "../../components/Button";
-import { toastLoadGroupsError } from "../../utils";
+import { toastError } from "../../utils";
 
 const Groups = () => {
   const [groups, setGroups] = useState([]);
@@ -27,20 +27,6 @@ const Groups = () => {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
-  useEffect(() => {
-    if (token === "") {
-      history.push("/");
-    } else {
-      api
-        .get("groups/subscriptions/", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => setGroups(response.data))
-        .catch((_) => toastLoadGroupsError());
-    }
-  }, []);
 
   const handleSubscriptions = () => {
     setChosenCategory([]);
@@ -61,6 +47,22 @@ const Groups = () => {
   const handleCategoryChange = (evt) => {
     setCategory(evt.target.value);
   };
+
+  useEffect(() => {
+    if (token === "") {
+      history.push("/");
+    } else {
+      api
+        .get("groups/subscriptions/", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => setGroups(response.data))
+        .catch((_) => toastError("Couldn't load groups, try again"));
+    }
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Container>

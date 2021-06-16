@@ -9,16 +9,13 @@ export const options = {
   progress: undefined,
 };
 
-export const toastErrorRegister = () => {
-  toast.error("That didn't work, try another username", options);
+export const toastError = (message) => {
+  toast.error(message, options);
 };
-export const toastSuccessRegister = () => {
-  toast.success("Yes!!!You just registered");
+
+export const toastSuccess = (message) => {
+  toast.success(message);
 };
 export const toastErrorLogin = () => {
   toast.dark("Couldn't login, try again");
-};
-
-export const toastLoadGroupsError = () => {
-  toast.error("Couldn't load groups, try again");
 };
