@@ -9,7 +9,7 @@ const ContainerHabit = styled.div`
   background: var(--white);
   padding: 0.5rem;
   margin: 4px;
-  border-radius: 5px;
+  border-radius: 1rem;
 
   p {
     text-align: left;
@@ -20,6 +20,17 @@ const ContainerHabit = styled.div`
     max-width: 4rem;
     font-size: 1.2rem;
     margin: 1rem;
+  }
+
+  span {
+    font-weight: bold;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .title {
     font-weight: bolder;

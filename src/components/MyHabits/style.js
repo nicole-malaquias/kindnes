@@ -29,6 +29,7 @@ export const AddNewHabit = styled.div`
   border-radius: 1rem;
   margin: 0.5rem;
   max-width: 12rem;
+
   :hover {
     border: 2px solid var(--pink);
   }
@@ -37,29 +38,26 @@ export const AddNewHabit = styled.div`
     font-size: 1.2rem;
     text-align: center;
     font-weight: lighter;
-    color: var(--back);
+    color: var(--black);
   }
   @media only screen and (min-width: 768px) {
     width: 18.75rem;
     padding: 5px;
-
-    h4 {
-      text-align: center;
-      font-weight: lighter;
-      color: var(--back);
-    }
   }
 `;
 
 export const Habits = styled.div`
   overflow-y: scroll;
+
   ::-webkit-scrollbar {
     background-color: var(--purpleDetails);
+    border-radius: 5rem;
   }
   ::-webkit-scrollbar-thumb {
     background-color: var(--pink);
     border-radius: 5rem;
   }
+
   display: flex;
   flex-direction: column;
   align-items: center;

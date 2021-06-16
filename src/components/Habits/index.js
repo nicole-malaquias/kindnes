@@ -47,11 +47,13 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
         <div className="title">
           <p>{title}</p>
         </div>
-        <span>{habit.how_much_achieved}</span>
-        {honor === false && <Button handleClick={handleAchieved}>Add</Button>}
-        {honor === true && (
-          <i class="fas fa-award fa-2x" style={{ color: "#f1af09" }}></i>
-        )}
+        <div>
+          <span>{habit.how_much_achieved}</span>
+          {honor === false && <Button handleClick={handleAchieved}>Add</Button>}
+          {honor === true && (
+            <i class="fas fa-award fa-2x" style={{ color: "#f1af09" }}></i>
+          )}
+        </div>
       </ContainerHabit>
     </>
   );

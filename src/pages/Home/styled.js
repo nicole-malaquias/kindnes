@@ -3,7 +3,6 @@ import rafiki from "../../assets/rafiki.png";
 
 export const Container = styled.div`
   padding: 0 4rem;
-
   .Carrosel {
     display: none;
   }

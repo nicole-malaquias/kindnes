@@ -6,6 +6,7 @@ export const ContainerFormHabits = styled.div`
   align-items: center;
   z-index: 1;
   top: 0;
+  left: 0;
   background: rgba(221, 204, 225, 0.8);
   position: fixed;
   height: 100vh;

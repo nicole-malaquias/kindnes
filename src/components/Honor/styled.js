@@ -15,6 +15,7 @@ export const ContainerHonor = styled.div`
   overflow-y: scroll;
   ::-webkit-scrollbar {
     background-color: var(--purpleDetails);
+    border-radius: 5rem;
   }
   ::-webkit-scrollbar-thumb {
     background-color: var(--pink);
@@ -25,8 +26,7 @@ export const ContainerHonor = styled.div`
   }
 
   h1 {
-    margin-top: 1.5rem;
-    z-index: 2;
+    margin-top: 15rem;
     text-align: center;
     color: rgb(255, 223, 0);
     animation: neon 1s alternate infinite ease-in-out;
