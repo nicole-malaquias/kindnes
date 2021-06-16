@@ -15,23 +15,18 @@ export const GroupProvider = ({ children }) => {
   const [isSubscribe, setIsSubscribe] = useState(false);
   const [group, setGroup] = useState({});
   const getGroup = () => {
-    console.log(groupId);
-    api
-      .get(`groups/${groupId}/`)
-      .then((response) => {
-        console.log(response.data);
-        const { users_on_group } = response.data;
-        const users = users_on_group;
-        const nha = users.filter((elem) => elem.id === parseInt(userId));
-        console.log(nha);
-        setGroup(response.data);
-        if (nha.length > 0) {
-          setIsSubscribe(true);
-        } else {
-          setIsSubscribe(false);
-        }
-      })
-      .catch((e) => console.log(e));
+    api.get(`groups/${groupId}/`).then((response) => {
+      const { users_on_group } = response.data;
+      const users = users_on_group;
+      const isMember = users.filter((elem) => elem.id === parseInt(userId));
+
+      setGroup(response.data);
+      if (isMember.length > 0) {
+        setIsSubscribe(true);
+      } else {
+        setIsSubscribe(false);
+      }
+    });
   };
 
   return (

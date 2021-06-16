@@ -9,20 +9,18 @@ import { useEffect } from "react";
 import Button from "../../components/Button";
 
 const SpecificGroup = () => {
-  const { token, handleLogout, userId } = useAuthy();
+  const { token, handleLogout } = useAuthy();
   const { groupId, getGroup, isSubscribe, group } = useGroup();
 
   const handleSubscribe = () => {
     api
-      .post(`groups/${groupId}/subscribe/`, {
+      .post(`groups/${groupId}/subscribe/`, null, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => {
-        console.log(response);
+      .then((_) => {
         getGroup();
-        // toastSuccess("Yeah! You are now a member of this group");
       });
   };
 
@@ -33,21 +31,18 @@ const SpecificGroup = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => {
-        console.log(response);
+      .then((_) => {
         getGroup();
-        // toastSuccess("Unsubscribe successfully");
-      })
-      .catch((e) => console.log(e));
+      });
   };
   useEffect(() => {
     getGroup();
+    // eslint-disable-next-line
   }, []);
 
   if (token) {
     return (
       <>
-        <h1>Blaaaaaaaaa</h1>
         <h1>{group.name}</h1>
         {isSubscribe ? (
           <Button handleClick={handleUnsubscribe}>Unsubscribe</Button>
