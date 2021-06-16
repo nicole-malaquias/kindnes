@@ -34,7 +34,17 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
         .then((item) => handleHabit(newhabit));
     }
 
-    getPersonalHabits(sethabits);
+    api
+      .get("/habits/personal/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        const { data } = response;
+        localStorage.setItem("@gestao:habitos", JSON.stringify(data));
+        sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
+      });
   };
   const handleProgress = () => {
     localStorage.setItem("@gestao:atual_habit", JSON.stringify(habit));
