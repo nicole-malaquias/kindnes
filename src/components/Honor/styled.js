@@ -25,6 +25,7 @@ export const ContainerHonor = styled.div`
   }
 
   h1 {
+    margin-top: 1.5rem;
     z-index: 2;
     text-align: center;
     color: rgb(255, 223, 0);
@@ -37,11 +38,6 @@ export const ContainerHonor = styled.div`
     }
     to {
       filter: drop-shadow(0 0 10px rgb(212, 175, 55));
-    }
-  }
-  @media only screen and (min-width: 768px) {
-    h1 {
-      margin-top: 1.2rem;
     }
   }
 `;
