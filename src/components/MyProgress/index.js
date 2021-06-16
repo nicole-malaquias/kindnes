@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
@@ -7,7 +6,7 @@ import { ContainerProgress } from "./style";
 import { useHabit } from "../../Providers/Habits";
 
 const MyProgress = () => {
-  const { clickHabit, habits } = useHabit();
+  const { clickHabit } = useHabit();
   const { title, how_much_achieved } = clickHabit;
 
   return (
@@ -29,7 +28,6 @@ const MyProgress = () => {
               backgroundColor: "rgb(50,55,207)",
             })}
           />
-          {console.log("progrsso", clickHabit)}
         </ContainerMyProgress>
       </ContainerProgress>
     </>

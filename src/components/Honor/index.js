@@ -1,7 +1,5 @@
-import { useState } from "react";
 import Habits from "../Habits";
 import * as S from "./styled";
-import api from "../../services";
 import { useHabit } from "../../Providers/Habits";
 
 const Honor = () => {

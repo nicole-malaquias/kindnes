@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services";
 import { useHistory } from "react-router";
-import { handleFormLogon } from "../../services/conection";
 import { toastError, toastSuccess } from "../../utils";
 import { Container, Terms } from "./styled";
 import Button from "../../components/Button";
@@ -47,8 +46,6 @@ const FormRegister = () => {
   const handleForm = ({ username, email, password }) => {
     const necessaryDatas = { username, email, password };
 
-    handleFormLogon(necessaryDatas);
-    history.push("/login");
     api
       .post("/users/", necessaryDatas)
       .then((_) => {

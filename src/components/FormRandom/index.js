@@ -2,7 +2,7 @@ import * as S from "./styled";
 import React, { useState } from "react";
 import api from "../../services";
 import Button from "../Button";
-import { handlePostHabitsRandom } from "../../services/conection";
+import { toastError } from "../../utils";
 const FormRandom = ({
   title,
   addHabits,
@@ -27,17 +27,22 @@ const FormRandom = ({
       how_much_achieved: 0,
       user: id,
     };
-    handlePostHabitsRandom(
-      body,
-      setFormRandomHabit,
-      formRandomHabit,
-      setAddHabits,
-      addHabits
-    );
+    api
+      .post("/habits/", body, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((_) => {
+        setFormRandomHabit(!formRandomHabit);
+        setAddHabits(addHabits + 1);
+      })
+      .catch((_) => toastError("Error adding habit"));
   };
+
   return (
     <S.ContainerModalRandom>
-      <S.Form_Random>
+      <S.FormRandom>
         <span>"{title}"</span>
         <label htmlFor="difficulty">
           <p>Difficulty </p>
@@ -55,7 +60,7 @@ const FormRandom = ({
             No
           </Button>
         </S.ContainerButtonRandom>
-      </S.Form_Random>
+      </S.FormRandom>
     </S.ContainerModalRandom>
   );
 };

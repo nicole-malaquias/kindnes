@@ -4,8 +4,8 @@ import * as yup from "yup";
 import React, { useState } from "react";
 import Button from "../Button";
 import * as S from "./styled";
-import { handlePostHabits } from "../../services/conection";
-
+import api from "../../services";
+import { toastError } from "../../utils";
 const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -15,13 +15,21 @@ const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
   };
-
+  const handlePostHabits = (body) => {
+    api
+      .post("/habits/", body, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .catch((err) => toastError("Error adding habit"));
+  };
   const handleDifficultyChange = (event) => {
     setDifficulty(event.target.value);
   };
 
   const schema = yup.object().shape({
-    title: yup.string().required("Campo obrigatório"),
+    title: yup.string().required("Required field"),
   });
 
   const {
