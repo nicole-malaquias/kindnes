@@ -14,6 +14,10 @@ export const GroupProvider = ({ children }) => {
   };
   const [isSubscribe, setIsSubscribe] = useState(false);
   const [group, setGroup] = useState({});
+  const [goal, setGoal] = useState({});
+  const [activities, setActivities] = useState([]);
+  const [goalProgress, setGoalProgress] = useState(0);
+
   const getGroup = () => {
     api.get(`groups/${groupId}/`).then((response) => {
       const { users_on_group } = response.data;
@@ -21,6 +25,13 @@ export const GroupProvider = ({ children }) => {
       const isMember = users.filter((elem) => elem.id === parseInt(userId));
 
       setGroup(response.data);
+
+      if (response.data.goals[0]) {
+        setGoal(response.data.goals[0]);
+        setActivities(response.data.activities);
+        setGoalProgress(response.data.goals[0].how_much_achieved);
+      }
+
       if (isMember.length > 0) {
         setIsSubscribe(true);
       } else {
@@ -31,7 +42,16 @@ export const GroupProvider = ({ children }) => {
 
   return (
     <GroupContext.Provider
-      value={{ groupId, updateGroupId, getGroup, isSubscribe, group }}
+      value={{
+        groupId,
+        updateGroupId,
+        getGroup,
+        isSubscribe,
+        group,
+        goal,
+        activities,
+        goalProgress,
+      }}
     >
       {children}
     </GroupContext.Provider>

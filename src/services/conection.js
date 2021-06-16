@@ -1,5 +1,5 @@
 import api from "../services";
-import { toastError, toastSuccess, toastErrorAddHabitRandom } from "../utils";
+import { toastError } from "../utils";
 
 const localToken = localStorage.getItem("@gestao:token") || "";
 
@@ -30,7 +30,7 @@ export const handlePostHabitsRandom = (
       setFormRandomHabit(!formRandomHabit);
       setAddHabits(addHabits + 1);
     })
-    .catch((err) => toastErrorAddHabitRandom());
+    .catch((err) => toastError("Unable to add this habit"));
 };
 
 export const getPersonalHabits = (sethabits) => {

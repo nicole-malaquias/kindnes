@@ -5,8 +5,6 @@ import GlobalStyle from "./styles/global";
 import { BrowserRouter } from "react-router-dom";
 import Providers from "./Providers";
 
-// import Providers from "./Providers";
-
 ReactDOM.render(
   <React.StrictMode>
     <Providers>

@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
-import api from "../../services";
+import { useGroup } from "../../Providers/Group";
 
 const GroupActivities = () => {
-  const groupId = localStorage.getItem("@gestao:groupId") || "";
-  const [activities, setActivities] = useState([]);
+  const { activities } = useGroup();
 
-  return <div>Activities</div>;
+  return (
+    <>
+      {activities &&
+        activities.map((elem, index) => <li key={index}>{elem.title}</li>)}
+    </>
+  );
 };
 
 export default GroupActivities;
