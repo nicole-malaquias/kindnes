@@ -30,11 +30,7 @@ const Groups = () => {
     chosenCategory: yup.string().required("Category required"),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(formSchema),
   });
 
