@@ -1,10 +1,16 @@
 import ContainerHabit from "./style";
 import api from "../../services";
 import Button from "../Button";
-import { getPersonalHabits } from "../../services/conection";
 import { useHabit } from "../../Providers/Habits";
 
-const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
+const Habits = ({
+  habit,
+  addHabits,
+  setAddHabits,
+  sethabits,
+  honor,
+  index,
+}) => {
   const { handleHabit } = useHabit();
   const { title, how_much_achieved, id } = habit;
 
@@ -16,7 +22,7 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
       achieved: true,
     };
     if (how_much_achieved > 23) {
-      api.patch(`/habits/${id}/`, body, {
+      api.patch(`habits/${id}/`, body, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -26,7 +32,7 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
       const total = how_much_achieved + 1;
       const newhabit = { title, how_much_achieved: total };
       api
-        .patch(`/habits/${id}/`, body, {
+        .patch(`habits/${id}/`, body, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -35,7 +41,7 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
     }
 
     api
-      .get("/habits/personal/", {
+      .get("habits/personal/", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -54,11 +60,13 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
   return (
     <>
       <ContainerHabit onClick={handleProgress}>
-        <div className="title">
+        <div className="title" key={index}>
           <p>{title}</p>
         </div>
         <span>{habit.how_much_achieved}</span>
-        {honor === false && <Button handleClick={handleAchieved}>Add</Button>}
+        {honor === false && (
+          <Button handleClick={handleAchieved}>Checkin</Button>
+        )}
         {honor === true && (
           <i class="fas fa-award fa-2x" style={{ color: "#f1af09" }}></i>
         )}
