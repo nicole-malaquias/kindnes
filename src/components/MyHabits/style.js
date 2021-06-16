@@ -1,4 +1,14 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+export const animationCard = keyframes`
+  from{
+    transform: translateX(-100px)
+  }
+  to{
+    
+    transform: translateX(0px)
+  }
+`;
 
 export const ContainerMyHabits = styled.div`
   background: #a6b8f3;
@@ -9,7 +19,9 @@ export const ContainerMyHabits = styled.div`
   align-items: center;
   border-radius: 10px;
   margin: 0.5rem auto;
+  animation: ${animationCard} 1s;
 
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
   h1 {
     margin-top: 10px;
     color: var(--white);

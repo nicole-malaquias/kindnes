@@ -1,4 +1,14 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+export const animationCard = keyframes`
+  from{
+    transform: translateX(100px)
+  }
+  to{
+    
+    transform: translateX(0px)
+  }
+`;
 
 export const ContainerProgress = styled.div`
   display: flex;
@@ -13,6 +23,8 @@ export const ContainerProgress = styled.div`
   background: var(--pink);
   margin: 0.5rem 0;
   padding: 1rem;
+  animation: ${animationCard} 1s;
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
 
   p {
     font-weight: bolder;

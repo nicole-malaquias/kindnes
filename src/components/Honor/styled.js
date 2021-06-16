@@ -1,4 +1,14 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+export const animationCard = keyframes`
+  from{
+    transform: translateX(100px)
+  }
+  to{
+    
+    transform: translateX(0px)
+  }
+`;
 
 export const ContainerHonor = styled.div`
   display: flex;
@@ -11,6 +21,8 @@ export const ContainerHonor = styled.div`
   height: 35vh;
   border-radius: 10px;
   margin: 0.5rem 0;
+  animation: ${animationCard} 1s;
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
 
   overflow-y: scroll;
   ::-webkit-scrollbar {
