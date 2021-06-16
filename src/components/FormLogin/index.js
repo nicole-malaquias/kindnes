@@ -37,6 +37,7 @@ const FormLogin = () => {
     if (token) {
       history.push("/dashboard");
     }
+    // eslint-disable-next-line
   }, []);
 
   const handleForm = (data) => {
