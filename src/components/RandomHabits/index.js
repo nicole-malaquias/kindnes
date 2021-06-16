@@ -6,7 +6,7 @@ import FormRandom from "../FormRandom";
 const RandomHabist = ({ addHabits, setAddHabits, modalHabito }) => {
   const [formRandomHabit, setFormRandomHabit] = useState(false);
   const [title, setTitle] = useState("");
-  const hRandom = [
+  const habitsRandom = [
     " Call a friend or a family member",
     " Ask a homeless person how they are doing",
     " Say good morning to a stranger",
@@ -25,9 +25,9 @@ const RandomHabist = ({ addHabits, setAddHabits, modalHabito }) => {
     if (!modalHabito) {
       setFormRandomHabit(!formRandomHabit);
     }
-    const number = Math.floor(Math.random() * hRandom.length - 1) + 1;
+    const number = Math.floor(Math.random() * habitsRandom.length - 1) + 1;
     setTitle("");
-    setTitle(hRandom[number]);
+    setTitle(habitsRandom[number]);
   };
   return (
     <ContainerRandomHabit>

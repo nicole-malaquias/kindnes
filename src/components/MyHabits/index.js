@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import FormHabit from "../FormHabit";
 import * as S from "./style";
 import RandomHabits from "../../components/RandomHabits";
-import CardExplication from "../../components/CardExplication";
 import { useHabit } from "../../Providers/Habits";
 
 const MyHabits = () => {
@@ -17,7 +16,7 @@ const MyHabits = () => {
     JSON.parse(localStorage.getItem("@gestao:habitos")) || []
   );
 
-  const Loading = () => {
+  const LoadingHabits = () => {
     api
       .get("/habits/personal/", {
         headers: {
@@ -42,13 +41,15 @@ const MyHabits = () => {
 
   useEffect(() => {
     if (habits !== JSON.parse(localStorage.getItem("@gestao:habitos"))) {
-      Loading();
+      LoadingHabits();
     }
+    // eslint-disable-next-line
   }, [addHabits]);
 
   useEffect(() => {
-    Loading();
+    LoadingHabits();
     sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
+    // eslint-disable-next-line
   }, [addHabits]);
 
   return (
@@ -74,13 +75,7 @@ const MyHabits = () => {
               )
           )}
       </S.Habits>
-      {cardExplication && (
-        <CardExplication
-          text={"Aqui se adiciona um habito"}
-          setCardExplication={setCardExplication}
-          cardExplication={cardExplication}
-        />
-      )}
+
       {modal && (
         <FormHabit
           addHabits={addHabits}

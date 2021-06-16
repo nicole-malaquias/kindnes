@@ -8,7 +8,7 @@ import { Container, Terms } from "./styled";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input";
-// >>>>>>> 808a0f3ec9cea8905ad43b83a9998278fa037cca
+
 const FormRegister = () => {
   const history = useHistory();
   const schema = yup.object().shape({

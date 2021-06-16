@@ -1,24 +1,7 @@
-import jwt_decode from "jwt-decode";
-import { toastLogin } from "../utils";
 import api from "../services";
-import { toastSuccess, toastError, toastErrorAddHabitRandom } from "../utils";
-const localToken = localStorage.getItem("@gestao:token") || "";
+import { toastError, toastSuccess, toastErrorAddHabitRandom } from "../utils";
 
-export const HandleFormLogin = (data) => {
-  api
-    .post("/sessions/", data)
-    .then((response) => {
-      const token = response.data.access;
-      console.log(response);
-      const decoded = jwt_decode(token);
-      console.log(decoded.user_id);
-      localStorage.clear();
-      localStorage.setItem("@gestao:token", token);
-      localStorage.setItem("@gestao:user_Id", JSON.stringify(decoded.user_id));
-      localStorage.setItem("@gestao:habitos", JSON.stringify([]));
-    })
-    .catch((_) => toastError("Couldn't login, try again"));
-};
+const localToken = localStorage.getItem("@gestao:token") || "";
 
 export const handlePostHabits = (body) => {
   api
@@ -48,15 +31,6 @@ export const handlePostHabitsRandom = (
       setAddHabits(addHabits + 1);
     })
     .catch((err) => toastErrorAddHabitRandom());
-};
-
-export const handleFormLogon = (necessaryDatas) => {
-  api
-    .post("/users/", necessaryDatas)
-    .then((_) => {
-      toastSuccess();
-    })
-    .catch((_) => toastError());
 };
 
 export const getPersonalHabits = (sethabits) => {

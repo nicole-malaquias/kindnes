@@ -16,7 +16,7 @@ export const ContainerButtonRandom = styled.div`
     margin: 15px;
   }
 `;
-export const Form_Random = styled.div`
+export const FormRandom = styled.div`
   z-index: 3;
   background: #9780a5;
   height: 55vh;
