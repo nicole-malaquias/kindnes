@@ -2,7 +2,6 @@ import GroupGoal from "../../components/GroupGoal";
 import GroupActivities from "../../components/GroupActivities";
 import GroupProgress from "../../components/GroupProgress";
 import api from "../../services";
-
 import { useAuthy } from "../../Providers/Authy";
 import { useGroup } from "../../Providers/Group";
 import { Redirect } from "react-router";

@@ -17,7 +17,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 90%;
-  margin: 1rem 0rem;
 
   button {
     display: flex;
@@ -34,12 +33,10 @@ export const Container = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    padding: 0.5rem;
     justify-content: stretch;
     div {
       align-items: center;
-
-      margin: 1rem 1rem;
+      margin: 0.5rem 0.5rem;
     }
   }
 `;

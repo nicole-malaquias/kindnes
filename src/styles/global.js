@@ -7,6 +7,7 @@ export default createGlobalStyle`
         list-style: none;
         box-sizing: border-box;
         list-style: none;
+
         
     }
     :root{
@@ -14,14 +15,15 @@ export default createGlobalStyle`
         --black: #000000;
         --purpleOpacity : #a6b8f3;
         --purple: #7481AA;
+        --purpleOpacity : #a6b8f3;
         --purplePink: #8674AA;
         --purpleDetails: #7481aa;   
         --pink: #DBA5F3;
         --background:  rgba(166, 184, 243, 0.2);
         --backgroundFooter: rgba(166, 184, 243, 0.3);
     }
-
-      body{
+    
+    body{
         background: var(--background);
         height: 100vh;
     }

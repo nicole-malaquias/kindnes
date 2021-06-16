@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   background: var(--backgroundFooter);
   padding: 10px 16px;
-  width: 100vw;
+
   h2 {
     font-size: 1.5rem;
     text-align: center;

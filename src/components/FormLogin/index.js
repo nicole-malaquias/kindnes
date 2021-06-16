@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { HandleFormLogin } from "../../services/conection";
 import jwt_decode from "jwt-decode";
 import { toastErrorLogin } from "../../utils";
 import api from "../../services";
@@ -40,6 +41,9 @@ const FormLogin = () => {
   }, []);
 
   const handleForm = (data) => {
+    HandleFormLogin(data);
+    history.push("/dashboard");
+
     api
       .post("/sessions/", data)
       .then((response) => {

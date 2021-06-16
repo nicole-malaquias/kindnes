@@ -1,5 +1,5 @@
 import Menu from "../../components/Menu";
-import { Container, LeftColumn, Line, RightColumn } from "./styles";
+import { Container, LeftColumn, Line, RightColumn } from "./style";
 import JuliaPhoto from "../../assets/profile-photos/julia.jpg";
 import CardDev from "../../components/AboutUs/CardDev";
 const AboutUs = () => {
