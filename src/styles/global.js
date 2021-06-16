@@ -14,6 +14,7 @@ export default createGlobalStyle`
         --black: #000000;
         --purpleOpacity : #a6b8f3;
         --purple: #7481AA;
+        --purpleOpacity : #a6b8f3;
         --purplePink: #8674AA;
         --purpleDetails: #7481aa;   
         --pink: #DBA5F3;
