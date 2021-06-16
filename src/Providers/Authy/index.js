@@ -1,6 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { Redirect } from "react-router";
-
+import { Redirect } from "react-router-dom";
 const AuthyContext = createContext();
 
 export const AuthyProvider = ({ children }) => {

@@ -18,7 +18,7 @@ export const toastErrorRegister = () => {
 export const toastSuccessRegister = () => {
   toast.success("Yes!!!You just registered");
 };
-export const toastLogin = () => {
+export const toastErrorLogin = () => {
   toast.dark("Couldn't login, try again");
 };
 

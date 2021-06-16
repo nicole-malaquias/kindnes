@@ -1,5 +1,5 @@
 import jwt_decode from "jwt-decode";
-import { toastLogin } from "../utils";
+import { toastErrorLogin } from "../utils";
 import api from "../services";
 import {
   toastSuccessRegister,
@@ -21,7 +21,7 @@ export const HandleFormLogin = (data) => {
       localStorage.setItem("@gestao:user_Id", JSON.stringify(decoded.user_id));
       localStorage.setItem("@gestao:habitos", JSON.stringify([]));
     })
-    .catch((_) => toastLogin());
+    .catch((_) => toastErrorLogin());
 };
 
 export const handlePostHabits = (body) => {

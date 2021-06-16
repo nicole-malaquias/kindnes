@@ -3,17 +3,28 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { HandleFormLogin } from "../../services/conection";
 import jwt_decode from "jwt-decode";
-import { toastLogin } from "../../utils";
+import { toastErrorLogin } from "../../utils";
 import api from "../../services";
+
 import { useAuthy } from "../../Providers/Authy";
 import { useHistory } from "react-router";
 
+import Button from "../../components/Button";
+import { Container } from "./styles";
+import Input from "../../components/Input";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
 const FormLogin = () => {
+  const { updateAuthy, token } = useAuthy();
   const history = useHistory();
-  const { updateAuthy } = useAuthy();
   const schema = yup.object().shape({
-    username: yup.string().required("Required field"),
-    password: yup.string().min(4, "4 digit minimum").required("Required field"),
+    username: yup
+      .string()
+      .required("Required field")
+      .min(4, "Minimum 4 characters"),
+
+    password: yup.string().required("Required field"),
   });
 
   const {
@@ -25,6 +36,12 @@ const FormLogin = () => {
     resolver: yupResolver(schema),
   });
 
+  useEffect(() => {
+    if (token) {
+      history.push("/dashboard");
+    }
+  }, []);
+
   const handleForm = (data) => {
     HandleFormLogin(data);
     history.push("/dashboard");
@@ -35,14 +52,15 @@ const FormLogin = () => {
         const token = response.data.access;
         const decoded = jwt_decode(token);
         updateAuthy(token, decoded.user_id);
+        history.push("/dashboard");
         reset();
       })
-      .catch((_) => toastLogin());
+      .catch((_) => toastErrorLogin());
   };
 
   return (
-    <div>
-      <h1> Login</h1>
+    <Container>
+      <h2>Sign In</h2>
       <form onSubmit={handleSubmit(handleForm)}>
         <label htmlFor="username">Name</label>
         <input type="text" id="username" {...register("username")} />
@@ -58,7 +76,10 @@ const FormLogin = () => {
         </p>
         <button type="submit">Submit</button>
       </form>
-    </div>
+      <p>
+        Don't have an account?<Link to="/register"> register</Link>
+      </p>
+    </Container>
   );
 };
 
