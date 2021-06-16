@@ -1,5 +1,4 @@
-import { Container } from "./styles";
-
+import { Container } from "./styled";
 const ContainerGroups = ({ children }) => {
   return <Container>{children}</Container>;
 };

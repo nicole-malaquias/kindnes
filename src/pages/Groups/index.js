@@ -6,16 +6,26 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
-import { Container } from "./styles";
+import {
+  Container,
+  Select,
+  Category,
+  SearchContainer,
+  MenuContainer,
+} from "./styled";
 import Button from "../../components/Button";
 import { toastError } from "../../utils";
-
+import { useAuthy } from "../../Providers/Authy";
+import Menu from "../../components/Menu";
+import Footer from "../../components/Footer";
 const Groups = () => {
+  const { token } = useAuthy();
+
   const [groups, setGroups] = useState([]);
   const [category, setCategory] = useState("");
   const [chosenCategory, setChosenCategory] = useState([]);
   const history = useHistory();
-  const token = localStorage.getItem("@gestao:token") || "";
+
   const formSchema = yup.object().shape({
     chosenCategory: yup.string().required("Category required"),
   });
@@ -44,8 +54,8 @@ const Groups = () => {
       });
   };
 
-  const handleCategoryChange = (evt) => {
-    setCategory(evt.target.value);
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
   };
 
   useEffect(() => {
@@ -65,30 +75,49 @@ const Groups = () => {
   }, []);
 
   return (
-    <Container>
-      <div>
-        <p>Search a group category</p>
+    <>
+      <Container>
+        <MenuContainer>
+          <Menu />
+        </MenuContainer>
+        <SearchContainer>
+          <Category>
+            <form onSubmit={handleSubmit(onSubmitCategory)}>
+              <label htmlFor="category">Search a category</label>
+              <div>
+                <Select
+                  id="category"
+                  value={category}
+                  {...register("chosenCategory", {
+                    required: "required",
+                  })}
+                  onChange={handleCategoryChange}
+                >
+                  <option value="donation">donation</option>
+                  <option value="animal care">animal care</option>
+                  <option value="teach">teach</option>
+                  <option value="women's empowerment">
+                    women's empowerment
+                  </option>
+                </Select>
 
-        <form onSubmit={handleSubmit(onSubmitCategory)}>
-          <label htmlFor="category">categories</label>
-          <select
-            id="category"
-            value={category}
-            {...register("chosenCategory", {
-              required: "required",
-            })}
-            onChange={handleCategoryChange}
+                <Button width="100px" type="submit" colorButton="purplePink">
+                  Search
+                </Button>
+              </div>
+            </form>
+          </Category>
+
+          <Button
+            height="60px"
+            width="100px"
+            handleClick={handleSubscriptions}
+            colorButton="purplePink"
           >
-            <option value="donation">donation</option>
-            <option value="animal care">animal care</option>
-            <option value="teach">teach</option>
-          </select>
+            My groups
+          </Button>
+        </SearchContainer>
 
-          <Button type="submit">Send</Button>
-        </form>
-      </div>
-      <div>
-        <Button handleClick={handleSubscriptions}>Your groups</Button>
         <ContainerGroups>
           {chosenCategory.length === 0 ? (
             <CardGroup groups={groups} />
@@ -96,8 +125,9 @@ const Groups = () => {
             <CardGroup groups={chosenCategory} />
           )}
         </ContainerGroups>
-      </div>
-    </Container>
+        <Footer />
+      </Container>
+    </>
   );
 };
 export default Groups;
