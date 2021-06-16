@@ -25,9 +25,12 @@ export const GroupProvider = ({ children }) => {
       const isMember = users.filter((elem) => elem.id === parseInt(userId));
 
       setGroup(response.data);
-      setGoal(response.data.goals[0]);
-      setActivities(response.data.activities);
-      setGoalProgress(response.data.goals[0].how_much_achieved);
+
+      if (response.data.goals[0]) {
+        setGoal(response.data.goals[0]);
+        setActivities(response.data.activities);
+        setGoalProgress(response.data.goals[0].how_much_achieved);
+      }
 
       if (isMember.length > 0) {
         setIsSubscribe(true);
