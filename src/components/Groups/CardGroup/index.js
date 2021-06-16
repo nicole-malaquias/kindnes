@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { IoIosPeople } from "react-icons/io";
-import { CardItem } from "./styles";
+import { CardItem } from "./styled";
 
 import { useGroup } from "../../../Providers/Group";
 const CardGroup = ({ groups }) => {
