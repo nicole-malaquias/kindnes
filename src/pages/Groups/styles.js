@@ -12,15 +12,16 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    &:first-child {
-      align-self: flex-start;
-    }
   }
 `;
 
 export const MenuContainer = styled.div`
   @media only screen and (min-width: 768px) {
-    width: 19vw;
+    width: 100%;
+    align-self: flex-start;
+
+    /* &:first-child {
+    } */
   }
 `;
 
