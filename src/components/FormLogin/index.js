@@ -1,18 +1,15 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { HandleFormLogin } from "../../services/conection";
 import jwt_decode from "jwt-decode";
 import { toastErrorLogin } from "../../utils";
 import api from "../../services";
-
-import { useAuthy } from "../../Providers/Authy";
 import { useHistory } from "react-router";
-
 import Button from "../../components/Button";
 import { Container } from "./styles";
 import Input from "../../components/Input";
 import { Link } from "react-router-dom";
+import { useAuthy } from "../../Providers/Authy";
 import { useEffect } from "react";
 
 const FormLogin = () => {
@@ -43,9 +40,6 @@ const FormLogin = () => {
   }, []);
 
   const handleForm = (data) => {
-    HandleFormLogin(data);
-    history.push("/dashboard");
-
     api
       .post("/sessions/", data)
       .then((response) => {
@@ -62,19 +56,25 @@ const FormLogin = () => {
     <Container>
       <h2>Sign In</h2>
       <form onSubmit={handleSubmit(handleForm)}>
-        <label htmlFor="username">Name</label>
-        <input type="text" id="username" {...register("username")} />
-        <p>
-          {!!errors.username}
-          {errors.username?.message}
-        </p>
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" {...register("password")} />
-        <p>
-          {!!errors.password}
-          {errors.password?.message}
-        </p>
-        <button type="submit">Submit</button>
+        <Input
+          register={register}
+          type="text"
+          name="username"
+          label="username"
+          placeholder="username"
+          error={errors.username?.message}
+        />
+        <Input
+          register={register}
+          type="password"
+          name="password"
+          label="password"
+          placeholder="password"
+          error={errors.password?.message}
+        />
+        <Button type="submit" colorButton="pink">
+          Login
+        </Button>
       </form>
       <p>
         Don't have an account?<Link to="/register"> register</Link>
