@@ -14,9 +14,9 @@ import {
   MenuContainer,
 } from "./styled";
 import Button from "../../components/Button";
-import { toastLoadGroupsError } from "../../utils";
-import Menu from "../../components/Menu";
+import { toastError } from "../../utils";
 import { useAuthy } from "../../Providers/Authy";
+import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 const Groups = () => {
   const { token } = useAuthy();
@@ -37,20 +37,6 @@ const Groups = () => {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
-  useEffect(() => {
-    if (token === "") {
-      history.push("/");
-    } else {
-      api
-        .get("groups/subscriptions/", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((response) => setGroups(response.data))
-        .catch((_) => toastLoadGroupsError());
-    }
-  }, []);
 
   const handleSubscriptions = () => {
     setChosenCategory([]);
@@ -71,6 +57,22 @@ const Groups = () => {
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
   };
+
+  useEffect(() => {
+    if (token === "") {
+      history.push("/");
+    } else {
+      api
+        .get("groups/subscriptions/", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => setGroups(response.data))
+        .catch((_) => toastError("Couldn't load groups, try again"));
+    }
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services";
 import { useHistory } from "react-router";
-import { toastErrorRegister, toastSuccessRegister } from "../../utils";
+import { toastError, toastSuccess } from "../../utils";
 import { Container, Terms } from "./styled";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
@@ -47,10 +47,10 @@ const FormRegister = () => {
     api
       .post("/users/", necessaryDatas)
       .then((_) => {
-        toastSuccessRegister();
+        toastSuccess("Yes!!!You just registered");
         history.push("/login");
       })
-      .catch((_) => toastErrorRegister());
+      .catch((_) => toastError("That didn't work, try another username"));
     reset();
   };
   return (
