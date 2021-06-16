@@ -11,7 +11,6 @@ import Input from "../../components/Input";
 import { Link } from "react-router-dom";
 import { useAuthy } from "../../Providers/Authy";
 import { useEffect } from "react";
-
 const FormLogin = () => {
   const { updateAuthy, token } = useAuthy();
   const history = useHistory();
