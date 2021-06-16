@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import Button from "../../components/Button";
 
 const SpecificGroup = () => {
-  const { token, handleLogout } = useAuthy();
+  const { token } = useAuthy();
   const { groupId, getGroup, isSubscribe, group } = useGroup();
 
   const handleSubscribe = () => {
@@ -41,7 +41,7 @@ const SpecificGroup = () => {
     // eslint-disable-next-line
   }, []);
 
-  if (token) {
+  if (token && groupId) {
     return (
       <>
         <h1>{group.name}</h1>
@@ -53,9 +53,10 @@ const SpecificGroup = () => {
         <GroupGoal />
         <GroupActivities />
         <GroupProgress />
-        <button onClick={handleLogout}>Logout</button>
       </>
     );
+  } else if (token && !groupId) {
+    return <Redirect to="/groups" />;
   } else {
     return <Redirect to="/login" />;
   }
