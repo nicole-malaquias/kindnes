@@ -1,7 +1,7 @@
 import { useGroup } from "../../Providers/Group";
 const GroupProgress = () => {
   const { goalProgress } = useGroup();
-  return <span>{goalProgress}</span>;
+  return <>{goalProgress && <span>{goalProgress}</span>}</>;
 };
 
 export default GroupProgress;
