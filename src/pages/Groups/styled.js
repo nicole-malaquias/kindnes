@@ -19,9 +19,6 @@ export const MenuContainer = styled.div`
   @media only screen and (min-width: 768px) {
     width: 100%;
     align-self: flex-start;
-
-    /* &:first-child {
-    } */
   }
 `;
 
