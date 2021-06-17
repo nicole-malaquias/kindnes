@@ -76,17 +76,16 @@ const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
         <label htmlFor="category">Category</label>
         <select value={category} onChange={handleCategoryChange} required>
           <option value=""></option>
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">intermediate</option>
-          <option value="advanced">Advanced</option>
+          <option value="myself">With Myself</option>
+          <option value="others">With Others</option>
         </select>
 
         <label htmlFor="difficulty">Difficulty</label>
         <select onChange={handleDifficultyChange} required>
           <option value=""></option>
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">intermediate</option>
-          <option value="advanced">Advanced</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
         </select>
 
         <Button type="submit">Submit</Button>
