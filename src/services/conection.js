@@ -5,7 +5,7 @@ const localToken = localStorage.getItem("@gestao:token") || "";
 
 export const handlePostHabits = (body) => {
   api
-    .post("/habits/", body, {
+    .post("habits/", body, {
       headers: {
         Authorization: `Bearer ${localToken}`,
       },
@@ -35,7 +35,7 @@ export const handlePostHabitsRandom = (
 
 export const getPersonalHabits = (sethabits) => {
   api
-    .get("/habits/personal/", {
+    .get("habits/personal/", {
       headers: {
         Authorization: `Bearer ${localToken}`,
       },
