@@ -22,7 +22,7 @@ const Menu = () => {
         <Link to="/">
           <div>
             <img src={logo} alt="logo" />
-            <h1>be habits</h1>
+            <h1>Kindness</h1>
           </div>
         </Link>
       </div>
@@ -36,7 +36,7 @@ const Menu = () => {
         <Link to="/">
           <div>
             <img src={logo} alt="logo" />
-            <h1>be habits</h1>
+            <h1>Kindness</h1>
           </div>
         </Link>
       </div>

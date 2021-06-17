@@ -2,7 +2,7 @@ import api from "../../services";
 import { useGroup } from "../../Providers/Group";
 import { useAuthy } from "../../Providers/Authy";
 import Button from "../Button";
-
+import { ContainerActivities } from "./styled";
 const GroupActivities = () => {
   const { token } = useAuthy();
   const {
@@ -34,25 +34,31 @@ const GroupActivities = () => {
         });
     }
   };
-  console.log(groupDescription);
-  console.log(goal);
+
   if (isSubscribe && goal) {
     return (
-      <>
+      <ContainerActivities>
         {activities &&
           activities.map((elem, index) => (
             <li key={index}>
-              {elem.title} <Button handleClick={handleActivitie}>Done</Button>
+              <span>{elem.title}</span>
+              <Button
+                colorButton="purplePink"
+                width="50px"
+                handleClick={handleActivitie}
+              >
+                Done
+              </Button>
             </li>
           ))}
-      </>
+      </ContainerActivities>
     );
   } else {
     return (
-      <>
+      <ContainerActivities>
         {activities &&
           activities.map((elem, index) => <li key={index}>{elem.title}</li>)}
-      </>
+      </ContainerActivities>
     );
   }
 };
