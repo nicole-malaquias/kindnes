@@ -7,12 +7,15 @@ const Honor = () => {
   return (
     <S.ContainerHonor>
       <h1> Honor</h1>
-      {habits !== "" &&
-        habits.map((habit, index) =>
-          habit.achieved === true && (
-            <Habits habit={habit} honor={true} key={index} />
-          )
-        )}
+      <S.Honor>
+        {habits !== "" &&
+          habits.map(
+            (habit, index) =>
+              habit.achieved === true && (
+                <Habits habit={habit} honor={true} key={index} />
+              )
+          )}
+      </S.Honor>
     </S.ContainerHonor>
   );
 };
