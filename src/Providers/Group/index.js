@@ -36,7 +36,6 @@ export const GroupProvider = ({ children }) => {
       if (goals[0]) {
         setGoal(goals[0]);
         setGoalId(goals[0].id);
-
         setGoalAchieved(goals[0].achieved);
         setGoalHowMuch(goals[0].how_much_achieved);
         completeGoal(goals[0].how_much_achieved, goals[0].achieved);
