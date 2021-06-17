@@ -10,11 +10,10 @@ export const Container = styled.div`
   margin-bottom: 13px;
   margin-top: 13px;
   height: 100vh;
-  width: 70vw;
+  width: 90%;
   padding: 1rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   color: var(--black);
-  overflow-y: scroll;
 
   @media only screen and (min-width: 768px) {
     justify-content: flex-start;

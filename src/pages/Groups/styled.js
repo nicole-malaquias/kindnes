@@ -78,6 +78,7 @@ export const SearchContainer = styled.div`
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
+    margin-top: 10px;
   }
 `;
 
