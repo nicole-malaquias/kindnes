@@ -15,15 +15,7 @@ const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
   };
-  const handlePostHabits = (body) => {
-    api
-      .post("habits/", body, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .catch((err) => toastError("Error adding habit"));
-  };
+
   const handleDifficultyChange = (event) => {
     setDifficulty(event.target.value);
   };

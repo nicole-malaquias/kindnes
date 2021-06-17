@@ -42,15 +42,15 @@ export const AddNewHabit = styled.div`
   margin: 0.5rem;
   max-width: 12rem;
 
-  :hover {
-    border: 2px solid var(--pink);
-  }
-
   h4 {
     font-size: 1.2rem;
     text-align: center;
     font-weight: lighter;
     color: var(--black);
+  }
+
+  h4:hover {
+    color: white;
   }
   @media only screen and (min-width: 768px) {
     width: 18.75rem;
