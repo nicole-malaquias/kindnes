@@ -56,7 +56,7 @@ export const Content = styled.div`
 
     div {
       flex-direction: row;
-      max-width: 80vw;
+      max-width: 50vw;
     }
   }
 `;
