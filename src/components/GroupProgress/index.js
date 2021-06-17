@@ -6,7 +6,7 @@ const GroupProgress = () => {
   return (
     <Goal>
       <h3>Attended meetings: </h3>
-      {goalHowMuch && <h3>{goalHowMuch}</h3>}
+      <h3>{goalHowMuch}</h3>
     </Goal>
   );
 };

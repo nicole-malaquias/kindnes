@@ -54,14 +54,12 @@ export const Content = styled.div`
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
-    border: 2px solid black;
+
     width: 90vw;
   }
 `;
 
 export const ActivitiesBox = styled.div`
-  border: 2px solid red;
-
   display: flex;
   flex-direction: column;
   align-items: center;

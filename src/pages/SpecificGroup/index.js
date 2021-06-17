@@ -72,7 +72,6 @@ const SpecificGroup = () => {
         </Header>
 
         <Content>
-          {" "}
           <ActivitiesBox>
             <BoxBtns>
               {isSubscribe ? (

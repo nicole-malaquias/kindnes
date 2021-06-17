@@ -20,7 +20,7 @@ const GroupActivities = () => {
   } = useGroup();
 
   const handleActivitie = () => {
-    if (Object.values(goal).length > 0) {
+    if (Object.values(goal).length > 0 && goalHowMuch < 4) {
       const addHowMuch = Number(goalHowMuch) + Number(1);
       setHandle(true);
       const body = {
