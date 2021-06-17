@@ -24,7 +24,7 @@ export const MenuContainer = styled.div`
 
 export const Select = styled.select`
   width: 100%;
-  height: rem;
+
   background: var(--white);
   color: gray;
   padding-left: 5px;
