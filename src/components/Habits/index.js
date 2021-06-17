@@ -68,7 +68,7 @@ const Habits = ({
           <Button handleClick={handleAchieved}>Checkin</Button>
         )}
         {honor === true && (
-          <i class="fas fa-award fa-2x" style={{ color: "#f1af09" }}></i>
+          <i className="fas fa-award fa-2x" style={{ color: "#f1af09" }}></i>
         )}
       </ContainerHabit>
     </>
