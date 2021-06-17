@@ -34,8 +34,7 @@ const GroupActivities = () => {
         });
     }
   };
-  console.log(groupDescription);
-  console.log(goal);
+
   if (isSubscribe && goal) {
     return (
       <ContainerActivities>
