@@ -2,7 +2,6 @@ import GroupGoal from "../../components/GroupGoal";
 import GroupActivities from "../../components/GroupActivities";
 import GroupProgress from "../../components/GroupProgress";
 import api from "../../services";
-
 import { useAuthy } from "../../Providers/Authy";
 import { useGroup } from "../../Providers/Group";
 import { Redirect } from "react-router";
@@ -36,12 +35,13 @@ const SpecificGroup = () => {
         getGroup();
       });
   };
+
   useEffect(() => {
     getGroup();
     // eslint-disable-next-line
   }, []);
 
-  if (token && groupId) {
+  if (groupId) {
     return (
       <>
         <h1>{group.name}</h1>
