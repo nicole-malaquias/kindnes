@@ -21,12 +21,17 @@ const Habits = ({
       how_much_achieved: 24,
       achieved: true,
     };
-    if (how_much_achieved > 23) {
-      api.patch(`habits/${id}/`, body, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+    if (how_much_achieved === 23) {
+      body = { how_much_achieved: how_much_achieved + 1, achieved: true };
+      const total = how_much_achieved + 1;
+      const newhabit = { title, how_much_achieved: total };
+      api
+        .patch(`habits/${id}/`, body, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((item) => handleHabit(newhabit));
     } else {
       body = { how_much_achieved: how_much_achieved + 1, achieved: false };
       const total = how_much_achieved + 1;
