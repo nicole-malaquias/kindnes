@@ -28,7 +28,7 @@ const FormRandom = ({
       user: id,
     };
     api
-      .post("/habits/", body, {
+      .post("habits/", body, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -37,7 +37,7 @@ const FormRandom = ({
         setFormRandomHabit(!formRandomHabit);
         setAddHabits(addHabits + 1);
       })
-      .catch((_) => toastError("Error adding habit"));
+      .catch((_) => toastError("can't possible to register the habit"));
   };
 
   return (

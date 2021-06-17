@@ -17,8 +17,9 @@ const MyHabits = () => {
   );
 
   const LoadingHabits = () => {
+    const localToken = localStorage.getItem("@gestao:token") || "";
     api
-      .get("/habits/personal/", {
+      .get("habits/personal/", {
         headers: {
           Authorization: `Bearer ${localToken}`,
         },
