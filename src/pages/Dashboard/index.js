@@ -16,7 +16,9 @@ const Dashboard = () => {
     <>
       <Menu />
       <S.ContainerDash>
-        <MyHabits />
+        <S.Box1>
+          <MyHabits />
+        </S.Box1>
         <MyProgress />
         <Honor />
       </S.ContainerDash>

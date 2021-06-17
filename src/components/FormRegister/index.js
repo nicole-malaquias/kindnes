@@ -45,7 +45,6 @@ const FormRegister = () => {
 
   const handleForm = ({ username, email, password }) => {
     const necessaryDatas = { username, email, password };
-
     api
       .post("/users/", necessaryDatas)
       .then((_) => {

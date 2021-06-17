@@ -3,7 +3,6 @@ import rafiki from "../../assets/rafiki.png";
 
 export const Container = styled.div`
   padding: 0 4rem;
-
   .Carrosel {
     display: none;
   }
@@ -34,6 +33,7 @@ export const Content = styled.div`
   margin-top: -8rem;
   height: 100vh;
   width: 100%;
+  margin: 1rem auto;
 
   p {
     font-size: 1.2rem;
@@ -56,7 +56,7 @@ export const Content = styled.div`
 
     div {
       flex-direction: row;
-      max-width: 80vw;
+      max-width: 50vw;
     }
   }
 `;
@@ -74,11 +74,10 @@ export const DivButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1rem;
 
   button {
-    margin: 1rem;
-    margin-top: 1.5rem;
-
+    margin: 1.5rem;
     :hover {
       border: 3px solid var(--pink);
     }
