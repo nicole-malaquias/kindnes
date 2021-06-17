@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const ContainerActivities = styled.ul`
   background-color: var(--pink);
   padding: 0.5rem;
-  width: 90%;
-  border-radius: 20px;
+  width: 85vw;
+  border-radius: 4px;
   margin-top: 1rem;
   button {
     color: var(--white);
@@ -17,7 +17,7 @@ export const ContainerActivities = styled.ul`
     align-items: center;
     background-color: var(--white);
     padding: 0.5rem;
-    border-radius: 1rem;
+    border-radius: 5px;
 
     button {
       font-size: 20px;
@@ -26,12 +26,21 @@ export const ContainerActivities = styled.ul`
     }
   }
   li + li {
-    margin-top: 2px;
+    margin-top: 10px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 50vw;
   }
 `;
 
 export const TextBox = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
 
-  text-align: center;
+  p {
+    font-family: "Montserrat" sans-serif;
+  }
 `;

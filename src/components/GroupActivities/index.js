@@ -35,7 +35,7 @@ const GroupActivities = () => {
           activities.map((elem, index) => (
             <li key={index}>
               <TextBox>
-                <span>{elem.title}</span>
+                <p>{elem.title}</p>
               </TextBox>
               <Button colorButton="purplePink" handleClick={handleActivitie}>
                 Done
@@ -48,7 +48,13 @@ const GroupActivities = () => {
     return (
       <ContainerActivities>
         {activities &&
-          activities.map((elem, index) => <li key={index}>{elem.title}</li>)}
+          activities.map((elem, index) => (
+            <li key={index}>
+              <TextBox>
+                <p>{elem.title}</p>
+              </TextBox>
+            </li>
+          ))}
       </ContainerActivities>
     );
   }

@@ -5,8 +5,9 @@ import api from "../../services";
 import { useAuthy } from "../../Providers/Authy";
 import { useGroup } from "../../Providers/Group";
 import { Redirect } from "react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../components/Button";
+import TeamWork from "../../assets/teamwork.gif";
 import {
   Container,
   Content,
@@ -14,14 +15,16 @@ import {
   Goal,
   Header,
   GroupActivitieContainer,
-} from "./styled";
+  BoxBtns,
+  DescriptionBox,
+} from "./styles";
 import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 
 const SpecificGroup = () => {
   const { token } = useAuthy();
-  const { groupId, getGroup, isSubscribe, group } = useGroup();
-
+  const { groupId, getGroup, isSubscribe, group, goal } = useGroup();
+  const [isVisible, setIsVisible] = useState(false);
   const handleSubscribe = () => {
     api
       .post(`groups/${groupId}/subscribe/`, null, {
@@ -46,6 +49,10 @@ const SpecificGroup = () => {
       });
   };
 
+  const handleClick = () => {
+    setIsVisible(!isVisible);
+  };
+
   useEffect(() => {
     getGroup();
     // eslint-disable-next-line
@@ -58,33 +65,39 @@ const SpecificGroup = () => {
           <Menu />
           <h2>{group.name}</h2>
         </Header>
-        <Content>
-          <Description>
 
-            {isSubscribe ? (
-              <Button
-                width="150px"
-                colorButton="purplePink"
-                handleClick={handleUnsubscribe}
-              >
-                Unsubscribe
-              </Button>
-            ) : (
-              <Button
-                width="150px"
-                colorButton="purplePink"
-                handleClick={handleSubscribe}
-              >
-                Subscribe
-              </Button>
-            )}
-          </Description>
+        <BoxBtns>
+          {isSubscribe ? (
+            <Button
+              width="150px"
+              colorButton="purplePink"
+              handleClick={handleUnsubscribe}
+            >
+              Unsubscribe
+            </Button>
+          ) : (
+            <Button
+              width="150px"
+              colorButton="purplePink"
+              handleClick={handleSubscribe}
+            >
+              Subscribe
+            </Button>
+          )}
+          <DescriptionBox>
+            <Button handleClick={handleClick}>Description</Button>
+            <Description isVisible={isVisible}>
+              <p>{goal.title}</p>
+            </Description>
+          </DescriptionBox>
+        </BoxBtns>
+        <Content>
           <GroupActivitieContainer>
             <GroupActivities />
-            <Goal>
-              <GroupGoal />
+            <div>
               <GroupProgress />
-            </Goal>
+              <img src={TeamWork} alt="Team work" />
+            </div>
           </GroupActivitieContainer>
         </Content>
         <Footer />
