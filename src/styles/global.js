@@ -7,7 +7,8 @@ export default createGlobalStyle`
         list-style: none;
         box-sizing: border-box;
         list-style: none;
-  
+
+        
     }
     :root{
         --white: #F5F5F5;
@@ -21,8 +22,8 @@ export default createGlobalStyle`
         --background:  rgba(166, 184, 243, 0.2);
         --backgroundFooter: rgba(166, 184, 243, 0.3);
     }
-
-      body{
+    
+    body{
         background: var(--background);
         height: 100vh;
     }

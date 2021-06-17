@@ -89,7 +89,7 @@ const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
         </select>
 
         <Button type="submit">Submit</Button>
-        <Button className="x" handleClick={() => setModal(!modal)}>
+        <Button className="closed" handleClick={() => setModal(!modal)}>
           X
         </Button>
       </S.FormHabits>

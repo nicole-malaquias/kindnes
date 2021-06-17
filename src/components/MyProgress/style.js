@@ -1,20 +1,30 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+export const animationCard = keyframes`
+  from{
+    transform: translateX(100px)
+  }
+  to{
+    
+    transform: translateX(0px)
+  }
+`;
 
 export const ContainerProgress = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 250px;
-  height: 150px;
+  width: 80%;
+  max-width: 30rem;
+  height: 25vh;
   border-radius: 10px;
   border: 1px solid pink;
-  position: absolute;
   background: var(--pink);
-  margin-top: 120px;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%);
+  margin: 0.5rem 0;
+  padding: 1rem;
+  animation: ${animationCard} 1s;
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
 
   p {
     font-weight: bolder;
@@ -22,24 +32,6 @@ export const ContainerProgress = styled.div`
     color: var(--black);
   }
   @media only screen and (min-width: 768px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 35rem;
-    height: 17rem;
-    border-radius: 10px;
-    border: 1px solid pink;
-    position: absolute;
-    top: 7px;
-    margin-left: 20rem;
-    background: var(--pink);
-
-    p {
-      font-weight: bolder;
-      margin-bottom: 10px;
-      color: var(--black);
-    }
   }
 `;
 export const ContainerMyProgress = styled.div`

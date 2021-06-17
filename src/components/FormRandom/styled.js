@@ -3,10 +3,9 @@ import styled from "styled-components";
 export const ContainerModalRandom = styled.div`
   z-index: 1;
   background: rgba(221, 204, 225, 0.8);
-  position: relative;
+  position: fixed;
   height: 100vh;
   width: 100vw;
-
   top: 0;
   left: 0;
 `;
@@ -21,18 +20,22 @@ export const FormRandom = styled.div`
   z-index: 3;
   background: #9780a5;
   height: 55vh;
-  width: 35vw;
+  width: 80vw;
   position: relative;
-  top: 50%;
-  left: 50%;
   border-radius: 10px;
   transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  display: flex;
   flex-direction: column;
+
+  span {
+    font-size: 1.2rem;
+    text-align: center;
+  }
 
   select {
     margin: 5px;
@@ -63,5 +66,9 @@ export const FormRandom = styled.div`
     position: absolute;
     top: 15px;
     right: 15px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    max-width: 50vh;
   }
 `;
