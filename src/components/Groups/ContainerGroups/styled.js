@@ -14,7 +14,7 @@ export const Container = styled.div`
   padding: 1rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   color: var(--black);
-
+  overflow-y: scroll;
   @media only screen and (min-width: 768px) {
     justify-content: flex-start;
     width: 50vw;
