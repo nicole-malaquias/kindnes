@@ -5,12 +5,19 @@ import Button from "../Button";
 
 const GroupActivities = () => {
   const { token } = useAuthy();
-  const { activities, goal, getGroup, isSubscribe, goalId, goalHowMuch } =
-    useGroup();
+  const {
+    activities,
+    goal,
+    getGroup,
+    isSubscribe,
+    goalId,
+    goalHowMuch,
+    groupDescription,
+  } = useGroup();
 
   const handleActivitie = () => {
-    if (goal) {
-      const addHowMuch = Number(goalHowMuch) + Number(25);
+    if (Object.values(goal).length > 0 && goalHowMuch < 4) {
+      const addHowMuch = Number(goalHowMuch) + Number(1);
 
       const body = {
         how_much_achieved: addHowMuch,
@@ -27,7 +34,8 @@ const GroupActivities = () => {
         });
     }
   };
-
+  console.log(groupDescription);
+  console.log(goal);
   if (isSubscribe && goal) {
     return (
       <>

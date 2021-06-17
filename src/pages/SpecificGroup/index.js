@@ -41,7 +41,7 @@ const SpecificGroup = () => {
     // eslint-disable-next-line
   }, []);
 
-  if (token && groupId) {
+  if (groupId) {
     return (
       <>
         <h1>{group.name}</h1>
