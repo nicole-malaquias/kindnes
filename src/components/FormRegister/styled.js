@@ -29,7 +29,7 @@ export const Container = styled.div`
   }
   @media only screen and (min-width: 768px) {
     background-color: var(--purplePink);
-    width: 500px;
+    width: 28vw;
     margin-right: 1rem;
     h2,
     p {
@@ -38,7 +38,7 @@ export const Container = styled.div`
   }
 `;
 export const Terms = styled.div`
-  padding: 10px;
+  padding: 0.8rem;
   input + label {
     display: inline-block;
     margin-left: 0.5rem;
