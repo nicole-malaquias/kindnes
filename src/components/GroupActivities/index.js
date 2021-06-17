@@ -3,15 +3,26 @@ import { useGroup } from "../../Providers/Group";
 import { useAuthy } from "../../Providers/Authy";
 import Button from "../Button";
 import { ContainerActivities, TextBox } from "./styled";
+import Confetti from "react-dom-confetti";
+import { configConfetti } from "../../utils";
+
 const GroupActivities = () => {
   const { token } = useAuthy();
-  const { activities, goal, getGroup, isSubscribe, goalId, goalHowMuch } =
-    useGroup();
+  const {
+    activities,
+    goal,
+    getGroup,
+    isSubscribe,
+    goalId,
+    goalHowMuch,
+    handle,
+    setHandle,
+  } = useGroup();
 
   const handleActivitie = () => {
-    if (Object.values(goal).length > 0 && goalHowMuch < 4) {
+    if (Object.values(goal).length > 0) {
       const addHowMuch = Number(goalHowMuch) + Number(1);
-
+      setHandle(true);
       const body = {
         how_much_achieved: addHowMuch,
       };
@@ -40,6 +51,7 @@ const GroupActivities = () => {
               <Button colorButton="purplePink" handleClick={handleActivitie}>
                 Done
               </Button>
+              <Confetti active={handle} config={configConfetti} />
             </li>
           ))}
       </ContainerActivities>

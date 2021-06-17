@@ -5,7 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
   height: 100vh;
   h1 {
     font-size: 2rem;
@@ -14,6 +13,12 @@ export const Container = styled.div`
     color: var(--black);
     text-align: center;
     margin-bottom: 5px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    h2 {
+      margin-top: 10px;
+    }
   }
 `;
 export const GroupActivitieContainer = styled.div`
@@ -24,17 +29,20 @@ export const GroupActivitieContainer = styled.div`
   width: 100%;
   img {
     display: none;
-    border-radius: 50%;
   }
   @media only screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
     width: 75%;
-    gap: 1rem;
 
-    img {
-      display: block;
-      height: 50vh;
+    div {
+      img {
+        display: block;
+        height: 50%;
+        width: 100%;
+        margin-top: 5vh;
+        border-radius: 4px;
+      }
     }
   }
 `;
@@ -43,6 +51,24 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    border: 2px solid black;
+    width: 90vw;
+  }
+`;
+
+export const ActivitiesBox = styled.div`
+  border: 2px solid red;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media only screen and (min-width: 768px) {
+    width: 50%;
+  }
 `;
 
 export const Header = styled.div`
@@ -65,8 +91,6 @@ export const BoxBtns = styled.div`
     margin-left: 10px;
   }
   @media only screen and (min-width: 768px) {
-    width: 100%;
-    justify-content: flex-end;
   }
 `;
 const appearFromLeft = keyframes`
@@ -97,7 +121,6 @@ export const Description = styled.div`
 
   display: ${(props) => (props.isVisible ? "block" : "none")};
   @media only screen and (min-width: 768px) {
-    display: block;
     width: 400px;
   }
 `;

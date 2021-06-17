@@ -30,7 +30,7 @@ export const ContainerActivities = styled.ul`
   }
 
   @media only screen and (min-width: 768px) {
-    width: 50vw;
+    width: 30vw;
   }
 `;
 

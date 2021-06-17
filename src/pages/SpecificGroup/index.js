@@ -1,4 +1,3 @@
-import GroupGoal from "../../components/GroupGoal";
 import GroupActivities from "../../components/GroupActivities";
 import GroupProgress from "../../components/GroupProgress";
 import api from "../../services";
@@ -12,20 +11,25 @@ import {
   Container,
   Content,
   Description,
-  Goal,
   Header,
   GroupActivitieContainer,
   BoxBtns,
   DescriptionBox,
+  ActivitiesBox,
 } from "./styles";
 import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
+import { configConfetti } from "../../utils";
+import Confetti from "react-dom-confetti";
 
 const SpecificGroup = () => {
   const { token } = useAuthy();
   const { groupId, getGroup, isSubscribe, group, goal } = useGroup();
   const [isVisible, setIsVisible] = useState(false);
+  const [subConfetti, setSubConfetti] = useState(false);
+
   const handleSubscribe = () => {
+    setSubConfetti(true);
     api
       .post(`groups/${groupId}/subscribe/`, null, {
         headers: {
@@ -34,6 +38,7 @@ const SpecificGroup = () => {
       })
       .then((_) => {
         getGroup();
+        setSubConfetti(false);
       });
   };
 
@@ -66,34 +71,40 @@ const SpecificGroup = () => {
           <h2>{group.name}</h2>
         </Header>
 
-        <BoxBtns>
-          {isSubscribe ? (
-            <Button
-              width="150px"
-              colorButton="purplePink"
-              handleClick={handleUnsubscribe}
-            >
-              Unsubscribe
-            </Button>
-          ) : (
-            <Button
-              width="150px"
-              colorButton="purplePink"
-              handleClick={handleSubscribe}
-            >
-              Subscribe
-            </Button>
-          )}
-          <DescriptionBox>
-            <Button handleClick={handleClick}>Description</Button>
-            <Description isVisible={isVisible}>
-              <p>{goal.title}</p>
-            </Description>
-          </DescriptionBox>
-        </BoxBtns>
         <Content>
-          <GroupActivitieContainer>
+          {" "}
+          <ActivitiesBox>
+            <BoxBtns>
+              {isSubscribe ? (
+                <Button
+                  width="150px"
+                  colorButton="purplePink"
+                  handleClick={handleUnsubscribe}
+                >
+                  Unsubscribe
+                </Button>
+              ) : (
+                <>
+                  <Button
+                    width="150px"
+                    colorButton="purplePink"
+                    handleClick={handleSubscribe}
+                  >
+                    Subscribe
+                  </Button>
+                  <Confetti active={subConfetti} config={configConfetti} />
+                </>
+              )}
+              <DescriptionBox>
+                <Button handleClick={handleClick}>Description</Button>
+                <Description isVisible={isVisible}>
+                  <p>{goal.title}</p>
+                </Description>
+              </DescriptionBox>
+            </BoxBtns>
             <GroupActivities />
+          </ActivitiesBox>
+          <GroupActivitieContainer>
             <div>
               <GroupProgress />
               <img src={TeamWork} alt="Team work" />

@@ -5,8 +5,8 @@ const GroupProgress = () => {
   const { goalHowMuch } = useGroup();
   return (
     <Goal>
-      <h3>number of attended meetings</h3>
-      {goalHowMuch && <span>{goalHowMuch}</span>}
+      <h3>Attended meetings: </h3>
+      {goalHowMuch && <h3>{goalHowMuch}</h3>}
     </Goal>
   );
 };

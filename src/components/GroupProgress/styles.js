@@ -12,5 +12,8 @@ export const Goal = styled.div`
   @media only screen and (min-width: 768px) {
     min-width: 100%;
     height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
