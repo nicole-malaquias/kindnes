@@ -26,7 +26,7 @@ const Menu = () => {
         <Link to="/">
           <div>
             <img src={logo} alt="logo" />
-            <h1>Kindness</h1>
+            <h1>kindness</h1>
           </div>
         </Link>
       </div>
@@ -40,7 +40,7 @@ const Menu = () => {
         <Link to="/">
           <div>
             <img src={logo} alt="logo" />
-            <h1>Kindness</h1>
+            <h1>kindness</h1>
           </div>
         </Link>
       </div>
@@ -52,7 +52,6 @@ const Menu = () => {
           <Button handleClick={handleMenu}>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/groups">Groups</Link>
-            <Link to="/specificgroup">Specific Group</Link>
           </Button>
           <Button id="logout" handleClick={sendToHome}>
             Logout

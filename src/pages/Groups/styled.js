@@ -24,7 +24,7 @@ export const MenuContainer = styled.div`
 
 export const Select = styled.select`
   width: 100%;
-  height: 3rem;
+
   background: var(--white);
   color: gray;
   padding-left: 5px;
@@ -68,9 +68,26 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
+  height: 22vh;
+  width: 65vw;
+  margin-top: -2rem;
+
+  button {
+    font-size: 1.2rem;
+  }
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
+  }
+`;
+
+export const Contact = styled.p`
+  font-size: 1rem;
+  padding: 0.3rem;
+  text-align: center;
+
+  @media only screen and (min-width: 768px) {
+    margin: 10px;
+    font-size: 1.5rem;
   }
 `;
