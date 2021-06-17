@@ -5,6 +5,7 @@ import FormHabit from "../FormHabit";
 import * as S from "./style";
 import RandomHabits from "../../components/RandomHabits";
 import { useHabit } from "../../Providers/Habits";
+import { toastError } from "../../utils";
 
 const MyHabits = () => {
   const { updateHabits } = useHabit();
@@ -33,7 +34,9 @@ const MyHabits = () => {
         sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
         updateHabits(data);
       })
-      .catch((res) => console.log("deu ruim"));
+      .catch((_) =>
+        toastError("It wasn't possible to load your habits, try again")
+      );
   };
 
   const handleAddHabit = () => {

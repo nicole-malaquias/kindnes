@@ -5,10 +5,12 @@ import imgMenu from "../../assets/menu.png";
 import IconClosed from "../../assets/seta.png";
 import Button from "../Button";
 import { useState } from "react";
-
+import { useHabit } from "../../Providers/Habits";
 import { useAuthy } from "../../Providers/Authy";
 
 const Menu = () => {
+  const { resetHabits, setClickHabit } = useHabit();
+
   const [isOpen, setIsOpen] = useState(false);
   const { token, handleLogout } = useAuthy();
   const history = useHistory();
@@ -17,6 +19,8 @@ const Menu = () => {
   };
   const sendToHome = () => {
     handleLogout();
+    resetHabits();
+    setClickHabit([]);
     history.push("/");
   };
 
