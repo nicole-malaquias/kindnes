@@ -68,13 +68,13 @@ const Habits = ({
         <div className="title" key={index}>
           <p>{title}</p>
         </div>
-        <div>
-          <span>{habit.how_much_achieved}</span>
-          {honor === false && <Button handleClick={handleAchieved}>Add</Button>}
-          {honor === true && (
-            <i class="fas fa-award fa-2x" style={{ color: "#f1af09" }}></i>
-          )}
-        </div>
+        <span>{habit.how_much_achieved}</span>
+        {honor === false && (
+          <Button handleClick={handleAchieved}>Checkin</Button>
+        )}
+        {honor === true && (
+          <i className="fas fa-award fa-2x" style={{ color: "#f1af09" }}></i>
+        )}
       </ContainerHabit>
     </>
   );
