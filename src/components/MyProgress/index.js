@@ -16,7 +16,10 @@ const MyProgress = () => {
         <ContainerMyProgress>
           <CircularProgressbar
             value={how_much_achieved === undefined ? 0 : how_much_achieved}
-            text={how_much_achieved === undefined ? 0 : how_much_achieved}
+            text={
+              how_much_achieved === undefined ? 0 : how_much_achieved + "º day"
+            }
+            maxValue={24}
             styles={buildStyles({
               rotation: 0.25,
               strokeLinecap: "butt",

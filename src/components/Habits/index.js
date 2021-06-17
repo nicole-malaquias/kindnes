@@ -1,10 +1,16 @@
 import ContainerHabit from "./style";
 import api from "../../services";
 import Button from "../Button";
-import { getPersonalHabits } from "../../services/conection";
 import { useHabit } from "../../Providers/Habits";
 
-const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
+const Habits = ({
+  habit,
+  addHabits,
+  setAddHabits,
+  sethabits,
+  honor,
+  index,
+}) => {
   const { handleHabit } = useHabit();
   const { title, how_much_achieved, id } = habit;
 
@@ -16,7 +22,7 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
       achieved: true,
     };
     if (how_much_achieved > 23) {
-      api.patch(`/habits/${id}/`, body, {
+      api.patch(`habits/${id}/`, body, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -26,7 +32,7 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
       const total = how_much_achieved + 1;
       const newhabit = { title, how_much_achieved: total };
       api
-        .patch(`/habits/${id}/`, body, {
+        .patch(`habits/${id}/`, body, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -34,7 +40,17 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
         .then((item) => handleHabit(newhabit));
     }
 
-    getPersonalHabits(sethabits);
+    api
+      .get("habits/personal/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        const { data } = response;
+        localStorage.setItem("@gestao:habitos", JSON.stringify(data));
+        sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
+      });
   };
   const handleProgress = () => {
     localStorage.setItem("@gestao:atual_habit", JSON.stringify(habit));
@@ -44,7 +60,7 @@ const Habits = ({ habit, addHabits, setAddHabits, sethabits, honor }) => {
   return (
     <>
       <ContainerHabit onClick={handleProgress}>
-        <div className="title">
+        <div className="title" key={index}>
           <p>{title}</p>
         </div>
         <div>

@@ -17,7 +17,7 @@ const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
   };
   const handlePostHabits = (body) => {
     api
-      .post("/habits/", body, {
+      .post("habits/", body, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -54,7 +54,13 @@ const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
       how_much_achieved: 0,
       user: id,
     };
-    handlePostHabits(body);
+    api
+      .post("habits/", body, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .catch((_) => toastError("can't possible to register the habit"));
     reset();
   };
 

@@ -8,11 +8,9 @@ const Honor = () => {
     <S.ContainerHonor>
       <h1> Honor</h1>
       {habits !== "" &&
-        habits.map((habit) =>
-          habit.achieved === true ? (
-            <Habits habit={habit} honor={true} />
-          ) : (
-            <> </>
+        habits.map((habit, index) =>
+          habit.achieved === true && (
+            <Habits habit={habit} honor={true} key={index} />
           )
         )}
     </S.ContainerHonor>

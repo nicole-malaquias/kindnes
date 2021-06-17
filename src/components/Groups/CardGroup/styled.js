@@ -12,6 +12,7 @@ export const CardItem = styled.div`
   height: 30vh;
   border-radius: 20px;
   cursor: pointer;
+
   @media only screen and (min-width: 768px) {
     width: 37vw;
     height: 7vh;

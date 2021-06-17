@@ -1,5 +1,5 @@
 import { Container, MenuBurg } from "./styled";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import imgMenu from "../../assets/menu.png";
 import IconClosed from "../../assets/seta.png";
@@ -11,9 +11,13 @@ import { useAuthy } from "../../Providers/Authy";
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { token, handleLogout } = useAuthy();
-
+  const history = useHistory();
   const handleMenu = () => {
     isOpen ? setIsOpen(false) : setIsOpen(true);
+  };
+  const sendToHome = () => {
+    handleLogout();
+    history.push("/");
   };
 
   return !token ? (
@@ -22,7 +26,7 @@ const Menu = () => {
         <Link to="/">
           <div>
             <img src={logo} alt="logo" />
-            <h1>be habits</h1>
+            <h1>kindness</h1>
           </div>
         </Link>
       </div>
@@ -36,7 +40,7 @@ const Menu = () => {
         <Link to="/">
           <div>
             <img src={logo} alt="logo" />
-            <h1>be habits</h1>
+            <h1>kindness</h1>
           </div>
         </Link>
       </div>
@@ -48,9 +52,8 @@ const Menu = () => {
           <Button handleClick={handleMenu}>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/groups">Groups</Link>
-            <Link to="/specificgroup">Specific Group</Link>
           </Button>
-          <Button id="logout" handleClick={handleLogout}>
+          <Button id="logout" handleClick={sendToHome}>
             Logout
           </Button>
         </MenuBurg>
