@@ -6,10 +6,10 @@ export const CardItem = styled.div`
   align-items: center;
   justify-content: space-evenly;
   background-color: var(--white);
-  width: 55vw;
+  width: 90%;
   float: right;
   margin: 3px;
-  height: 30vh;
+  min-height: 2rem;
   border-radius: 20px;
   cursor: pointer;
 

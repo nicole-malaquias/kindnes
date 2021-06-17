@@ -13,7 +13,7 @@ const Dashboard = () => {
     history.push("/");
   }
   return (
-    <>
+    <S.Container>
       <Menu />
       <S.ContainerDash>
         <S.Box1>
@@ -23,7 +23,7 @@ const Dashboard = () => {
         <Honor />
       </S.ContainerDash>
       <Footer />
-    </>
+    </S.Container>
   );
 };
 export default Dashboard;
