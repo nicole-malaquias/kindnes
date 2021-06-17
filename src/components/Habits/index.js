@@ -75,6 +75,7 @@ const Habits = ({
         {honor === true && (
           <i className="fas fa-award fa-2x" style={{ color: "#f1af09" }}></i>
         )}
+        
       </ContainerHabit>
     </>
   );
