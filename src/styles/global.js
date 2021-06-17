@@ -7,7 +7,7 @@ export default createGlobalStyle`
         list-style: none;
         box-sizing: border-box;
         list-style: none;
-        
+  
     }
     :root{
         --white: #F5F5F5;
