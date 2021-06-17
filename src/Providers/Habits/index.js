@@ -13,10 +13,21 @@ export const HabitProvider = ({ children }) => {
   const updateHabits = (habits) => {
     setHabits(habits);
   };
+  const resetHabits = () => {
+    setHabits([]);
+  };
 
   return (
     <HabitContext.Provider
-      value={{ clickHabit, handleHabit, habits, updateHabits }}
+      value={{
+        setHabits,
+        setClickHabit,
+        clickHabit,
+        handleHabit,
+        habits,
+        updateHabits,
+        resetHabits,
+      }}
     >
       {children}
     </HabitContext.Provider>
