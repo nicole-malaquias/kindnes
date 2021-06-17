@@ -41,15 +41,12 @@ const MyHabits = () => {
   };
 
   useEffect(() => {
-    if (habits !== JSON.parse(localStorage.getItem("@gestao:habitos"))) {
-      LoadingHabits();
+    if (localToken) {
+      if (habits !== JSON.parse(localStorage.getItem("@gestao:habitos"))) {
+        LoadingHabits();
+        sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
+      }
     }
-    // eslint-disable-next-line
-  }, [addHabits]);
-
-  useEffect(() => {
-    LoadingHabits();
-    sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
     // eslint-disable-next-line
   }, [addHabits]);
 
