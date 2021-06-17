@@ -11,17 +11,27 @@ export const ContainerActivities = styled.ul`
     padding: 2rem;
   }
   li {
-    span {
-      margin-right: 1rem;
-    }
+    min-height: 13vh;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: var(--white);
     padding: 0.5rem;
     border-radius: 1rem;
+
+    button {
+      font-size: 20px;
+      width: 100px;
+      height: 20px;
+    }
   }
   li + li {
     margin-top: 2px;
   }
+`;
 
+export const TextBox = styled.div`
+  margin: 0 auto;
+
+  text-align: center;
 `;
