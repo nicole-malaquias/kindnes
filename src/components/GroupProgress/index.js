@@ -1,7 +1,14 @@
 import { useGroup } from "../../Providers/Group";
+import { Goal } from "./styles";
+
 const GroupProgress = () => {
   const { goalHowMuch } = useGroup();
-  return <>{goalHowMuch && <span>{goalHowMuch}</span>}</>;
+  return (
+    <Goal>
+      <h3>Attended meetings: </h3>
+      {goalHowMuch && <h3>{goalHowMuch}</h3>}
+    </Goal>
+  );
 };
 
 export default GroupProgress;

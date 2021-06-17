@@ -22,6 +22,7 @@ export const GroupProvider = ({ children }) => {
   const [goal, setGoal] = useState({});
   const [activities, setActivities] = useState([]);
   const [groupDescription, setGroupDescription] = useState("");
+  const [handle, setHandle] = useState(false);
 
   const getGroup = () => {
     api.get(`groups/${groupId}/`).then((response) => {
@@ -34,7 +35,7 @@ export const GroupProvider = ({ children }) => {
       setGroup(data);
       setActivities(data.activities);
       setGroupDescription(data.description);
-
+      setHandle(false);
       if (goals[0]) {
         setGoal(goals[0]);
         setGoalId(goals[0].id);
@@ -82,6 +83,8 @@ export const GroupProvider = ({ children }) => {
         goal,
         activities,
         groupDescription,
+        handle,
+        setHandle,
       }}
     >
       {children}

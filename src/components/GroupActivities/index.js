@@ -2,7 +2,10 @@ import api from "../../services";
 import { useGroup } from "../../Providers/Group";
 import { useAuthy } from "../../Providers/Authy";
 import Button from "../Button";
-import { ContainerActivities } from "./styled";
+import { ContainerActivities, TextBox } from "./styled";
+import Confetti from "react-dom-confetti";
+import { configConfetti } from "../../utils";
+
 const GroupActivities = () => {
   const { token } = useAuthy();
   const {
@@ -12,13 +15,14 @@ const GroupActivities = () => {
     isSubscribe,
     goalId,
     goalHowMuch,
-    groupDescription,
+    handle,
+    setHandle,
   } = useGroup();
 
   const handleActivitie = () => {
-    if (Object.values(goal).length > 0 && goalHowMuch < 4) {
+    if (Object.values(goal).length > 0) {
       const addHowMuch = Number(goalHowMuch) + Number(1);
-
+      setHandle(true);
       const body = {
         how_much_achieved: addHowMuch,
       };
@@ -41,14 +45,13 @@ const GroupActivities = () => {
         {activities &&
           activities.map((elem, index) => (
             <li key={index}>
-              <span>{elem.title}</span>
-              <Button
-                colorButton="purplePink"
-                width="50px"
-                handleClick={handleActivitie}
-              >
+              <TextBox>
+                <p>{elem.title}</p>
+              </TextBox>
+              <Button colorButton="purplePink" handleClick={handleActivitie}>
                 Done
               </Button>
+              <Confetti active={handle} config={configConfetti} />
             </li>
           ))}
       </ContainerActivities>
@@ -57,7 +60,13 @@ const GroupActivities = () => {
     return (
       <ContainerActivities>
         {activities &&
-          activities.map((elem, index) => <li key={index}>{elem.title}</li>)}
+          activities.map((elem, index) => (
+            <li key={index}>
+              <TextBox>
+                <p>{elem.title}</p>
+              </TextBox>
+            </li>
+          ))}
       </ContainerActivities>
     );
   }
