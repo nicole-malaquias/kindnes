@@ -5,6 +5,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 20px;
+  text-align: center;
+
   background-color: var(--purplePink);
   padding: 1rem;
   width: 120px;
@@ -15,6 +17,7 @@ export const Container = styled.div`
     width: 60px;
     height: 60px;
     border-radius: 100%;
+    object-fit: cover;
   }
 
   ::after {
@@ -29,24 +32,35 @@ export const Container = styled.div`
   }
   @media only screen and (min-width: 768px) {
     flex-direction: row;
-    width: 225px;
+    justify-content: space-evenly;
+    width: 300px;
     img {
       margin-right: 0.5rem;
+      width: 80px;
+      height: 80px;
     }
   }
 `;
 
 export const Datas = styled.div`
   padding: 0.5rem;
-
+  h4 {
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
   p {
-    margin-left: 0.2rem;
     a {
       color: var(--white);
       text-decoration: underline;
-      :hover, :active {
+      :hover,
+      :active {
         color: var(--black);
       }
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    h4 {
+      font-size: 1.5rem;
     }
   }
 `;

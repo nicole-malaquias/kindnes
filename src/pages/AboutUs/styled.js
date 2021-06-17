@@ -21,12 +21,17 @@ to {
 }
 `;
 export const Container = styled.div`
-  background: var(--backgroundFooter);
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+`;
+export const Content = styled.div`
+  background: var(--backgroundFooter);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  height: 100%;
 `;
 export const LeftColumn = styled.div`
   display: flex;

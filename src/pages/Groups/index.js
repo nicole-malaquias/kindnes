@@ -12,6 +12,7 @@ import {
   Category,
   SearchContainer,
   MenuContainer,
+  Contact,
 } from "./styled";
 import Button from "../../components/Button";
 import { toastError } from "../../utils";
@@ -121,6 +122,10 @@ const Groups = () => {
             <CardGroup groups={chosenCategory} />
           )}
         </ContainerGroups>
+        <Contact>
+          Contact us on <strong>kindnessapp@gmail.com</strong> to add your
+          volunteer group to our page
+        </Contact>
         <Footer />
       </Container>
     </>
