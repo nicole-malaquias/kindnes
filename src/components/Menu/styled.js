@@ -17,7 +17,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 90%;
-
+  margin-top: 1rem;
   button {
     display: flex;
     flex-direction: column;
@@ -34,6 +34,7 @@ export const Container = styled.div`
 
   @media only screen and (min-width: 768px) {
     justify-content: stretch;
+    margin-top: 0;
     div {
       align-items: center;
       margin: 0.5rem 0.5rem;

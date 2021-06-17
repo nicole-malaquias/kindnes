@@ -38,7 +38,8 @@ export const ContainerHonor = styled.div`
   }
 
   h1 {
-    margin-top: 15rem;
+    margin-top: 2rem;
+    position: relative;
     text-align: center;
     color: rgb(255, 223, 0);
     animation: neon 1s alternate infinite ease-in-out;

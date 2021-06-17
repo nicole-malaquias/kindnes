@@ -59,6 +59,12 @@ export const AddNewHabit = styled.div`
 `;
 
 export const Habits = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 15rem;
+  margin: 2rem auto;
   overflow-y: scroll;
 
   ::-webkit-scrollbar {
@@ -69,12 +75,6 @@ export const Habits = styled.div`
     background-color: var(--pink);
     border-radius: 5rem;
   }
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 15rem;
-  margin: 2rem auto;
 
   @media only screen and (min-width: 768px) {
     margin: 1rem 0;
