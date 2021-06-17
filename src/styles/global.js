@@ -14,6 +14,7 @@ export default createGlobalStyle`
         --black: #000000;
         --purpleOpacity : #a6b8f3;
         --purple: #7481AA;
+        --purpleOpacity : #a6b8f3;
         --purplePink: #8674AA;
         --purpleDetails: #7481aa;   
         --pink: #DBA5F3;
@@ -30,16 +31,29 @@ export default createGlobalStyle`
     h1,h2,h3,h4,h5,h6{
         color: var(--purpleDetails);
         font-family: Montserrat;
-        font-size:1.5rem;
         font-style: normal;
         font-weight: 400;
         line-height: 44px;
-        text-align: left;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 1.2rem;
     }
     
     @media only screen and (min-width: 768px){
-        h1,h2,h3,h4,h5,h6{
-            font-size:3rem;
+        h1 {
+            font-size: 4rem;
+        }
+        h2 {
+            font-size: 3rem;
+        }
+        h3 {
+            font-size: 2rem;
         }
     }
 
@@ -50,6 +64,7 @@ export default createGlobalStyle`
     input {
         outline: none;
         border: none;
+        
     }
     p{
         font-family: Montserrat;

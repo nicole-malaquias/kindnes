@@ -1,11 +1,7 @@
-import { useEffect, useState } from "react";
-import api from "../../services";
-
+import { useGroup } from "../../Providers/Group";
 const GroupProgress = () => {
-  const groupId = useState(localStorage.getItem("@gestao:groupId") || "");
-  const [progress, setProgress] = useState("");
-
-  return <div>Progress</div>;
+  const { goalHowMuch } = useGroup();
+  return <>{goalHowMuch && <span>{goalHowMuch}</span>}</>;
 };
 
 export default GroupProgress;

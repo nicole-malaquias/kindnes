@@ -8,6 +8,7 @@ import { Container, Terms } from "./styled";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input";
+
 const FormRegister = () => {
   const history = useHistory();
   const schema = yup.object().shape({
@@ -44,6 +45,7 @@ const FormRegister = () => {
 
   const handleForm = ({ username, email, password }) => {
     const necessaryDatas = { username, email, password };
+
     api
       .post("/users/", necessaryDatas)
       .then((_) => {
@@ -53,6 +55,7 @@ const FormRegister = () => {
       .catch((_) => toastError("That didn't work, try another username"));
     reset();
   };
+
   return (
     <>
       <Container>

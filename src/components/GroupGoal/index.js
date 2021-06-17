@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
-import api from "../../services";
+import { useGroup } from "../../Providers/Group";
 
 const GroupGoal = () => {
-  const groupId = localStorage.getItem("@gestao:groupId") || "";
-  const [goal, setGoal] = useState([]);
-
-  return <div>Atividades</div>;
+  const { goal } = useGroup();
+  return goal && <h3>{goal.title}</h3>;
 };
 
 export default GroupGoal;
