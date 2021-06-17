@@ -70,11 +70,9 @@ export const SearchContainer = styled.div`
   justify-content: space-between;
   height: 22vh;
   width: 65vw;
-  label {
-    font-size: 1.5rem;
-  }
+  margin-top: -2rem;
+
   button {
-    width: px;
     font-size: 1.2rem;
   }
 
@@ -83,12 +81,10 @@ export const SearchContainer = styled.div`
   }
 `;
 
-export const Contact = styled.h4`
+export const Contact = styled.p`
   font-size: 1rem;
   padding: 0.3rem;
-  line-height: 1.3rem;
   text-align: center;
-  color: var(--black);
 
   @media only screen and (min-width: 768px) {
     margin: 10px;
