@@ -21,13 +21,24 @@ import Menu from "../../components/Menu";
 import Footer from "../../components/Footer";
 import { configConfetti } from "../../utils";
 import Confetti from "react-dom-confetti";
+import Party from "react-confetti";
+import useWindowSize from "react-use/lib/useWindowSize";
 
 const SpecificGroup = () => {
   const { token } = useAuthy();
-  const { groupId, getGroup, isSubscribe, group, goal, groupDescription } =
-    useGroup();
+  const {
+    groupId,
+    getGroup,
+    isSubscribe,
+    group,
+
+    isParty,
+    groupDescription,
+  } = useGroup();
   const [isVisible, setIsVisible] = useState(false);
   const [subConfetti, setSubConfetti] = useState(false);
+  const { width, height } = useWindowSize();
+  const recycle = false;
 
   const handleSubscribe = () => {
     setSubConfetti(true);
@@ -67,6 +78,7 @@ const SpecificGroup = () => {
   if (groupId) {
     return (
       <Container>
+        <Party width={width} height={height} recycle={recycle} run={isParty} />
         <Header>
           <Menu />
           <h2>{group.name}</h2>
