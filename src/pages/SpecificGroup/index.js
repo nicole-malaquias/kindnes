@@ -24,7 +24,8 @@ import Confetti from "react-dom-confetti";
 
 const SpecificGroup = () => {
   const { token } = useAuthy();
-  const { groupId, getGroup, isSubscribe, group, goal } = useGroup();
+  const { groupId, getGroup, isSubscribe, group, goal, groupDescription } =
+    useGroup();
   const [isVisible, setIsVisible] = useState(false);
   const [subConfetti, setSubConfetti] = useState(false);
 
@@ -97,7 +98,7 @@ const SpecificGroup = () => {
               <DescriptionBox>
                 <Button handleClick={handleClick}>Description</Button>
                 <Description isVisible={isVisible}>
-                  <p>{goal.title}</p>
+                  <p>{groupDescription}</p>
                 </Description>
               </DescriptionBox>
             </BoxBtns>
