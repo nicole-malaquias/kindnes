@@ -74,7 +74,6 @@ export const GroupProvider = ({ children }) => {
   };
 
   const thisParty = (howMuch) => {
-    console.log(howMuch);
     if (howMuch === 4) {
       setIsParty(true);
     }
