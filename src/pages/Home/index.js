@@ -104,7 +104,7 @@ const Home = () => {
             <img src={SpecificGroup} alt="page specific group" />
           </div>
           <div>
-            <img src={Groups} alt="page groups" />
+            <img src={Dashboard} alt="page dashboard" />
           </div>
           <div>
             <img
@@ -113,7 +113,7 @@ const Home = () => {
             />
           </div>
           <div>
-            <img src={Dashboard} alt="page dashboard" />
+            <img src={groups} alt="page groups" />
           </div>
         </Carousel>
       </Container>
