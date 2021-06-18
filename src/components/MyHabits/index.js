@@ -50,6 +50,7 @@ const MyHabits = () => {
 
   useEffect(() => {
     getHabits();
+    // eslint-disable-next-line
   }, []);
 
   return (

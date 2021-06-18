@@ -1,8 +1,8 @@
 import * as S from "./styled";
 import React, { useState } from "react";
-import api from "../../services";
+
 import Button from "../Button";
-import { toastError } from "../../utils";
+
 import { useHabit } from "../../Providers/Habits";
 
 const FormRandom = ({
@@ -13,7 +13,6 @@ const FormRandom = ({
   setFormRandomHabit,
 }) => {
   const [difficulty, setDifficulty] = useState("");
-  const token = localStorage.getItem("@gestao:token") || "";
   const id = parseInt(localStorage.getItem("@gestao:user_Id")) || "";
   const { addHabit } = useHabit();
 
