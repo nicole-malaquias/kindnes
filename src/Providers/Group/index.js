@@ -23,6 +23,7 @@ export const GroupProvider = ({ children }) => {
   const [activities, setActivities] = useState([]);
   const [groupDescription, setGroupDescription] = useState("");
   const [handle, setHandle] = useState(false);
+  const [isParty, setIsParty] = useState(false);
 
   const getGroup = () => {
     api.get(`groups/${groupId}/`).then((response) => {
@@ -36,12 +37,14 @@ export const GroupProvider = ({ children }) => {
       setActivities(data.activities);
       setGroupDescription(data.description);
       setHandle(false);
+      setIsParty(false);
       if (goals[0]) {
         setGoal(goals[0]);
         setGoalId(goals[0].id);
         setGoalAchieved(goals[0].achieved);
         setGoalHowMuch(goals[0].how_much_achieved);
         completeGoal(goals[0].how_much_achieved, goals[0].achieved);
+        thisParty(goals[0].how_much_achieved);
       }
 
       if (isMember.length > 0) {
@@ -56,6 +59,7 @@ export const GroupProvider = ({ children }) => {
     let body = {
       achieved: true,
     };
+
     if (howMuch === 4 && !achieved) {
       api
         .patch(`goals/${goalId}/`, body, {
@@ -66,6 +70,12 @@ export const GroupProvider = ({ children }) => {
         .then((_) => {
           getGroup();
         });
+    }
+  };
+
+  const thisParty = (howMuch) => {
+    if (howMuch === 4) {
+      setIsParty(true);
     }
   };
 
@@ -85,6 +95,7 @@ export const GroupProvider = ({ children }) => {
         groupDescription,
         handle,
         setHandle,
+        isParty,
       }}
     >
       {children}
