@@ -3,7 +3,6 @@ import { useHistory, Redirect } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Button from "../../components/Button";
-import ImageExemplo from "../../assets/rafiki.png";
 import Footer from "../../components/Footer";
 import Menu from "../../components/Menu";
 import { useAuthy } from "../../Providers/Authy";
