@@ -1,7 +1,25 @@
-const Register = () => {
+import FormRegister from "../../components/FormRegister";
 
-    return(
-        <div>Register</div>
-    )
+import Menu from "../../components/Menu";
+import Footer from "../../components/Footer";
+import image from "../../assets/image-register.svg";
+
+import { Container, Content } from "./styled";
+
+const Register = () => {
+  return (
+    <>
+      <Container>
+        <Menu />
+        <h2>Register</h2>
+
+        <Content>
+          <img src={image} alt="" />
+          <FormRegister />
+        </Content>
+        <Footer />
+      </Container>
+    </>
+  );
 };
 export default Register;
