@@ -5,6 +5,7 @@ export const Container = styled.div`
   padding: 0 4rem;
   .Carrosel {
     display: none;
+
   }
 
   @media only screen and (min-width: 768px) {

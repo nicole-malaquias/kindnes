@@ -3,10 +3,13 @@ import { useHistory, Redirect } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Button from "../../components/Button";
-import ImageExemplo from "../../assets/rafiki.png";
 import Footer from "../../components/Footer";
 import Menu from "../../components/Menu";
 import { useAuthy } from "../../Providers/Authy";
+import Dashboard from "../../assets/dashboard.jpg";
+import SpecificGroup from "../../assets/specificGroup.jpg";
+import Groups from "../../assets/groups.jpg";
+import SpecificGroupSubscribe from "../../assets/specificGroupSubscribe.jpg";
 
 const Home = () => {
   const { token } = useAuthy();
@@ -95,19 +98,22 @@ const Home = () => {
           swipeable
         >
           <div>
-            <img src={ImageExemplo} alt="exemplo" />
+            <img src={Dashboard} alt="page dashboard" />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo" />
+            <img src={SpecificGroup} alt="page specific group" />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo" />
+            <img src={Dashboard} alt="page dashboard" />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo" />
+            <img
+              src={SpecificGroupSubscribe}
+              alt="page specific group subscribe"
+            />
           </div>
           <div>
-            <img src={ImageExemplo} alt="exemplo" />
+            <img src={Groups} alt="page groups" />
           </div>
         </Carousel>
       </Container>
