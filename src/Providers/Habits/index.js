@@ -21,7 +21,6 @@ export const HabitProvider = ({ children }) => {
   };
 
   const addHabit = (body) => {
-    console.log(body);
     api
       .post("habits/", body, {
         headers: {

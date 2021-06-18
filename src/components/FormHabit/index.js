@@ -38,7 +38,7 @@ const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
       how_much_achieved: 0,
       user: id,
     };
-    console.log(body);
+
     addHabit(body);
     reset();
   };
