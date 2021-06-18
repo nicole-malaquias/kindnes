@@ -14,7 +14,7 @@ export const ContainerDash = styled.div`
   align-items: center;
   @media only screen and (min-width: 768px) {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 800px);
   }
 `;
 
