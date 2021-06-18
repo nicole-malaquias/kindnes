@@ -32,6 +32,12 @@ export const ContainerProgress = styled.div`
     color: var(--black);
   }
   @media only screen and (min-width: 768px) {
+    margin: 0;
+    padding: 0;
+
+    p {
+      font-size: 16px;
+    }
   }
 `;
 export const ContainerMyProgress = styled.div`
