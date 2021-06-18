@@ -113,7 +113,7 @@ const Home = () => {
             />
           </div>
           <div>
-            <img src={groups} alt="page groups" />
+            <img src={Groups} alt="page groups" />
           </div>
         </Carousel>
       </Container>
