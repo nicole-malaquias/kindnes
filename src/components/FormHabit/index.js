@@ -4,21 +4,13 @@ import * as yup from "yup";
 import React, { useState } from "react";
 import Button from "../Button";
 import * as S from "./styled";
-import api from "../../services";
-import { toastError } from "../../utils";
+import { useHabit } from "../../Providers/Habits";
+
 const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
-  const token = localStorage.getItem("@gestao:token") || "";
   const id = parseInt(localStorage.getItem("@gestao:user_Id")) || "";
-
-  const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
-  };
-
-  const handleDifficultyChange = (event) => {
-    setDifficulty(event.target.value);
-  };
+  const { addHabit } = useHabit();
 
   const schema = yup.object().shape({
     title: yup.string().required("Required field"),
@@ -46,13 +38,8 @@ const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
       how_much_achieved: 0,
       user: id,
     };
-    api
-      .post("habits/", body, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .catch((_) => toastError("can't possible to register the habit"));
+
+    addHabit(body);
     reset();
   };
 
@@ -66,14 +53,18 @@ const FormHabit = ({ addHabits, setAddHabits, setModal, modal }) => {
           {errors.title?.message}
         </p>
         <label htmlFor="category">Category</label>
-        <select value={category} onChange={handleCategoryChange} required>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+        >
           <option value=""></option>
           <option value="myself">With Myself</option>
           <option value="others">With Others</option>
         </select>
 
         <label htmlFor="difficulty">Difficulty</label>
-        <select onChange={handleDifficultyChange} required>
+        <select onChange={(e) => setDifficulty(e.target.value)} required>
           <option value=""></option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>

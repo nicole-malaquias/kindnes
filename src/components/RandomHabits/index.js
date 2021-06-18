@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import ContainerRandomHabit from "./style";
 import Button from "../Button";
 import FormRandom from "../FormRandom";
+import { useHabit } from "../../Providers/Habits";
 
-const RandomHabist = ({ addHabits, setAddHabits, modalHabito }) => {
+const RandomHabist = ({ modalHabito }) => {
   const [formRandomHabit, setFormRandomHabit] = useState(false);
   const [title, setTitle] = useState("");
+  const { addHabit } = useHabit();
   const habitsRandom = [
     " Call a friend or a family member",
     " Ask a homeless person how they are doing",
@@ -35,8 +37,7 @@ const RandomHabist = ({ addHabits, setAddHabits, modalHabito }) => {
       <Button handleClick={handleRandomHabit}>Random</Button>
       {formRandomHabit && (
         <FormRandom
-          addHabits={addHabits}
-          setAddHabits={setAddHabits}
+          addHabit={addHabit}
           title={title}
           formRandomHabit={formRandomHabit}
           setFormRandomHabit={setFormRandomHabit}
