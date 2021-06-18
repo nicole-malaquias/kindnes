@@ -8,14 +8,11 @@ import { useHabit } from "../../Providers/Habits";
 import { toastError } from "../../utils";
 
 const MyHabits = () => {
-  const { updateHabits } = useHabit();
+  const { updateHabits, getHabits, habits } = useHabit();
   const [modal, setModal] = useState(false);
   const [addHabits, setAddHabits] = useState(0);
   const [cardExplication, setCardExplication] = useState(false);
   const localToken = localStorage.getItem("@gestao:token") || "";
-  const [habits, sethabits] = useState(
-    JSON.parse(localStorage.getItem("@gestao:habitos")) || []
-  );
 
   const LoadingHabits = () => {
     const localToken = localStorage.getItem("@gestao:token") || "";
@@ -31,7 +28,6 @@ const MyHabits = () => {
           setCardExplication(!cardExplication);
         }
         localStorage.setItem("@gestao:habitos", JSON.stringify(data));
-        sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
         updateHabits(data);
       })
       .catch((_) =>
@@ -47,11 +43,14 @@ const MyHabits = () => {
     if (localToken) {
       if (habits !== JSON.parse(localStorage.getItem("@gestao:habitos"))) {
         LoadingHabits();
-        sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
       }
     }
     // eslint-disable-next-line
   }, [addHabits]);
+
+  useEffect(() => {
+    getHabits();
+  }, []);
 
   return (
     <S.ContainerMyHabits>
@@ -70,7 +69,7 @@ const MyHabits = () => {
                   key={index}
                   addHabits={addHabits}
                   setAddHabits={setAddHabits}
-                  sethabits={sethabits}
+                  // sethabits={sethabits}
                   honor={false}
                 />
               )
@@ -85,11 +84,7 @@ const MyHabits = () => {
           modal={modal}
         />
       )}
-      <RandomHabits
-        addHabits={addHabits}
-        setAddHabits={setAddHabits}
-        modalHabito={modal}
-      />
+      <RandomHabits modalHabito={modal} />
     </S.ContainerMyHabits>
   );
 };

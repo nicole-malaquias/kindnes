@@ -7,11 +7,11 @@ const Habits = ({
   habit,
   addHabits,
   setAddHabits,
-  sethabits,
+
   honor,
   index,
 }) => {
-  const { handleHabit } = useHabit();
+  const { handleHabit, getHabits } = useHabit();
   const { title, how_much_achieved, id } = habit;
 
   const handleAchieved = () => {
@@ -51,10 +51,8 @@ const Habits = ({
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => {
-        const { data } = response;
-        localStorage.setItem("@gestao:habitos", JSON.stringify(data));
-        sethabits(JSON.parse(localStorage.getItem("@gestao:habitos")));
+      .then((_) => {
+        getHabits();
       });
   };
   const handleProgress = () => {
@@ -75,7 +73,6 @@ const Habits = ({
         {honor === true && (
           <i className="fas fa-award fa-2x" style={{ color: "#f1af09" }}></i>
         )}
-        
       </ContainerHabit>
     </>
   );

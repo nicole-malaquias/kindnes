@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import api from "../../services";
 import Button from "../Button";
 import { toastError } from "../../utils";
+import { useHabit } from "../../Providers/Habits";
+
 const FormRandom = ({
   title,
   addHabits,
@@ -13,9 +15,7 @@ const FormRandom = ({
   const [difficulty, setDifficulty] = useState("");
   const token = localStorage.getItem("@gestao:token") || "";
   const id = parseInt(localStorage.getItem("@gestao:user_Id")) || "";
-  const handleCategoryChange = (event) => {
-    setDifficulty(event.target.value);
-  };
+  const { addHabit } = useHabit();
 
   const handleRandom = () => {
     const body = {
@@ -27,17 +27,9 @@ const FormRandom = ({
       how_much_achieved: 0,
       user: id,
     };
-    api
-      .post("habits/", body, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((_) => {
-        setFormRandomHabit(!formRandomHabit);
-        setAddHabits(addHabits + 1);
-      })
-      .catch((_) => toastError("can't possible to register the habit"));
+
+    addHabit(body);
+    setFormRandomHabit(!formRandomHabit);
   };
 
   return (
@@ -47,7 +39,11 @@ const FormRandom = ({
         <label htmlFor="difficulty">
           <p>Difficulty </p>
         </label>
-        <select value={difficulty} onChange={handleCategoryChange} required>
+        <select
+          value={difficulty}
+          onChange={(e) => setDifficulty(e.target.value)}
+          required
+        >
           <option value=""></option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
